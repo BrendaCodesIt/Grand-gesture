@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVs - Grand Gesture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="tv-layout">
+    <header class="top-header" aria-label="Main header">
+      <a href="index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a href="cart.html" class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </a>
+
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <line x1="16" y1="16" x2="21" y2="21" />
+          </svg>
+        </button>
+
+        <button
+          class="icon-btn"
+          aria-label="Categories"
+          aria-expanded="false"
+          aria-controls="categories-menu"
+          id="menu-toggle"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <section
+      class="categories-panel"
+      id="categories-menu"
+      aria-label="Product categories"
+      hidden
+    >
+      <h2 class="categories-title">Categories</h2>
+      <ul class="categories-list">
+        <li>
+          <a href="tvs.html">TV's</a>
+        </li>
+        <li><a href="#">Sound Bars</a></li>
+        <li><a href="#">Refrigrators</a></li>
+        <li><a href="#">Washing Machines</a></li>
+        <li><a href="#">Kitchen Appliances</a></li>
+      </ul>
+    </section>
+
+    <main class="tv-page" aria-label="TV products">
+      <section class="tv-product" aria-label="Product details">
+        <figure class="tv-image-wrap">
+          <img
+            src="images/Hisense 32 inch TV.png"
+            alt="Hisense 32 inch TV product image"
+            class="tv-image"
+          />
+        </figure>
+
+        <div class="tv-content">
+          <h1 class="tv-title">Hisense 32" TV</h1>
+          <p class="tv-subtitle">Our brightest LED experience</p>
+
+          <div class="tv-tech-row" aria-label="TV technologies">
+            <span class="tech-chip">LED</span>
+            <span class="tech-chip">HDR</span>
+            <span class="tech-chip">Dolby Audio</span>
+            <span class="tech-chip">USB Media</span>
+          </div>
+
+          <ul class="tv-highlights">
+            <li>Screen size: 32 inch</li>
+            <li>Resolution: 1920</li>
+            <li>Display Technology: LED</li>
+            <li>HDMI ports: 3</li>
+            <li>USB slots: Yes</li>
+            <li>Energy Efficiency: Yes</li>
+            <li>Narrow Frameless: Yes</li>
+          </ul>
+        </div>
+
+        <aside class="tv-models" aria-label="TV models">
+          <h2 class="tv-models-title">Available TVs</h2>
+          <div class="tv-model-list" role="list">
+            <button type="button" class="tv-model-btn is-active" role="listitem">
+              Hisense 32 Smart Frameless FHD (A4 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 43 Smart Frameless FHD (A4 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 43 Smart 4k UHD Frameless (A6 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 43 inch QLED Smart 4k UHD Frameless (Q6 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 50 inch LED Smart 2K FHD Frameless (A4 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 50 smart UHD 4k Framless (A6 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 50 inch Qled smart 4k Framless (Q6 series)
+            </button>
+            <button type="button" class="tv-model-btn" role="listitem">
+              Hisense 55 Smart 4K Frameless(A6 series)
+            </button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="tv-bottom-bar" aria-label="Product actions">
+        <div class="tv-actions">
+          <button type="button" class="action-btn action-btn--buy" id="quick-buy-btn">Buy</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const categoriesMenu = document.getElementById("categories-menu");
+      const quickBuyBtn = document.getElementById("quick-buy-btn");
+      const modelButtons = document.querySelectorAll(".tv-model-btn");
+
+      const tvItem = {
+        id: "hisense-32-tv",
+        name: "Hisense 32\" TV",
+        price: 12760,
+        displayPrice: "KSh 12,760",
+        category: "TV's",
+        image: "images/Hisense 32 inch TV.png",
+      };
+
+      function getCartItems() {
+        return JSON.parse(localStorage.getItem("cartItems")) || [];
+      }
+
+      function saveCartItems(items) {
+        localStorage.setItem("cartItems", JSON.stringify(items));
+      }
+
+      function addItemToCart() {
+        const cartItems = getCartItems();
+        const existingItem = cartItems.find((item) => item.id === tvItem.id);
+
+        if (existingItem) {
+          existingItem.quantity = (existingItem.quantity || 1) + 1;
+          existingItem.price = tvItem.price;
+          existingItem.displayPrice = tvItem.displayPrice;
+          existingItem.image = tvItem.image;
+          existingItem.category = tvItem.category;
+        } else {
+          cartItems.push({ ...tvItem, quantity: 1 });
+        }
+
+        saveCartItems(cartItems);
+      }
+
+      quickBuyBtn.addEventListener("click", () => {
+        addItemToCart();
+        quickBuyBtn.textContent = "Added";
+
+        setTimeout(() => {
+          quickBuyBtn.textContent = "Buy";
+        }, 1300);
+      });
+
+      modelButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          modelButtons.forEach((btn) => btn.classList.remove("is-active"));
+          button.classList.add("is-active");
+        });
+      });
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        categoriesMenu.hidden = isOpen;
+      });
+
+      document.addEventListener("click", (event) => {
+        const clickedInsideMenu = categoriesMenu.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedToggle) {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+    </script>
+  </body>
+</html>
