@@ -359,6 +359,7 @@ body {
 .tv-actions {
   display: flex;
   gap: 14px;
+  position: relative;
 }
 
 .action-btn {
@@ -384,6 +385,48 @@ body {
 .action-btn:hover,
 .action-btn:focus-visible {
   filter: brightness(1.05);
+  outline: none;
+}
+
+.quick-buy-dropdown {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  min-width: 190px;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+  z-index: 20;
+}
+
+.quick-buy-price {
+  margin: 0 0 8px;
+  color: #222;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+}
+
+.quick-add-btn {
+  width: 100%;
+  border: 1px solid #2a2a2a;
+  background: #2a2a2a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.quick-add-btn:hover,
+.quick-add-btn:focus-visible {
+  background: #3b3b3b;
+  border-color: #3b3b3b;
   outline: none;
 }
 
@@ -656,6 +699,15 @@ body {
   .tv-actions {
     width: auto;
     gap: 10px;
+  }
+
+  .quick-buy-dropdown {
+    min-width: 170px;
+    padding: 8px;
+  }
+
+  .quick-buy-price {
+    font-size: 0.9rem;
   }
 
   .action-btn {

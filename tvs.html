@@ -129,7 +129,20 @@
 
       <section class="tv-bottom-bar" aria-label="Product actions">
         <div class="tv-actions">
-          <button type="button" class="action-btn action-btn--buy" id="quick-buy-btn">Buy</button>
+          <button
+            type="button"
+            class="action-btn action-btn--buy"
+            id="quick-buy-btn"
+            aria-expanded="false"
+            aria-controls="quick-buy-dropdown"
+          >
+            Buy
+          </button>
+
+          <div class="quick-buy-dropdown" id="quick-buy-dropdown" hidden>
+            <p class="quick-buy-price">Ksh 12,760</p>
+            <button type="button" class="quick-add-btn" id="quick-add-btn">Add to Cart</button>
+          </div>
         </div>
       </section>
     </main>
@@ -137,7 +150,10 @@
     <script>
       const menuToggle = document.getElementById("menu-toggle");
       const categoriesMenu = document.getElementById("categories-menu");
+      const tvActions = document.querySelector(".tv-actions");
       const quickBuyBtn = document.getElementById("quick-buy-btn");
+      const quickBuyDropdown = document.getElementById("quick-buy-dropdown");
+      const quickAddBtn = document.getElementById("quick-add-btn");
       const modelButtons = document.querySelectorAll(".tv-model-btn");
 
       const tvItem = {
@@ -175,8 +191,16 @@
       }
 
       quickBuyBtn.addEventListener("click", () => {
+        const isOpen = quickBuyBtn.getAttribute("aria-expanded") === "true";
+        quickBuyBtn.setAttribute("aria-expanded", String(!isOpen));
+        quickBuyDropdown.hidden = isOpen;
+      });
+
+      quickAddBtn.addEventListener("click", () => {
         addItemToCart();
         quickBuyBtn.textContent = "Added";
+        quickBuyBtn.setAttribute("aria-expanded", "false");
+        quickBuyDropdown.hidden = true;
 
         setTimeout(() => {
           quickBuyBtn.textContent = "Buy";
@@ -199,10 +223,16 @@
       document.addEventListener("click", (event) => {
         const clickedInsideMenu = categoriesMenu.contains(event.target);
         const clickedToggle = menuToggle.contains(event.target);
+        const clickedQuickBuy = tvActions.contains(event.target);
 
         if (!clickedInsideMenu && !clickedToggle) {
           menuToggle.setAttribute("aria-expanded", "false");
           categoriesMenu.hidden = true;
+        }
+
+        if (!clickedQuickBuy) {
+          quickBuyBtn.setAttribute("aria-expanded", "false");
+          quickBuyDropdown.hidden = true;
         }
       });
 
@@ -210,6 +240,8 @@
         if (event.key === "Escape") {
           menuToggle.setAttribute("aria-expanded", "false");
           categoriesMenu.hidden = true;
+          quickBuyBtn.setAttribute("aria-expanded", "false");
+          quickBuyDropdown.hidden = true;
         }
       });
     </script>
