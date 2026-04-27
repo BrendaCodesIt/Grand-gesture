@@ -92,8 +92,77 @@
         return `KSh ${Number(value || 0).toLocaleString("en-KE")}`;
       }
 
+      function normalizeCartItem(item) {
+        if (item.id === "hisense-32-smart-frameless-fhd-a4") {
+          return {
+            ...item,
+            name: 'Hisense 32" Smart Frameless FHD (A4 series)',
+          };
+        }
+
+        if (item.id === "hisense-43-smart-frameless-fhd-a4") {
+          return {
+            ...item,
+            name: 'Hisense 43" Smart Frameless FHD (A4 series)',
+          };
+        }
+
+        if (item.id === "hisense-43-smart-4k-uhd-frameless-a6") {
+          return {
+            ...item,
+            name: 'Hisense 43" Smart 4k UHD Frameless (A6 series)',
+          };
+        }
+
+        if (item.id === "hisense-43-inch-qled-smart-4k-uhd-frameless-q6") {
+          return {
+            ...item,
+            name: 'Hisense 43" QLED Smart 4k UHD Frameless (Q6 series)',
+          };
+        }
+
+        if (item.id === "hisense-50-inch-led-smart-2k-fhd-frameless-a4") {
+          return {
+            ...item,
+            name: 'Hisense 50" LED Smart 2K FHD Frameless (A4 series)',
+          };
+        }
+
+        if (item.id === "hisense-50-smart-uhd-4k-frameless-a6") {
+          return {
+            ...item,
+            name: 'Hisense 50" smart UHD 4k Frameless (A6 series)',
+          };
+        }
+
+        if (item.id === "hisense-50-inch-qled-smart-4k-frameless-q6") {
+          return {
+            ...item,
+            name: 'Hisense 50" Qled smart 4k Frameless (Q6 series)',
+          };
+        }
+
+        if (item.id === "hisense-55-smart-4k-frameless-a6") {
+          return {
+            ...item,
+            name: 'Hisense 55" Smart 4K Frameless(A6 series)',
+          };
+        }
+
+        if (item.id === "hisense-55-inch-4k-qled-tv-q6-series") {
+          return {
+            ...item,
+            name: 'Hisense 55" 4K QLED TV (Q6 Series)',
+          };
+        }
+
+        return item;
+      }
+
       function renderCart() {
-        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const cartItems = (JSON.parse(localStorage.getItem("cartItems")) || []).map(normalizeCartItem);
+
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
         if (cartItems.length === 0) {
           localStorage.removeItem("cartItems");
