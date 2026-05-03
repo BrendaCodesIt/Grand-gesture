@@ -335,10 +335,6 @@
       quickBuyBtn.addEventListener("click", () => {
         const isOpen = quickBuyBtn.getAttribute("aria-expanded") === "true";
 
-        if (!isOpen) {
-          selectedTvItem = { ...mainSectionBuyItem };
-        }
-
         quickBuyName.textContent = selectedTvItem.name;
         quickBuyPrice.textContent = selectedTvItem.displayPrice;
         quickBuyBtn.setAttribute("aria-expanded", String(!isOpen));
