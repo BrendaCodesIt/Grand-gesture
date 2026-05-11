@@ -920,6 +920,70 @@ body {
     padding: 5px 8px;
   }
 }
+.ac-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 20px;
+  margin: 10px 0 16px;
+  max-width: 420px;
+}
+
+.ac-feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ac-feature-icon {
+  width: 62px;
+  height: 62px;
+  border: 2.5px solid #00b4b4;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00b4b4;
+  background: #fff;
+  padding: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ac-feature-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 180, 0.2);
+}
+
+.ac-feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ac-feature-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+  .ac-features-grid {
+    max-width: 100%;
+    gap: 12px 14px;
+  }
+
+  .ac-feature-icon {
+    width: 52px;
+    height: 52px;
+    padding: 8px;
+  }
+
+  .ac-feature-label {
+    font-size: 0.7rem;
+  }
+}
 
 .tv-specs-figure {
   margin: 12px 0 0;
