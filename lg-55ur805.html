@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LG 55″ UHD 4K TV UR805 Series - Grand Gesture</title>
+    <meta name="description" content="LG 55 inch UHD 4K TV UR805 Series with WebOS Smart AI ThinQ, Magic Remote, HDR10 Pro, and α5 Gen5 AI Processor. Available at Grand Gesture." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .product-page {
+        padding: 24px 30px 40px;
+        min-height: calc(100vh - 92px);
+      }
+
+      .product-container {
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+
+      .product-back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #6a7a8f;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.84rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        transition: color 0.2s;
+      }
+
+      .product-back-link:hover {
+        color: #d8b45a;
+      }
+
+      .product-back-link svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .product-hero {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+        gap: 36px;
+        align-items: start;
+      }
+
+      .product-image-wrap {
+        background: #fff;
+        border: 1px solid #dadada;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .product-image-wrap img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .product-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-name {
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+        font-weight: 700;
+        color: #1a1a1a;
+        line-height: 1.15;
+      }
+
+      .product-series {
+        margin: 6px 0 0;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #8a6d2b;
+        letter-spacing: 0.03em;
+      }
+
+      .product-features-title {
+        margin: 24px 0 14px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #444;
+      }
+
+      .product-features {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0;
+      }
+
+      .product-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 11px 0;
+        border-bottom: 1px solid #ececec;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95rem;
+        color: #2a2a2a;
+      }
+
+      .product-features li:last-child {
+        border-bottom: none;
+      }
+
+      .feature-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #2ec4b6;
+        flex-shrink: 0;
+        margin-top: 5px;
+      }
+
+      .product-buy-section {
+        margin: 28px 0 0;
+        display: flex;
+        gap: 12px;
+      }
+
+      .product-buy-wrap {
+        position: relative;
+        flex: 1;
+      }
+
+      .product-add-btn {
+        width: 100%;
+        min-height: 56px;
+        border: 1px solid #c9962c;
+        border-radius: 4px;
+        background: linear-gradient(180deg, #11141c 0%, #090b12 58%, #030409 100%);
+        color: #f6d983;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: inset 0 1px 0 rgba(255,235,180,0.16), 0 8px 20px rgba(0,0,0,0.24);
+        transition: all 0.2s;
+      }
+
+      .product-add-btn:hover,
+      .product-add-btn:focus-visible {
+        border-color: #d8a538;
+        color: #ffe7ad;
+        box-shadow: inset 0 1px 0 rgba(255,235,180,0.22), 0 10px 22px rgba(0,0,0,0.28);
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      .product-dropdown {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(100% + 10px);
+        background: #fff;
+        border: 1px solid #d8d8d8;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+        z-index: 20;
+      }
+
+      .product-dropdown-name {
+        margin: 0 0 4px;
+        color: #2c2c2c;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .product-dropdown-price {
+        margin: 0 0 10px;
+        color: #222;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .product-confirm-btn {
+        width: 100%;
+        border: 1px solid #2a2a2a;
+        background: #2a2a2a;
+        color: #fff;
+        border-radius: 6px;
+        padding: 9px 10px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .product-confirm-btn:hover,
+      .product-confirm-btn:focus-visible {
+        background: #3b3b3b;
+        border-color: #3b3b3b;
+        outline: none;
+      }
+
+      .product-back-btn {
+        min-height: 56px;
+        padding: 0 24px;
+        border: 1px solid #bcbcbc;
+        border-radius: 4px;
+        background: #fff;
+        color: #404040;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .product-back-btn:hover,
+      .product-back-btn:focus-visible {
+        border-color: #888;
+        background: #f5f5f5;
+        outline: none;
+      }
+
+      @media (max-width: 900px) {
+        .product-page {
+          padding: 16px 14px 30px;
+        }
+
+        .product-hero {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .product-image-wrap {
+          max-width: 520px;
+        }
+
+        .product-buy-section {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body class="tv-layout">
+    <header class="top-header" aria-label="Main header">
+      <a href="index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a href="cart.html" class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </a>
+
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <line x1="16" y1="16" x2="21" y2="21" />
+          </svg>
+        </button>
+
+        <button
+          class="icon-btn"
+          aria-label="Categories"
+          aria-expanded="false"
+          aria-controls="categories-menu"
+          id="menu-toggle"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <section
+      class="categories-panel"
+      id="categories-menu"
+      aria-label="Product categories"
+      hidden
+    >
+      <h2 class="categories-title">Categories</h2>
+      <ul class="categories-list">
+        <li><a href="tvs.html">TV's</a></li>
+        <li><a href="#">Sound Bars</a></li>
+        <li><a href="air-conditioners.html">Air Conditioners</a></li>
+        <li><a href="#">Refrigrators</a></li>
+        <li><a href="#">Washing Machines</a></li>
+        <li><a href="#">Kitchen Appliances</a></li>
+        <li><a href="other-appliances.html">Other Appliances</a></li>
+      </ul>
+    </section>
+
+    <main class="product-page" aria-label="LG 55UR805 product page">
+      <div class="product-container">
+
+        <a href="tvs.html" class="product-back-link">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to all TVs
+        </a>
+
+        <section class="product-hero" aria-label="Product overview">
+
+          <figure class="product-image-wrap">
+            <img
+              src="images/lg-55ur805.png"
+              alt="LG 55″ UHD 4K TV UR805 Series"
+            />
+          </figure>
+
+          <div class="product-details">
+            <h1 class="product-name">LG 55″ UHD 4K TV UR805 Series</h1>
+            <p class="product-series">LG UHD AI ThinQ — Magic Remote Included</p>
+
+            <h2 class="product-features-title">Product Features</h2>
+            <ul class="product-features" id="product-features">
+              <li>
+                <span class="feature-dot"></span>
+                <span>Real 4K Resolution with Slim Design</span>
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                <span>α5 Gen5 AI Processor for enhanced viewing</span>
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                <span>WebOS Smart AI ThinQ with Magic Remote</span>
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                <span>HDR10 Pro & AI Sound (5.1ch)</span>
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                <span>ThinQ AI & WebOS for personalized settings</span>
+              </li>
+              <li>
+                <span class="feature-dot"></span>
+                <span>2 Pole Stand included</span>
+              </li>
+            </ul>
+
+            <div class="product-buy-section">
+              <div class="product-buy-wrap">
+                <button
+                  type="button"
+                  class="product-add-btn"
+                  id="add-to-cart-btn"
+                  aria-expanded="false"
+                  aria-controls="product-dropdown"
+                >
+                  Add to Cart
+                </button>
+
+                <div class="product-dropdown" id="product-dropdown" hidden>
+                  <p class="product-dropdown-name">LG 55″ UHD 4K TV UR805 Series</p>
+                  <p class="product-dropdown-price">Call for Price</p>
+                  <button type="button" class="product-confirm-btn" id="product-confirm-btn">Add to Cart</button>
+                </div>
+              </div>
+              <a href="tvs.html" class="product-back-btn">View All TVs</a>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </main>
+
+    <script>
+      /* ── Categories menu toggle ── */
+      const menuToggle = document.getElementById("menu-toggle");
+      const categoriesMenu = document.getElementById("categories-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        categoriesMenu.hidden = isOpen;
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !categoriesMenu.contains(event.target) &&
+          !menuToggle.contains(event.target)
+        ) {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+
+      /* ── Cart helpers ── */
+      function getCartItems() {
+        return JSON.parse(localStorage.getItem("cartItems")) || [];
+      }
+
+      function saveCartItems(items) {
+        localStorage.setItem("cartItems", JSON.stringify(items));
+      }
+
+      /* ── Add to Cart with dropdown ── */
+      const addBtn = document.getElementById("add-to-cart-btn");
+      const dropdown = document.getElementById("product-dropdown");
+      const confirmBtn = document.getElementById("product-confirm-btn");
+      const buyWrap = document.querySelector(".product-buy-wrap");
+
+      const productItem = {
+        id: "lg-55ur805-uhd-4k",
+        name: 'LG 55″ UHD 4K TV UR805 Series',
+        price: 0,
+        displayPrice: "Call for Price",
+        category: "TV's",
+        image: "images/lg-55ur805.png",
+      };
+
+      /* Toggle dropdown */
+      addBtn.addEventListener("click", () => {
+        const isOpen = addBtn.getAttribute("aria-expanded") === "true";
+        addBtn.setAttribute("aria-expanded", String(!isOpen));
+        dropdown.hidden = isOpen;
+      });
+
+      /* Confirm add to cart */
+      confirmBtn.addEventListener("click", () => {
+        const cartItems = getCartItems();
+        const existing = cartItems.find((ci) => ci.id === productItem.id);
+
+        if (existing) {
+          existing.quantity = (existing.quantity || 1) + 1;
+          existing.price = productItem.price;
+          existing.displayPrice = productItem.displayPrice;
+          existing.image = productItem.image;
+          existing.category = productItem.category;
+          existing.name = productItem.name;
+        } else {
+          cartItems.push({ ...productItem, quantity: 1 });
+        }
+
+        saveCartItems(cartItems);
+
+        addBtn.textContent = "Added";
+        addBtn.setAttribute("aria-expanded", "false");
+        dropdown.hidden = true;
+        setTimeout(() => { addBtn.textContent = "Add to Cart"; }, 1300);
+      });
+
+      /* Close dropdown when clicking outside */
+      document.addEventListener("click", (event) => {
+        if (buyWrap && !buyWrap.contains(event.target)) {
+          addBtn.setAttribute("aria-expanded", "false");
+          dropdown.hidden = true;
+        }
+      });
+    </script>
+  </body>
+</html>
