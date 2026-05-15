@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soundbars - Grand Gesture</title>
+    <meta name="description" content="Explore our premium collection of Hisense soundbars and party speakers at Grand Gesture." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .tv-featured-image-group {
+        position: relative;
+        flex: 1;
+        max-width: 50%;
+      }
+
+      .link-overlay-btn {
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #d8b45a;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        z-index: 5;
+        white-space: nowrap;
+      }
+
+      .link-overlay-btn:hover {
+        background: #c9962c;
+        transform: translateY(-50%) translateX(5px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      }
+
+      @media (max-width: 900px) {
+        .tv-featured-image-group {
+          max-width: 100%;
+        }
+        .link-overlay-btn {
+          position: static;
+          transform: none;
+          display: inline-block;
+          margin-top: 10px;
+        }
+        .link-overlay-btn:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="tv-layout">
+    <header class="top-header" aria-label="Main header">
+      <a href="index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a href="cart.html" class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </a>
+
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <line x1="16" y1="16" x2="21" y2="21" />
+          </svg>
+        </button>
+
+        <button
+          class="icon-btn"
+          aria-label="Categories"
+          aria-expanded="false"
+          aria-controls="categories-menu"
+          id="menu-toggle"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <section
+      class="categories-panel"
+      id="categories-menu"
+      aria-label="Product categories"
+      hidden
+    >
+      <h2 class="categories-title">Categories</h2>
+      <ul class="categories-list">
+        <li><a href="tvs.html">TV's</a></li>
+        <li><a href="soundbars.html">Sound Bars</a></li>
+        <li><a href="air-conditioners.html">Air Conditioners</a></li>
+        <li><a href="#">Refrigrators</a></li>
+        <li><a href="#">Washing Machines</a></li>
+        <li><a href="#">Kitchen Appliances</a></li>
+        <li><a href="other-appliances.html">Other Appliances</a></li>
+      </ul>
+    </section>
+
+    <main class="tv-page" aria-label="Soundbars Collection">
+      <!-- Hisense Rocker Speaker -->
+      <section class="tv-featured-block" aria-label="Hisense Rocker Speaker details">
+        <figure class="tv-featured-image-wrap">
+          <img
+            src="images/HP 100 Speaker.png"
+            alt="Hisense Rocker Speaker product image"
+            class="tv-featured-image"
+          />
+        </figure>
+
+        <div class="tv-featured-copy">
+          <h2 class="tv-featured-title">Hisense Rocker Speaker (HP100)</h2>
+          <p class="tv-featured-subtitle">Unleash the Party</p>
+
+          <ul class="tv-highlights tv-featured-highlights">
+            <li>300W Max Power Output</li>
+            <li>15 Hours Playback Time</li>
+            <li>Bluetooth 5.0, FM Tuner</li>
+            <li>IPX4 Waterproof Top Panel</li>
+            <li>5 RGB Lighting Effects</li>
+            <li>Wireless Smartphone Charging</li>
+            <li>Karaoke Mode with Mic &amp; Guitar Input</li>
+          </ul>
+        </div>
+
+        <aside class="tv-featured-models" aria-label="Speaker models">
+            <button
+              type="button"
+              class="tv-model-btn tv-model-btn--inline"
+              data-id="hisense-soundbar-500w-atmos"
+              data-name="Hisense sound Bar 500 watts With DolbyAtmos"
+              data-price="0"
+            >
+              Hisense sound Bar 500 watts With DolbyAtmos
+            </button>
+        </aside>
+      </section>
+
+      <!-- Hisense Sound Bar HP130 -->
+      <section class="tv-featured-block" aria-label="Hisense sound Bar HP130 details">
+        <figure class="tv-featured-image-wrap">
+          <img
+            src="images/Hisense sound Bar HP130.png"
+            alt="Hisense sound Bar HP130 product image"
+            class="tv-featured-image"
+          />
+        </figure>
+
+        <div class="tv-featured-copy">
+          <h2 class="tv-featured-title">Hisense Sound Bar HP130</h2>
+          <p class="tv-featured-subtitle">High Power Audio System</p>
+
+          <ul class="tv-highlights tv-featured-highlights">
+            <li>400W RMS Total Power</li>
+            <li>Dual 6.5" Woofers for Deep Bass</li>
+            <li>Multi-color LED Party Lights</li>
+            <li>HDMI (ARC), Bluetooth, USB, RCA</li>
+            <li>Microphone &amp; Guitar Inputs</li>
+            <li>Wired Party Chain Support</li>
+          </ul>
+        </div>
+
+        <aside class="tv-featured-models" aria-label="HP130 models">
+            <button
+              type="button"
+              class="tv-model-btn tv-model-btn--inline"
+              data-id="hisense-soundbar-440w-atmos"
+              data-name="Hisense sound bar 440 watts with Dolby Atmos"
+              data-price="0"
+            >
+              Hisense sound bar 440 watts with Dolby Atmos
+            </button>
+        </aside>
+      </section>
+
+      <!-- Hisense Sound Bar AX3120G -->
+      <section class="tv-featured-block" aria-label="Hisense Sound Bar AX3120G details">
+        <figure class="tv-featured-image-wrap">
+          <img
+            src="images/Hisense Sound Bar AX3120G 3.1.2 Channel 360W.png"
+            alt="Hisense Sound Bar AX3120G product image"
+            class="tv-featured-image"
+          />
+        </figure>
+
+        <div class="tv-featured-copy">
+          <h2 class="tv-featured-title">Hisense Sound Bar AX3120G 3.1.2 Channel 360W</h2>
+          <p class="tv-featured-subtitle">Cinematic Surround Sound</p>
+
+          <ul class="tv-highlights tv-featured-highlights">
+            <li>3.1.2 Channel Immersive Audio</li>
+            <li>360W Total Power Output</li>
+            <li>Dolby Atmos &amp; DTS:X Support</li>
+            <li>Wireless 6.5" Subwoofer</li>
+            <li>7 AI Optimized EQ Modes</li>
+            <li>HDMI eARC, Bluetooth 5.3, Optical</li>
+          </ul>
+        </div>
+
+        <aside class="tv-featured-models" aria-label="AX3120G models">
+            <button
+              type="button"
+              class="tv-model-btn tv-model-btn--inline"
+              data-id="hisense-soundbar-580w-atmos"
+              data-name="Hisense sound Bar 580 watts With DolbyAtmos"
+              data-price="0"
+            >
+              Hisense sound Bar 580 watts With DolbyAtmos
+            </button>
+        </aside>
+      </section>
+
+      <!-- Hisense HS2100 (SH2100) -->
+      <section class="tv-featured-block" aria-label="Hisense HS2100 Soundbar details">
+        <figure class="tv-featured-image-wrap">
+          <img
+            src="images/Hisense sondbar SH2100 200 watts.png"
+            alt="Hisense HS2100 Soundbar product image"
+            class="tv-featured-image"
+          />
+        </figure>
+
+        <div class="tv-featured-copy">
+          <h2 class="tv-featured-title">Hisense Soundbar HS2100 (200 Watts)</h2>
+          <p class="tv-featured-subtitle">Powerful 2.1 Channel Audio</p>
+
+          <ul class="tv-highlights tv-featured-highlights">
+            <li>200W Max Audio Power</li>
+            <li>Wireless 5.25" Subwoofer</li>
+            <li>Dolby Audio &amp; DTS Virtual:X</li>
+            <li>Bluetooth 5.3 Connectivity</li>
+            <li>HDMI ARC, Optical, AUX, USB</li>
+            <li>6 Preset EQ Sound Modes</li>
+          </ul>
+        </div>
+
+        <aside class="tv-featured-models" aria-label="HS2100 models">
+            <button
+              type="button"
+              class="tv-model-btn tv-model-btn--inline"
+              data-id="hisense-hs1800-140w"
+              data-name="Hisense Sound Bar 140 watts HS1800"
+              data-price="0"
+            >
+              Hisense Sound Bar 140 watts HS1800
+            </button>
+        </aside>
+      </section>
+
+      <!-- Hisense HS5100 -->
+      <section class="tv-featured-block" aria-label="Hisense HS5100 Soundbar details">
+        <figure class="tv-featured-image-wrap">
+          <img
+            src="images/Hisense 540 Watts HS5100 Soundbar 5.1.png"
+            alt="Hisense HS5100 Soundbar product image"
+            class="tv-featured-image"
+          />
+        </figure>
+
+        <div class="tv-featured-copy">
+          <h2 class="tv-featured-title">Hisense 540 Watts HS5100 Soundbar 5.1 Channel</h2>
+          <p class="tv-featured-subtitle">Immersive True Surround Sound</p>
+
+          <ul class="tv-highlights tv-featured-highlights">
+            <li>5.1 Channel Surround System</li>
+            <li>540W Total Power Output</li>
+            <li>Dedicated Dual Rear Speakers</li>
+            <li>Wireless 6.5" Subwoofer</li>
+            <li>Dolby Audio &amp; DTS Virtual:X</li>
+            <li>HDMI ARC, Bluetooth 5.3</li>
+          </ul>
+        </div>
+
+        <aside class="tv-featured-models" aria-label="HS5100 models">
+            <a href="hisense-hs3100.html" class="tv-model-btn tv-model-btn--inline" style="text-align: center; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+              Hisense 480 watts HS3100 Soundbar 3.1 Channel
+            </a>
+            <button
+              type="button"
+              class="tv-model-btn tv-model-btn--inline"
+              data-id="hisense-mini-hifi-360w"
+              data-name="Hisense Mini Hi-Fi 360 watts Speaker"
+              data-price="0"
+            >
+              Hisense Mini Hi-Fi 360 watts Speaker
+            </button>
+        </aside>
+      </section>
+
+      <section class="tv-bottom-bar" aria-label="Product actions">
+        <div class="tv-actions">
+          <button
+            type="button"
+            class="action-btn action-btn--buy"
+            id="quick-buy-btn"
+            aria-expanded="false"
+            aria-controls="quick-buy-dropdown"
+          >
+            Add to Cart
+          </button>
+
+          <div class="quick-buy-dropdown" id="quick-buy-dropdown" hidden>
+            <p class="quick-buy-name" id="dropdown-product-name">Select a Soundbar</p>
+            <p class="quick-buy-price" id="dropdown-product-price">Ksh 0</p>
+            <button type="button" class="quick-buy-confirm" id="quick-buy-confirm-btn">Confirm Add</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      /* ── Categories menu toggle ── */
+      const menuToggle = document.getElementById("menu-toggle");
+      const categoriesMenu = document.getElementById("categories-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        categoriesMenu.hidden = isOpen;
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !categoriesMenu.contains(event.target) &&
+          !menuToggle.contains(event.target)
+        ) {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+
+      /* ── Selection logic ── */
+      let selectedProduct = null;
+
+      const modelBtns = document.querySelectorAll(".tv-model-btn");
+      const quickBuyBtn = document.getElementById("quick-buy-btn");
+      const quickBuyDropdown = document.getElementById("quick-buy-dropdown");
+      const dropdownName = document.getElementById("dropdown-product-name");
+      const dropdownPrice = document.getElementById("dropdown-product-price");
+      const confirmBtn = document.getElementById("quick-buy-confirm-btn");
+      const actionsContainer = document.querySelector(".tv-actions");
+
+      modelBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          modelBtns.forEach((b) => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+
+          selectedProduct = {
+            id: btn.dataset.id,
+            name: btn.dataset.name,
+            price: parseInt(btn.dataset.price, 10),
+            displayPrice: "Ksh " + parseInt(btn.dataset.price, 10).toLocaleString(),
+            category: "Soundbars",
+            image: btn.closest('.tv-featured-block').querySelector('img').getAttribute('src')
+          };
+
+          dropdownName.textContent = selectedProduct.name;
+          dropdownPrice.textContent = selectedProduct.displayPrice;
+          quickBuyBtn.classList.add("ready");
+          
+          if (quickBuyBtn.getAttribute("aria-expanded") === "true") {
+             quickBuyBtn.setAttribute("aria-expanded", "false");
+             quickBuyDropdown.hidden = true;
+          }
+        });
+      });
+
+      /* Toggle dropdown */
+      quickBuyBtn.addEventListener("click", () => {
+        if (!selectedProduct) {
+          alert("Please select a soundbar model first.");
+          return;
+        }
+
+        const isOpen = quickBuyBtn.getAttribute("aria-expanded") === "true";
+        quickBuyBtn.setAttribute("aria-expanded", String(!isOpen));
+        quickBuyDropdown.hidden = isOpen;
+      });
+
+      /* ── Cart helpers ── */
+      function getCartItems() {
+        return JSON.parse(localStorage.getItem("cartItems")) || [];
+      }
+
+      function saveCartItems(items) {
+        localStorage.setItem("cartItems", JSON.stringify(items));
+      }
+
+      /* Confirm add to cart */
+      confirmBtn.addEventListener("click", () => {
+        if (!selectedProduct) return;
+
+        const cartItems = getCartItems();
+        const existing = cartItems.find((ci) => ci.id === selectedProduct.id);
+
+        if (existing) {
+          existing.quantity = (existing.quantity || 1) + 1;
+        } else {
+          cartItems.push({ ...selectedProduct, quantity: 1 });
+        }
+
+        saveCartItems(cartItems);
+
+        quickBuyBtn.textContent = "Added";
+        quickBuyBtn.classList.remove("ready");
+        quickBuyBtn.setAttribute("aria-expanded", "false");
+        quickBuyDropdown.hidden = true;
+        setTimeout(() => {
+          quickBuyBtn.textContent = "Add to Cart";
+          modelBtns.forEach((b) => b.classList.remove("is-active"));
+          selectedProduct = null;
+        }, 1300);
+      });
+
+      /* Close dropdown when clicking outside */
+      document.addEventListener("click", (event) => {
+        if (actionsContainer && !actionsContainer.contains(event.target)) {
+          quickBuyBtn.setAttribute("aria-expanded", "false");
+          quickBuyDropdown.hidden = true;
+        }
+      });
+    </script>
+  </body>
+</html>
