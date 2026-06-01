@@ -86,6 +86,12 @@
         <aside class="tv-models" aria-label="TV models">
           <h2 class="tv-models-title">Available TVs</h2>
           <div class="tv-model-list" role="list">
+            <button type="button" class="tv-model-btn" role="listitem"
+              data-id="hisense-32-tv"
+              data-name="Hisense 32&quot; TV"
+              data-price="12760">
+              Hisense 32" TV
+            </button>
             <button type="button" class="tv-model-btn is-active" role="listitem"
               data-id="hisense-32-smart-frameless-fhd-a4"
               data-name="Hisense 32&quot; Smart Frameless FHD (A4 series)"
@@ -213,12 +219,22 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Sony 32-inch models">
+          <button
+            type="button"
+            class="tv-model-btn tv-model-btn--inline"
+            data-id="sony-32r300-led-tv"
+            data-name="Sony 32R300 32 LED TV"
+            data-price="33000"
+            data-original-price="42000"
+          >
+            Sony 32R300 32 LED TV Highlights
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 43Q6 details">
         <figure class="tv-featured-image-wrap">
           <img
-            src="images/hisense-43-q6.png"
+            src="images/hisense-43-q6-mbappe.png"
             alt="Hisense 43″ QLED 43Q6 product image"
             class="tv-featured-image"
           />
@@ -237,6 +253,16 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Hisense 43-inch models">
+          <button
+            type="button"
+            class="tv-model-btn tv-model-btn--inline"
+            data-id="hisense-43-qled-43q6"
+            data-name="Hisense 43&quot; QLED 43Q6"
+            data-price="29995"
+            data-original-price="35000"
+          >
+            Hisense 43″ QLED 43Q6 Highlights
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 43LK5730PVC details">
@@ -260,6 +286,16 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 43-inch models">
+          <button
+            type="button"
+            class="tv-model-btn tv-model-btn--inline"
+            data-id="lg-43-smart-tv-43lk5730"
+            data-name="LG 43&quot; Smart TV 43LK5730PVC"
+            data-price="39000"
+            data-original-price="41500"
+          >
+            LG 43" Smart TV 43LK5730PVC
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Sony 43WF660 details">
@@ -290,7 +326,8 @@
               class="tv-model-btn tv-model-btn--inline"
               data-id="sony-43wf660-fhd"
               data-name="Sony 43WF660 43 Full HD TV"
-              data-price="0"
+              data-price="40000"
+              data-original-price="43000"
             >
               Sony 43WF660 43 Full HD TV
             </button>
@@ -1059,21 +1096,8 @@
     <script>
       const menuToggle = document.getElementById("menu-toggle");
       const categoriesMenu = document.getElementById("categories-menu");
-      const tvActions = document.querySelector(".tv-actions");
-      const quickBuyBtn = document.getElementById("quick-buy-btn");
-      const quickBuyDropdown = document.getElementById("quick-buy-dropdown");
-      const quickAddBtn = document.getElementById("quick-add-btn");
-      const quickBuyName = document.querySelector(".quick-buy-name");
-      const quickBuyPrice = document.querySelector(".quick-buy-price");
-      const modelButtons = document.querySelectorAll(".tv-model-btn");
-      let selectedTvItem = {
-        id: "hisense-32-smart-frameless-fhd-a4",
-        name: "Hisense 32\" Smart Frameless FHD (A4 series)",
-        price: 14500,
-        displayPrice: "Ksh 14,500",
-        category: "TV's",
-        image: "images/Hisense 32 inch TV.png",
-      };
+
+      /* ── Cart helpers ── */
       function getCartItems() {
         return JSON.parse(localStorage.getItem("cartItems")) || [];
       }
@@ -1083,21 +1107,7 @@
       function formatKshPrice(price) {
         return `Ksh ${Number(price).toLocaleString("en-KE")}`;
       }
-      function buildItemFromData(el) {
-        return {
-          id: el.dataset.id,
-          name: el.dataset.name || el.textContent.trim(),
-          price: Number(el.dataset.price),
-          displayPrice: formatKshPrice(el.dataset.price),
-          category: "TV's",
-          image: "images/Hisense 32 inch TV.png",
-        };
-      }
-      function setSelectedModel(button) {
-        selectedTvItem = buildItemFromData(button);
-        quickBuyName.textContent = selectedTvItem.name;
-        quickBuyPrice.textContent = selectedTvItem.displayPrice;
-      }
+
       function addSpecificItemToCart(item) {
         const cartItems = getCartItems();
         const existing = cartItems.find((ci) => ci.id === item.id);
@@ -1113,43 +1123,69 @@
         }
         saveCartItems(cartItems);
       }
-      function flashAddedLabel(button) {
-        const defaultLabel = button.textContent;
-        button.textContent = "Added";
-        setTimeout(() => { button.textContent = defaultLabel; }, 1300);
-      }
-      /* --- Bottom-bar Buy button (toggle dropdown) --- */
-      quickBuyBtn.addEventListener("click", () => {
-        const isOpen = quickBuyBtn.getAttribute("aria-expanded") === "true";
-        quickBuyName.textContent = selectedTvItem.name;
-        quickBuyPrice.textContent = selectedTvItem.displayPrice;
-        quickBuyBtn.setAttribute("aria-expanded", String(!isOpen));
-        quickBuyDropdown.hidden = isOpen;
-      });
-      /* --- Bottom-bar Add to Cart --- */
-      quickAddBtn.addEventListener("click", () => {
-        addSpecificItemToCart(selectedTvItem);
-        quickBuyBtn.textContent = "Added";
-        quickBuyBtn.setAttribute("aria-expanded", "false");
-        quickBuyDropdown.hidden = true;
-        setTimeout(() => { quickBuyBtn.textContent = "Add to Cart"; }, 1300);
-      });
-      /* --- Model name buttons (select + open dropdown) --- */
+
+      /* ── Wrap every model button with QuickAdd overlay ── */
+      const modelButtons = document.querySelectorAll(".tv-model-btn");
+
       modelButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          modelButtons.forEach((btn) => btn.classList.remove("is-active"));
-          button.classList.add("is-active");
-          setSelectedModel(button);
-          quickBuyBtn.setAttribute("aria-expanded", "true");
-          quickBuyDropdown.hidden = false;
-          quickBuyBtn.scrollIntoView({ behavior: "instant", block: "center" });
-          quickBuyBtn.focus({ preventScroll: true });
+        // Skip buttons that are links (they navigate to new pages)
+        if (button.tagName === "A") return;
+
+        const price = Number(button.dataset.price) || 0;
+        // Only add QuickAdd for buttons that have a price > 0
+        if (price <= 0) return;
+
+        const originalPrice = Number(button.dataset.originalPrice) || 0;
+
+        // Build overlay label with optional cancelled price
+        function buildLabel() {
+          if (originalPrice > 0) {
+            return `<span class="quickadd-original">${formatKshPrice(originalPrice)}</span><span>Add to Cart – ${formatKshPrice(price)}</span>`;
+          }
+          return `<span>Add to Cart – ${formatKshPrice(price)}</span>`;
+        }
+
+        // Create wrapper
+        const wrapper = document.createElement("div");
+        wrapper.className = "quickadd-wrap";
+
+        // Insert wrapper before button, then move button inside
+        button.parentNode.insertBefore(wrapper, button);
+        wrapper.appendChild(button);
+
+        // Create overlay
+        const overlay = document.createElement("div");
+        overlay.className = "quickadd-overlay";
+        overlay.innerHTML = buildLabel();
+        wrapper.appendChild(overlay);
+
+        // Click handler for the overlay
+        overlay.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          const item = {
+            id: button.dataset.id,
+            name: button.dataset.name || button.textContent.trim(),
+            price: price,
+            displayPrice: formatKshPrice(price),
+            category: "TV's",
+            image: "images/Hisense 32 inch TV.png",
+          };
+
+          addSpecificItemToCart(item);
+
+          // Flash "Added ✓" feedback
+          overlay.classList.add("quickadd--added");
+          overlay.innerHTML = `<span>Added ✓</span>`;
+
+          setTimeout(() => {
+            overlay.classList.remove("quickadd--added");
+            overlay.innerHTML = buildLabel();
+          }, 1400);
         });
       });
-      const initiallySelectedButton = document.querySelector(".tv-model-btn.is-active");
-      if (initiallySelectedButton) {
-        setSelectedModel(initiallySelectedButton);
-      }
+
+      /* ── Categories menu toggle ── */
       menuToggle.addEventListener("click", () => {
         const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
         menuToggle.setAttribute("aria-expanded", String(!isOpen));
@@ -1158,22 +1194,15 @@
       document.addEventListener("click", (event) => {
         const clickedInsideMenu = categoriesMenu.contains(event.target);
         const clickedToggle = menuToggle.contains(event.target);
-        const clickedQuickBuy = tvActions.contains(event.target);
         if (!clickedInsideMenu && !clickedToggle) {
           menuToggle.setAttribute("aria-expanded", "false");
           categoriesMenu.hidden = true;
-        }
-        if (!clickedQuickBuy) {
-          quickBuyBtn.setAttribute("aria-expanded", "false");
-          quickBuyDropdown.hidden = true;
         }
       });
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
           menuToggle.setAttribute("aria-expanded", "false");
           categoriesMenu.hidden = true;
-          quickBuyBtn.setAttribute("aria-expanded", "false");
-          quickBuyDropdown.hidden = true;
         }
       });
     </script>
