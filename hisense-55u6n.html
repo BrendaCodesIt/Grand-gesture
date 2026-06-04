@@ -146,6 +146,25 @@
         flex: 1;
       }
 
+      .product-price {
+        margin: 10px 0 20px 0;
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .current-price {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+      .cancelled-price {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.2rem;
+        color: #888;
+        text-decoration: line-through;
+      }
+
       .product-add-btn {
         width: 100%;
         min-height: 56px;
@@ -161,14 +180,40 @@
         cursor: pointer;
         box-shadow: inset 0 1px 0 rgba(255,235,180,0.16), 0 8px 20px rgba(0,0,0,0.24);
         transition: all 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-add-btn::after {
+        content: "Add to Cart";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .product-add-btn:hover::after,
+      .product-add-btn:focus-visible::after {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .product-add-btn:hover,
       .product-add-btn:focus-visible {
-        border-color: #d8a538;
-        color: #ffe7ad;
-        box-shadow: inset 0 1px 0 rgba(255,235,180,0.22), 0 10px 22px rgba(0,0,0,0.28);
-        transform: translateY(-1px);
+        border-color: #d8b45a;
+        box-shadow: 0 0 0 2px rgba(216, 180, 90, 0.15);
         outline: none;
       }
 
@@ -340,6 +385,10 @@
           <div class="product-details">
             <h1 class="product-name">Hisense 55" 55U6N ULED PRO Mini Led 4K TV</h1>
             <p class="product-series">ULED PRO Mini Led — 120Hz Refresh Rate</p>
+            <div class="product-price">
+              <span class="current-price">Ksh 57,995</span>
+              <span class="cancelled-price">Ksh 65,000</span>
+            </div>
 
             <h2 class="product-features-title">Product Features</h2>
             <ul class="product-features" id="product-features">
@@ -387,7 +436,7 @@
 
                 <div class="product-dropdown" id="product-dropdown" hidden>
                   <p class="product-dropdown-name">Hisense 55" 55U6N ULED PRO Mini Led 4K TV</p>
-                  <p class="product-dropdown-price">Call for Price</p>
+                  <p class="product-dropdown-price">Ksh 57,995 <span style="font-size:0.85em;color:#888;text-decoration:line-through;margin-left:6px;">Ksh 65,000</span></p>
                   <button type="button" class="product-confirm-btn" id="product-confirm-btn">Add to Cart</button>
                 </div>
               </div>
@@ -445,8 +494,9 @@
       const productItem = {
         id: "hisense-55u6n-mini-led",
         name: 'Hisense 55" 55U6N ULED PRO Mini Led 4K TV',
-        price: 0,
-        displayPrice: "Call for Price",
+        price: 57995,
+        displayPrice: "Ksh 57,995",
+        originalPrice: 65000,
         category: "TV's",
         image: "images/Hisense 55 U6N Pro.png",
       };
