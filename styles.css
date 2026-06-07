@@ -1177,3 +1177,36 @@ body {
 .ac-text-features li {
   margin-bottom: 6px;
 }
+
+/* Hover Add To Cart Overlay */
+.hover-add-to-cart-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-add-to-cart-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 196, 182, 0.95);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.hover-add-to-cart-container:hover .hover-add-to-cart-overlay,
+.hover-add-to-cart-container:focus-visible .hover-add-to-cart-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -146,6 +146,11 @@
         flex: 1;
       }
 
+      .product-add-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+
       .product-add-btn {
         width: 100%;
         min-height: 56px;
@@ -163,13 +168,75 @@
         transition: all 0.2s;
       }
 
-      .product-add-btn:hover,
-      .product-add-btn:focus-visible {
+      .product-add-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #11141c 0%, #090b12 58%, #030409 100%);
+        border: 1px solid #c9962c;
+        border-radius: 4px;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        pointer-events: none;
+        z-index: 5;
+        cursor: pointer;
+        gap: 2px;
+        padding: 4px 6px;
+      }
+
+      .product-add-overlay span {
+        color: #f6d983;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .product-add-overlay .overlay-original-price {
+        text-decoration: line-through;
+        color: rgba(246, 217, 131, 0.5);
+        font-size: 0.78rem;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .product-add-wrap:hover .product-add-overlay,
+      .product-add-wrap:focus-within .product-add-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .product-add-overlay:hover {
         border-color: #d8a538;
+        box-shadow: inset 0 1px 0 rgba(255, 235, 180, 0.22), 0 4px 12px rgba(0, 0, 0, 0.28);
+      }
+
+      .product-add-overlay:hover span {
         color: #ffe7ad;
-        box-shadow: inset 0 1px 0 rgba(255,235,180,0.22), 0 10px 22px rgba(0,0,0,0.28);
-        transform: translateY(-1px);
-        outline: none;
+      }
+
+      .product-add-overlay:hover .overlay-original-price {
+        color: rgba(255, 231, 173, 0.55);
+      }
+
+      .product-add-overlay.overlay--added {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        background: linear-gradient(180deg, #1a3d1a 0%, #0d260d 58%, #061006 100%);
+        border-color: #4caf50;
+      }
+
+      .product-add-overlay.overlay--added span {
+        color: #a5d6a7;
       }
 
       .product-dropdown {
@@ -366,21 +433,18 @@
             </ul>
 
             <div class="product-buy-section">
-              <div class="product-buy-wrap">
+              <div class="product-add-wrap" id="product-add-wrap">
                 <button
                   type="button"
                   class="product-add-btn"
                   id="add-to-cart-btn"
-                  aria-expanded="false"
-                  aria-controls="product-dropdown"
                 >
                   Add to Cart
                 </button>
-
-                <div class="product-dropdown" id="product-dropdown" hidden>
-                  <p class="product-dropdown-name">Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV</p>
-                  <p class="product-dropdown-price">Call for Price</p>
-                  <button type="button" class="product-confirm-btn" id="product-confirm-btn">Add to Cart</button>
+                <div class="product-add-overlay" id="product-add-overlay">
+                  <span class="overlay-original-price">Ksh 120,000</span>
+                  <span>Add to Cart</span>
+                  <span>Ksh 98,495</span>
                 </div>
               </div>
               <a href="tvs.html" class="product-back-btn">View All TVs</a>
@@ -428,30 +492,21 @@
         localStorage.setItem("cartItems", JSON.stringify(items));
       }
 
-      /* ── Add to Cart with dropdown ── */
-      const addBtn = document.getElementById("add-to-cart-btn");
-      const dropdown = document.getElementById("product-dropdown");
-      const confirmBtn = document.getElementById("product-confirm-btn");
-      const buyWrap = document.querySelector(".product-buy-wrap");
+      /* ── Add to Cart with overlay ── */
+      const overlay = document.getElementById("product-add-overlay");
 
       const productItem = {
         id: "hisense-65u7nken-mini-led",
         name: 'Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV',
-        price: 0,
-        displayPrice: "Call for Price",
+        price: 98495,
+        displayPrice: "Ksh 98,495",
+        originalPrice: 120000,
         category: "TV's",
         image: "images/Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV.png",
       };
 
-      /* Toggle dropdown */
-      addBtn.addEventListener("click", () => {
-        const isOpen = addBtn.getAttribute("aria-expanded") === "true";
-        addBtn.setAttribute("aria-expanded", String(!isOpen));
-        dropdown.hidden = isOpen;
-      });
-
-      /* Confirm add to cart */
-      confirmBtn.addEventListener("click", () => {
+      /* Click overlay to add to cart */
+      overlay.addEventListener("click", () => {
         const cartItems = getCartItems();
         const existing = cartItems.find((ci) => ci.id === productItem.id);
 
@@ -468,18 +523,12 @@
 
         saveCartItems(cartItems);
 
-        addBtn.textContent = "Added";
-        addBtn.setAttribute("aria-expanded", "false");
-        dropdown.hidden = true;
-        setTimeout(() => { addBtn.textContent = "Add to Cart"; }, 1300);
-      });
-
-      /* Close dropdown when clicking outside */
-      document.addEventListener("click", (event) => {
-        if (buyWrap && !buyWrap.contains(event.target)) {
-          addBtn.setAttribute("aria-expanded", "false");
-          dropdown.hidden = true;
-        }
+        overlay.classList.add("overlay--added");
+        overlay.innerHTML = '<span>Added ✓</span>';
+        setTimeout(() => {
+          overlay.classList.remove("overlay--added");
+          overlay.innerHTML = '<span class="overlay-original-price">Ksh 120,000</span><span>Add to Cart</span><span>Ksh 98,495</span>';
+        }, 1300);
       });
     </script>
   </body>
