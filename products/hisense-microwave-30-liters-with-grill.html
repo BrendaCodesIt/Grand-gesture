@@ -91,7 +91,20 @@
         <aside class="tv-featured-models" aria-label="Microwave 30L With Grill Models">
         </aside>
       </section>
-    </main>
+    
+      <section class="tv-bottom-bar" aria-label="Product actions">
+        <div class="tv-actions" style="display: flex; justify-content: center;">
+          <button
+            type="button"
+            class="action-btn action-btn--buy"
+            id="product-confirm-btn"
+            style="width: 100%; max-width: 400px; padding: 16px; font-size: 1.1rem; background-color: #fca311; color: #14213d; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: background-color 0.2s;"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </section>
+</main>
 
     <script>
       const menuToggle = document.getElementById("menu-toggle");
@@ -119,7 +132,43 @@
           categoriesMenu.hidden = true;
         }
       });
-    </script>
+    
+      const addBtn = document.getElementById("product-confirm-btn");
+      if(addBtn) {
+        addBtn.addEventListener("click", () => {
+          let priceMatch = document.querySelector(".tv-featured-title");
+          let name = priceMatch ? priceMatch.textContent.trim() : "Product";
+          
+          let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+          let existing = cartItems.find((ci) => ci.name === name);
+          
+          if (existing) {
+            existing.quantity = (existing.quantity || 1) + 1;
+          } else {
+            cartItems.push({
+              id: name.toLowerCase().replace(/\s+/g, '-'),
+              name: name,
+              price: 0,
+              displayPrice: "Call for Price",
+              category: "Products",
+              image: document.querySelector(".tv-featured-image") ? document.querySelector(".tv-featured-image").getAttribute("src") : "",
+              quantity: 1
+            });
+          }
+          
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          addBtn.textContent = "Added ✓";
+          addBtn.style.backgroundColor = "#4caf50";
+          addBtn.style.color = "#fff";
+          
+          setTimeout(() => { 
+            addBtn.textContent = "Add to Cart"; 
+            addBtn.style.backgroundColor = "#fca311";
+            addBtn.style.color = "#14213d";
+          }, 1300);
+        });
+      }
+</script>
   </body>
 </html>
 
