@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Grand Gesture</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; color: #333; }
+    h1 { margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    th, td { padding: 12px 15px; border-bottom: 1px solid #ddd; text-align: left; }
+    th { background: #0a0a0a; color: #fff; }
+    img { max-height: 50px; }
+    input[type="number"] { padding: 6px; width: 100px; }
+    input[type="file"] { max-width: 200px; }
+    button { padding: 8px 12px; background: #ffffff; color: #000000; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; }
+    button:hover { background: #e5930f; }
+  </style>
+</head>
+<body>
+  <h1>Grand Gesture - Admin Dashboard</h1>
+  <p>Modify product prices or replace images. Changes are saved directly to the HTML files.</p>
+  
+  <table id="productsTable">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Category File</th>
+        <th>Price (KSh)</th>
+        <th>New Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Populated by JS -->
+    </tbody>
+  </table>
+
+  <script>
+    async function loadProducts() {
+      const res = await fetch('/api/products');
+      const products = await res.json();
+      const tbody = document.querySelector('#productsTable tbody');
+      tbody.innerHTML = '';
+
+      products.forEach((p, index) => {
+        const tr = document.createElement('tr');
+        
+        tr.innerHTML = \`
+          <td><img src="\${p.image}" alt="img" onerror="this.src=''"></td>
+          <td>\${p.name}</td>
+          <td>\${p.file}</td>
+          <td><input type="number" id="price-\${index}" value="\${p.price}"></td>
+          <td><input type="file" id="file-\${index}" accept="image/*"></td>
+          <td><button onclick="updateProduct(\${index}, '\${p.name.replace(/'/g, "\\\\'")}', '\${p.file}')">Save</button></td>
+        \`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function updateProduct(index, name, file) {
+      const priceInput = document.getElementById(\`price-\${index}\`).value;
+      const fileInput = document.getElementById(\`file-\${index}\`).files[0];
+      
+      let newImage = null;
+      
+      if (fileInput) {
+        const formData = new FormData();
+        formData.append('image', fileInput);
+        
+        const uploadRes = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const uploadData = await uploadRes.json();
+        if (uploadData.imagePath) {
+          newImage = uploadData.imagePath;
+        }
+      }
+
+      const res = await fetch('/api/products/update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          file: file,
+          newPrice: priceInput,
+          newImage: newImage
+        })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert('Product updated successfully!');
+        loadProducts(); // reload to show new image
+      } else {
+        alert('Failed to update: ' + data.error);
+      }
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>
