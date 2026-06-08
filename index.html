@@ -134,7 +134,10 @@
             <div class="product-info">
               <h3>Hisense 10.5/6kg Wash & Dry</h3>
               <p class="product-price">KSh 58,000</p>
-              <a href="categories/washing-machines.html" class="btn-view">View Details</a>
+              <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <a href="categories/washing-machines.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense 10.5/6kg Front Load Wash & Dry Washing Machine WD3S1043BT" data-price="58000" data-category="Washing Machines" data-image="images/Hisense 10.5 6kg Front Load Wash & Dry Washing Machine WD3S1043BT.png" style="flex: 1; padding: 0.6rem; background: #fca311; color: #14213d; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+              </div>
             </div>
           </article>
           <!-- Featured 2 -->
@@ -145,7 +148,10 @@
             <div class="product-info">
               <h3>Hisense AX3100G 3.1CH 280W</h3>
               <p class="product-price">KSh 19,000</p>
-              <a href="categories/soundbars.html" class="btn-view">View Details</a>
+              <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <a href="categories/soundbars.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense AX3100G 3.1CH Soundbar, 280W – Black" data-price="19000" data-category="Sound Bars" data-image="images/Hisense AX3100G 3.1CH Soundbar, 280W – Black.png" style="flex: 1; padding: 0.6rem; background: #fca311; color: #14213d; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+              </div>
             </div>
           </article>
           <!-- Featured 3 -->
@@ -156,7 +162,10 @@
             <div class="product-info">
               <h3>Hisense 55" U6N Pro Mini-LED</h3>
               <p class="product-price">KSh 63,800</p>
-              <a href="categories/tvs.html" class="btn-view">View Details</a>
+              <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <a href="categories/tvs.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense 55 ULED Mini LED U6 Pro" data-price="63800" data-category="TVs" data-image="images/Hisense 55 ULED Mini LED U6 Pro.png" style="flex: 1; padding: 0.6rem; background: #fca311; color: #14213d; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+              </div>
             </div>
           </article>
           <!-- Featured 4 -->
@@ -167,7 +176,10 @@
             <div class="product-info">
               <h3>Hisense 424L Double Door Fridge</h3>
               <p class="product-price">KSh 63,000</p>
-              <a href="categories/refrigerators.html" class="btn-view">View Details</a>
+              <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <a href="categories/refrigerators.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense Fridge 424L Double Door Silver REF418DR" data-price="63000" data-category="Refrigerators" data-image="images/Hisense Fridge 424L Double Door Silver REF418DR.png" style="flex: 1; padding: 0.6rem; background: #fca311; color: #14213d; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Add to Cart</button>
+              </div>
             </div>
           </article>
         </div>
@@ -233,6 +245,50 @@
     </footer>
 
     <script>
+      /* ── Cart Logic ── */
+      const formatKshPrice = (num) => "KSh " + num.toLocaleString("en-US");
+      function addSpecificItemToCart(item) {
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const existing = cartItems.find((ci) => ci.name === item.name);
+        if (existing) {
+          existing.quantity = (existing.quantity || 1) + 1;
+        } else {
+          cartItems.push(Object.assign({}, item, {
+            id: item.name.toLowerCase().replace(/\\s+/g, "-") + "-" + Date.now(),
+            quantity: 1,
+          }));
+        }
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
+
+      document.querySelectorAll(".btn-add-cart").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const item = {
+            name: btn.dataset.name,
+            price: Number(btn.dataset.price),
+            displayPrice: formatKshPrice(Number(btn.dataset.price)),
+            category: btn.dataset.category,
+            image: btn.dataset.image,
+          };
+          addSpecificItemToCart(item);
+
+          // Feedback
+          const originalText = btn.textContent;
+          const originalBg = btn.style.background;
+          btn.textContent = "Added ✓";
+          btn.style.background = "#4caf50";
+          btn.style.color = "#fff";
+
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = originalBg;
+            btn.style.color = "#14213d";
+          }, 1400);
+        });
+      });
+
+      /* ── Categories Menu ── */
       const menuToggle = document.getElementById("menu-toggle");
       const categoriesMenu = document.getElementById("categories-menu");
 
