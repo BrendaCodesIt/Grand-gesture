@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hisense Chest Freezer 297 Litres Grey Glass Slider - Grand Gesture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="tv-layout">
+    <header class="top-header" aria-label="Main header">
+      <a href="../index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+      <nav class="header-actions" aria-label="Quick actions">
+        <a href="../cart.html" class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </a>
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <line x1="16" y1="16" x2="21" y2="21" />
+          </svg>
+        </button>
+        <button
+          class="icon-btn"
+          aria-label="Categories"
+          aria-expanded="false"
+          aria-controls="categories-menu"
+          id="menu-toggle"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <section
+      class="categories-panel"
+      id="categories-menu"
+      aria-label="Product categories"
+      hidden
+    >
+      <h2 class="categories-title">Categories</h2>
+      <ul class="categories-list">
+        <li><a href="../categories/tvs.html">TV's</a></li>
+        <li><a href="../categories/soundbars.html">Sound Bars</a></li>
+        <li><a href="../categories/air-conditioners.html">Air Conditioners</a></li>
+        <li><a href="../categories/refrigerators.html">Refrigerators</a></li>
+        <li><a href="../categories/washing-machines.html">Washing Machines</a></li>
+        <li><a href="../categories/kitchen-appliances.html">Kitchen Appliances</a></li>
+        <li><a href="../categories/other-appliances.html">Other Appliances</a></li>
+      </ul>
+    </section>
+    <main class="tv-page" aria-label="Refrigerator Details">
+      <section class="tv-featured-block" aria-label="Hisense Chest Freezer 297 Litres Grey Glass Slider details">
+        <figure class="tv-featured-image-wrap">
+          <img
+            src="../images/Hisense Chest Freezer 297 Litres Grey Glass Slider .png"
+            alt="Hisense Chest Freezer 297 Litres Grey Glass Slider product image"
+            class="tv-featured-image"
+          />
+        </figure>
+        <div class="tv-featured-copy">
+          <h2 class="tv-featured-title">Hisense Chest Freezer 297 Litres Grey Glass Slider</h2>
+          <p class="tv-featured-subtitle">Product Features</p>
+          <ul class="tv-highlights tv-featured-highlights">
+            <li>Capacity: 297L</li>
+            <li>Color: Grey</li>
+            <li>Dimension (W*D*H mm): 1114*630*842</li>
+            <li>Container Load (40'HQ): 108</li>
+            <li>Energy efficiency class: A</li>
+            <li>Defrost Drain System</li>
+            <li>Multimode Function: Fridge - Chiller - Freezer - Super Freezer</li>
+            <li>Metallic Spring-load Hinges</li>
+            <li>2 PCS Wire Basket</li>
+            <li>Aluminum Interior</li>
+            <li>Fast Freeze Function</li>
+            <li>External Handle with Lock</li>
+            <li>Adjustable Feet</li>
+          </ul>
+        </div>
+        <aside class="tv-featured-models" aria-label="297 Litres Models">
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const categoriesMenu = document.getElementById("categories-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        categoriesMenu.hidden = isOpen;
+      });
+
+      document.addEventListener("click", (event) => {
+        const clickedInsideMenu = categoriesMenu.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedToggle) {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          menuToggle.setAttribute("aria-expanded", "false");
+          categoriesMenu.hidden = true;
+        }
+      });
+    </script>
+  </body>
+</html>
+
