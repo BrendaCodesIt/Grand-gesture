@@ -1,74 +1,46 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVs - Grand Gesture</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
   </head>
   <body class="tv-layout">
-    <header class="top-header" aria-label="Main header">
-      <a href="../index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
-      <nav class="header-actions" aria-label="Quick actions">
-        <a href="../cart.html" class="icon-btn" aria-label="Cart">
+    <header class="top-header" aria-label="Main header"><nav class="header-actions" aria-label="Quick actions"><button class="icon-btn" aria-label="Menu" id="menu-toggle">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button><button class="icon-btn" aria-label="Search">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <line x1="16" y1="16" x2="21" y2="21"></line>
           </svg>
-        </a>
-        <button class="icon-btn" aria-label="Search">
+        </button><a href="../cart.html" class="icon-btn" aria-label="Cart" style="position: relative;">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5" />
-            <line x1="16" y1="16" x2="21" y2="21" />
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
           </svg>
-        </button>
-        <button
-          class="icon-btn"
-          aria-label="Categories"
-          aria-expanded="false"
-          aria-controls="categories-menu"
-          id="menu-toggle"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <section
-      class="categories-panel"
-      id="categories-menu"
-      aria-label="Product categories"
-      hidden
-    >
-      <h2 class="categories-title">Categories</h2>
-      <ul class="categories-list">
-        <li>
-          <a href="tvs.html">TV's</a>
-        </li>
-        <li><a href="soundbars.html">Sound Bars</a></li>
-        <li><a href="air-conditioners.html">Air Conditioners</a></li>
-        <li><a href="refrigerators.html">Refrigerators</a></li>
-        <li><a href="washing-machines.html">Washing Machines</a></li>
-        <li><a href="kitchen-appliances.html">Kitchen Appliances</a></li>
-        <li><a href="other-appliances.html">Other Appliances</a></li>
-      </ul>
-    </section>
+          <span class="cart-badge" id="cart-badge" style="display:flex;">0</span>
+          </a></nav><a href="../index.html" class="brand" aria-label="Homepage">Grand Gesture</a></header>
+    
     <main class="tv-page" aria-label="TV products">
-      <section class="tv-product" aria-label="Product details">
+      
+<div class="sort-toolbar" style="padding: 15px 5%; margin-bottom: 20px; display: flex; justify-content: flex-end; align-items: center; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
+  <label for="sort-select" style="margin-right: 15px; font-weight: 600; color: #0a0a0a;">Sort By:</label>
+  <select id="sort-select" style="padding: 8px 12px; border-radius: 4px; border: 1px solid #ccc; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #333; outline: none; cursor: pointer;">
+    <option value="default">Default</option>
+    <option value="price-asc">Price: Low to High</option>
+    <option value="price-desc">Price: High to Low</option>
+    <option value="name-asc">Name: A to Z</option>
+    <option value="name-desc">Name: Z to A</option>
+  </select>
+</div>
+<section class="tv-product" aria-label="Product details">
         <figure class="tv-image-wrap">
-          <img
-            src="../images/Hisense 32 inch TV.png"
-            alt="Hisense 32 inch TV product image"
-            class="tv-image"
-          />
+          <img src="../images/Hisense 32 inch TV.png" alt="Hisense 32 inch TV product image" class="tv-image">
         </figure>
         <div class="tv-content">
           <h1 class="tv-title">Hisense 32" TV</h1>
@@ -86,64 +58,24 @@
         <aside class="tv-models" aria-label="TV models">
           <h2 class="tv-models-title">Available TVs</h2>
           <div class="tv-model-list" role="list">
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-32-tv"
-              data-name="Hisense 32&quot; TV"
-              data-price="12760">
-              Hisense 32" TV
-            </button>
-            <button type="button" class="tv-model-btn is-active" role="listitem"
-              data-id="hisense-32-smart-frameless-fhd-a4"
-              data-name="Hisense 32&quot; Smart Frameless FHD (A4 series)"
-              data-price="14500">
-              Hisense 32" Smart Frameless FHD (A4 series)
-            </button>
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-43-smart-frameless-fhd-a4"
-              data-name="Hisense 43&quot; Smart Frameless FHD (A4 series)"
-              data-price="25520">
-              Hisense 43" Smart Frameless FHD (A4 series)
-            </button>
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-43-smart-4k-uhd-frameless-a6"
-              data-name="Hisense 43&quot; Smart 4k UHD Frameless (A6 series)"
-              data-price="30160">
-              Hisense 43" Smart 4k UHD Frameless (A6 series)
-            </button>
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-43-inch-qled-smart-4k-uhd-frameless-q6"
-              data-name="Hisense 43&quot; QLED Smart 4k UHD Frameless (Q6 series)"
-              data-price="33640">
-              Hisense 43" QLED Smart 4k UHD Frameless (Q6 series)
-            </button>
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-50-inch-led-smart-2k-fhd-frameless-a4"
-              data-name="Hisense 50&quot; LED Smart 2K FHD Frameless (A4 series)"
-              data-price="35960">
-              Hisense 50" LED Smart 2K FHD Frameless (A4 series)
-            </button>
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-50-smart-uhd-4k-frameless-a6"
-              data-name="Hisense 50&quot; smart UHD 4k Frameless (A6 series)"
-              data-price="37120">
-              Hisense 50" smart UHD 4k Frameless (A6 series)
-            </button>
-            <button type="button" class="tv-model-btn" role="listitem"
-              data-id="hisense-50-inch-qled-smart-4k-frameless-q6"
-              data-name="Hisense 50&quot; Qled smart 4k Frameless (Q6 series)"
-              data-price="39440">
-              Hisense 50" Qled smart 4k Frameless (Q6 series)
-            </button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-32-tv" data-name="Hisense 32&quot; TV" data-price="12760" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 12,760</button>
+            <button type="button" class="tv-model-btn is-active btn-add-cart" role="listitem" data-id="hisense-32-smart-frameless-fhd-a4" data-name="Hisense 32&quot; Smart Frameless FHD (A4 series)" data-price="14500" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 14,500</button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-43-smart-frameless-fhd-a4" data-name="Hisense 43&quot; Smart Frameless FHD (A4 series)" data-price="25520" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 25,520</button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-43-smart-4k-uhd-frameless-a6" data-name="Hisense 43&quot; Smart 4k UHD Frameless (A6 series)" data-price="30160" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 30,160</button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-43-inch-qled-smart-4k-uhd-frameless-q6" data-name="Hisense 43&quot; QLED Smart 4k UHD Frameless (Q6 series)" data-price="33640" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 33,640</button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-50-inch-led-smart-2k-fhd-frameless-a4" data-name="Hisense 50&quot; LED Smart 2K FHD Frameless (A4 series)" data-price="35960" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 35,960</button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-50-smart-uhd-4k-frameless-a6" data-name="Hisense 50&quot; smart UHD 4k Frameless (A6 series)" data-price="37120" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 37,120</button>
+            <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-50-inch-qled-smart-4k-frameless-q6" data-name="Hisense 50&quot; Qled smart 4k Frameless (Q6 series)" data-price="39440" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 39,440</button>
           </div>
         </aside>
-      </section>
+      <aside class="tv-featured-models">
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="Product" data-price="0" data-image="../images/Hisense 32 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
+            Add to Cart
+          </button>
+        </aside></section>
       <section class="tv-featured-block" aria-label="Skyworth 32E3500 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Skyworth 32 inch 32E3500.png"
-            alt="Skyworth 32″ 32E3500 product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Skyworth 32 inch 32E3500.png" alt="Skyworth 32″ 32E3500 product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Skyworth 32″ 32E3500 Highlights</h2>
@@ -161,25 +93,17 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Skyworth 32-inch models">
-          <a
-            href="../products/skyworth-32std6500.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="skyworth-32std6500"
-            data-name="Skyworth 32STD6500"
-            data-price="0"
-          >
-            Skyworth 32STD6500
-          </a>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/skyworth-32std6500.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Skyworth 32STD6500" data-price="0" data-image="../images/Skyworth 32 inch 32E3500.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+              </div>
+            
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 32LM630BPVB details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-32lm630.png"
-            alt="LG 32″ Smart TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-32lm630.png" alt="LG 32″ Smart TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">LG 32" Smart TV Highlights</h2>
@@ -194,24 +118,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 32-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="lg-32-smart-tv"
-            data-name="LG 32&quot; Smart TV Highlights"
-            data-price="0"
-          >
-            LG 32" Smart TV Highlights
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="lg-32-smart-tv" data-name="LG 32&quot; Smart TV Highlights" data-price="0" data-image="../images/lg-32lm630.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Sony 32R300 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/sony-32r300.png"
-            alt="Sony 32R300 32 LED TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/sony-32r300.png" alt="Sony 32R300 32 LED TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Sony 32R300 32 LED TV Highlights</h2>
@@ -228,25 +140,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Sony 32-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="sony-32r300-led-tv"
-            data-name="Sony 32R300 32 LED TV"
-            data-price="33000"
-            data-original-price="42000"
-          >
-            Sony 32R300 32 LED TV Highlights
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="sony-32r300-led-tv" data-name="Sony 32R300 32 LED TV" data-price="33000" data-original-price="42000" data-image="../images/sony-32r300.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 33,000</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 43Q6 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/hisense-43-q6-mbappe.png"
-            alt="Hisense 43″ QLED 43Q6 product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/hisense-43-q6-mbappe.png" alt="Hisense 43″ QLED 43Q6 product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 43″ QLED 43Q6 Highlights</h2>
@@ -262,25 +161,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Hisense 43-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-43-qled-43q6"
-            data-name="Hisense 43&quot; QLED 43Q6"
-            data-price="29995"
-            data-original-price="35000"
-          >
-            Hisense 43″ QLED 43Q6 Highlights
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-43-qled-43q6" data-name="Hisense 43&quot; QLED 43Q6" data-price="29995" data-original-price="35000" data-image="../images/hisense-43-q6-mbappe.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 29,995</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 43LK5730PVC details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-43lk5730.png"
-            alt="LG 43″ Smart TV 43LK5730PVC product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-43lk5730.png" alt="LG 43″ Smart TV 43LK5730PVC product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">LG 43" Smart TV 43LK5730PVC Highlights</h2>
@@ -295,25 +181,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 43-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="lg-43-smart-tv-43lk5730"
-            data-name="LG 43&quot; Smart TV 43LK5730PVC"
-            data-price="39000"
-            data-original-price="41500"
-          >
-            LG 43" Smart TV 43LK5730PVC
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="lg-43-smart-tv-43lk5730" data-name="LG 43&quot; Smart TV 43LK5730PVC" data-price="39000" data-original-price="41500" data-image="../images/lg-43lk5730.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 39,000</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Sony 43WF660 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/sony-43wf660.png"
-            alt="Sony 43WF660 43 Full HD TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/sony-43wf660.png" alt="Sony 43WF660 43 Full HD TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Sony 43WF660 43 Full HD TV Highlights</h2>
@@ -330,26 +203,14 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Sony 43-inch models">
-            <button
-              type="button"
-              class="tv-model-btn tv-model-btn--inline"
-              data-id="sony-43wf660-fhd"
-              data-name="Sony 43WF660 43 Full HD TV"
-              data-price="40000"
-              data-original-price="43000"
-            >
-              Sony 43WF660 43 Full HD TV
-            </button>
+            <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="sony-43wf660-fhd" data-name="Sony 43WF660 43 Full HD TV" data-price="40000" data-original-price="43000" data-image="../images/sony-43wf660.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 40,000</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 55 inch TV details">
-        <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 55 inch TV.png"
-            alt="Hisense 55 inch UHD TV product image"
-            class="tv-featured-image"
-          />
-          <button class="add-to-cart-overlay">Add to Cart</button>
+        <figure class="tv-featured-image-wrap" style="position: relative;">
+          <span class="out-of-stock-badge">Out of Stock</span>
+          <img src="../images/Hisense 55 inch TV.png" alt="Hisense 55 inch UHD TV product image" class="tv-featured-image">
+          <button class="add-to-cart-overlay btn-out-of-stock" disabled="">Out of Stock</button>
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 55" smart 4K UHD Frameless (A7 series)</h2>
@@ -368,78 +229,18 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="55-inch TV models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline tv-a7-btn"
-            data-id="hisense-55-smart-4k-uhd-frameless-a7"
-            data-name="Hisense 55&quot; smart 4K UHD Frameless (A7 series)"
-            data-price="53360"
-          >
-            Hisense 55" smart 4K UHD Frameless (A7 series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-55-smart-4k-frameless-a6"
-            data-name="Hisense 55&quot; Smart 4K Frameless(A6 series)"
-            data-price="42920"
-          >
-            Hisense 55" Smart 4K Frameless(A6 series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-55-inch-4k-qled-tv-q6-series"
-            data-name="Hisense 55&quot; 4K QLED TV (Q6 Series)"
-            data-price="47560"
-          >
-            Hisense 55" 4K QLED TV (Q6 Series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-55-smart-uled-4k-u6-series"
-            data-name="Hisense 55&quot; Smart ULED 4k(U6 series)"
-            data-price="58000"
-          >
-            Hisense 55" Smart ULED 4k(U6 series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-55-uled-mini-led-120hz-u6-pro"
-            data-name="Hisense 55&quot; ULED MINI-LED-120HZ Processor(U6 PRO)"
-            data-price="63800"
-          >
-            Hisense 55" ULED MINI-LED-120HZ Processor(U6 PRO)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-55-mini-led-u7nk-uled-144hz-u7"
-            data-name="Hisense 55&quot; mini-led U7NK ULED-144HZ PRocessor(U7 Series)"
-            data-price="78880"
-          >
-            Hisense 55" mini-led U7NK ULED-144HZ PRocessor(U7 Series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-58-smart-4k-frameless-a6-series"
-            data-name="Hisense 58&quot; smart 4k Frameless (A6 Series)"
-            data-price="52200"
-          >
-            Hisense 58" smart 4k Frameless (A6 Series)
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline tv-a7-btn btn-out-of-stock btn-add-cart" data-id="hisense-55-smart-4k-uhd-frameless-a7" data-name="Hisense 55&quot; smart 4K UHD Frameless (A7 series)" data-price="53360" disabled="" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 53,360</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-55-smart-4k-frameless-a6" data-name="Hisense 55&quot; Smart 4K Frameless(A6 series)" data-price="42920" data-image="../images/Hisense 55 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 42,920</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-55-inch-4k-qled-tv-q6-series" data-name="Hisense 55&quot; 4K QLED TV (Q6 Series)" data-price="47560" data-image="../images/Hisense 55 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 47,560</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-55-smart-uled-4k-u6-series" data-name="Hisense 55&quot; Smart ULED 4k(U6 series)" data-price="58000" data-image="../images/Hisense 55 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 58,000</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-55-uled-mini-led-120hz-u6-pro" data-name="Hisense 55&quot; ULED MINI-LED-120HZ Processor(U6 PRO)" data-price="63800" data-image="../images/Hisense 55 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 63,800</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-55-mini-led-u7nk-uled-144hz-u7" data-name="Hisense 55&quot; mini-led U7NK ULED-144HZ PRocessor(U7 Series)" data-price="78880" data-image="../images/Hisense 55 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 78,880</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-58-smart-4k-frameless-a6-series" data-name="Hisense 58&quot; smart 4k Frameless (A6 Series)" data-price="52200" data-image="../images/Hisense 55 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 52,200</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 55NANO796 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-55nano796.png"
-            alt="LG 55″ 55NANO796 NanoCell 4K Active HDR product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-55nano796.png" alt="LG 55″ 55NANO796 NanoCell 4K Active HDR product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">LG 55" 55NANO796 NanoCell 4K Active HDR Highlights</h2>
@@ -447,33 +248,21 @@
           <ul class="tv-highlights tv-featured-highlights">
             <li>Pure colors and sharp 4K picture</li>
             <li>AI sound Pro | Atmospheric sound</li>
-            <li>Game Optimizer & ALLM</li>
+            <li>Game Optimizer &amp; ALLM</li>
             <li>Filmmaker Mode | HDR PRO 10</li>
             <li>Netflix, Showmax, Disney +, etc.</li>
             <li>webOS smart Platform</li>
             <li>HDMI 2.0 (3 Ports) | USB (2 Ports)</li>
-            <li>WiFi & Bluetooth V5.0</li>
+            <li>WiFi &amp; Bluetooth V5.0</li>
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 55-inch NanoCell models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="lg-55nano796"
-            data-name="LG 55&quot; 55NANO796 NanoCell 4K Active HDR Highlights"
-            data-price="0"
-          >
-            LG 55" 55NANO796 NanoCell 4K Active HDR Highlights
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="lg-55nano796" data-name="LG 55&quot; 55NANO796 NanoCell 4K Active HDR Highlights" data-price="0" data-image="../images/lg-55nano796.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Sony BRAVIA 3 55S30 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/sony-55s30.png"
-            alt="Sony BRAVIA 3 55″ S30 class LED 4K HDR Google TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/sony-55s30.png" alt="Sony BRAVIA 3 55″ S30 class LED 4K HDR Google TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Sony BRAVIA 3 55″ S30 class LED 4K HDR Google TV Highlights</h2>
@@ -482,31 +271,18 @@
             <li>Resolution: 4K Ultra HD (3840 x 2160)</li>
             <li>Operating System – Google TV</li>
             <li>4K HDR Processor X1</li>
-            <li>Apple Airplay & Chromecast Built in</li>
+            <li>Apple Airplay &amp; Chromecast Built in</li>
             <li>On-board Storage: 16GB</li>
             <li>Voice Search | Bluetooth V5.3</li>
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Sony 55-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="sony-55s30-smart-4k"
-            data-name="Sony BRAVIA 3 55&quot; S30 class LED 4K HDR Google TV"
-            data-price="93500"
-            data-original-price="99000"
-          >
-            Sony BRAVIA 3 55″ S30 class LED 4K HDR Google TV
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="sony-55s30-smart-4k" data-name="Sony BRAVIA 3 55&quot; S30 class LED 4K HDR Google TV" data-price="93500" data-original-price="99000" data-image="../images/sony-55s30.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 93,500</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 55U7N details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/hisense-55u7n.png"
-            alt="Hisense 55U7N 55″ Mini-LED ULED 4K TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/hisense-55u7n.png" alt="Hisense 55U7N 55″ Mini-LED ULED 4K TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 55U7N 55″ Mini-LED ULED 4K TV Highlights</h2>
@@ -522,36 +298,18 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Hisense 55-inch Mini-LED models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-55u7n-mini-led"
-            data-name="Hisense 55&quot; 55U7N Mini-LED ULED 4K TV"
-            data-price="70995"
-            data-original-price="78000"
-          >
-            Hisense 55U7N 55″ Mini-LED ULED 4K TV Highlights
-          </button>
-          <a
-            href="../products/hisense-55u6n.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="hisense-55u6n-mini-led"
-            data-name="Hisense 55&quot; 55U6N ULED PRO Mini Led 4K TV"
-            data-price="57995"
-            data-original-price="65000"
-          >
-            Hisense 55" 55U6N ULED PRO Mini Led 4K TV
-          </a>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-55u7n-mini-led" data-name="Hisense 55&quot; 55U7N Mini-LED ULED 4K TV" data-price="70995" data-original-price="78000" data-image="../images/hisense-55u7n.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 70,995</button>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/hisense-55u6n.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense 55" 55u6n="" uled="" pro="" mini="" led="" 4k="" tv"="" data-price="57995" data-image="../images/hisense-55u7n.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 57,995</button>
+              </div>
+            
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 55UR805 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-55ur805.png"
-            alt="LG 55″ UHD 4K TV UR805 Series product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-55ur805.png" alt="LG 55″ UHD 4K TV UR805 Series product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">LG 55″ UHD 4K TV UR805 Series Highlights</h2>
@@ -567,26 +325,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 55-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="lg-55ur805-uhd-4k"
-            data-name="LG 55″ UHD 4K TV UR805 Series"
-            data-price="53995"
-            data-original-price="61000"
-          >
-            LG 55″ UHD 4K TV UR805 Series
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="lg-55ur805-uhd-4k" data-name="LG 55″ UHD 4K TV UR805 Series" data-price="53995" data-original-price="61000" data-image="../images/lg-55ur805.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 53,995</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Skyworth 65Q6500G details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Skyworth 65 inch TV.png"
-            alt="Skyworth 65Q6500G product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Skyworth 65 inch TV.png" alt="Skyworth 65Q6500G product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Skyworth 65Q6500G Highlights</h2>
@@ -599,52 +343,34 @@
             <li>Panel Type: QLED</li>
             <li>Backlight Type: LED</li>
             <li>HDR Support: HDR10, Dolby Vision, HLG</li>
-            <li>Color Accuracy & Gamut: DCI-P3 Wide Color Gamut</li>
+            <li>Color Accuracy &amp; Gamut: DCI-P3 Wide Color Gamut</li>
             <li>Ports: 3x HDMI, 2x USB, Optical, Ethernet</li>
             <li>Connectivity: Wi-Fi, Ethernet, Bluetooth</li>
             <li>Wall Mount Compatibility: VESA mount support</li>
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Skyworth 65-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="skyworth-65q6500g"
-            data-name="Skyworth 65Q6500G Highlights"
-            data-price="0"
-          >
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="skyworth-65q6500g" data-name="Skyworth 65Q6500G Highlights" data-price="0" data-image="../images/Skyworth 65 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
             Skyworth 65Q6500G Highlights
             <span class="hover-add-to-cart-overlay">Add to Cart</span>
           </button>
-          <a
-            href="../products/skyworth-65-mini-led.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="skyworth-65-mini-led-4k-uhd"
-            data-name="Skyworth 65&quot; 4K UHD Mini LED (3840 &times; 2160)"
-            data-price="0"
-          >
-            Skyworth 65″ 4K UHD Mini LED (3840 &times; 2160) with Local Dimming (88 zones)
-          </a>
-          <a
-            href="../products/hisense-65u7nken.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="hisense-65u7nken-mini-led"
-            data-name="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV" data-price="90000"
-            data-original-price="120000"
-          >
-            Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV
-          </a>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/skyworth-65-mini-led.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Skyworth 65" 4k="" uhd="" mini="" led="" (3840="" ×="" 2160)"="" data-price="0" data-image="../images/Skyworth 65 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+              </div>
+            
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/hisense-65u7nken.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense 65U7NKEN 65" series="" mini-led="" uled="" 4k="" tv"="" data-price="90000" data-image="../images/Skyworth 65 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 90,000</button>
+              </div>
+            
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 65 inch TV details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 75 smart UHD 4K Framelss A7.jpg"
-            alt="Hisense 65 inch UHD TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" alt="Hisense 65 inch UHD TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 65" smart 4K VIDAA UHD (A7 Series)</h2>
@@ -664,85 +390,23 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="65-inch TV models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="hisense-65-smart-4k-uhd-frameles-a6-series"
-            data-name="Hisense 65&quot; smart 4K UHD Frameles(A6 Series)"
-            data-price="67280"
-          >
-            Hisense 65" smart 4K UHD Frameles(A6 Series)
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="hisense-65-smart-4k-vidaa-uhd-a7-series"
-            data-name="Hisense 65&quot; smart 4K VIDAA UHD (A7 Series)"
-            data-price="95120"
-          >
-            Hisense 65" smart 4K VIDAA UHD (A7 Series)
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="hisense-65-qled-ultra-hd-4k-smart-q6-series"
-            data-name="Hisense 65&quot; QLED Ultra HD 4K Smart (Q6 series)"
-            data-price="71920"
-          >
-            Hisense 65" QLED Ultra HD 4K Smart (Q6 series)
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
-          <a
-            href="../products/hisense-65-pro-mini-led.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="hisense-65-pro-mini-led-smart-framless-120hz-processor"
-            data-name="Hisense 65&quot; Pro Mini-LED Smart Framless 120HZ Processor"
-            data-price="104400"
-          >
-            Hisense 65" Pro Mini-LED Smart Framless 120HZ Processor
-          </a>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="hisense-65-smart-4k-mini-led-144hz-processor-u7-series"
-            data-name="Hisense 65&quot; Smart 4K Mini-Led-144hz Processor(U7 Series)"
-            data-price="104400"
-          >
-            Hisense 65" Smart 4K Mini-Led-144hz Processor(U7 Series)
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="hisense-65-smart-4k-qled-q7-series-144hz-processor-u7q"
-            data-name="Hisense 65&quot; smart 4k Qled Q7 Series 144Hz Processor(U7Q)"
-            data-price="98600"
-          >
-            Hisense 65" smart 4k Qled Q7 Series 144Hz Processor(U7Q)
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container"
-            data-id="hisense-65-smart-uhd-4k-uled-miniled-165hz-processor-u7-pro"
-            data-name="Hisense 65&quot; smart UHD 4k Uled-MiniLed 165Hz Processor(U7 PRO)"
-            data-price="116000"
-          >
-            Hisense 65" smart UHD 4k Uled-MiniLed 165Hz Processor(U7 PRO)
-            <span class="hover-add-to-cart-overlay">Add to Cart</span>
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="hisense-65-smart-4k-uhd-frameles-a6-series" data-name="Hisense 65&quot; smart 4K UHD Frameles(A6 Series)" data-price="67280" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 67,280</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="hisense-65-smart-4k-vidaa-uhd-a7-series" data-name="Hisense 65&quot; smart 4K VIDAA UHD (A7 Series)" data-price="95120" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 95,120</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="hisense-65-qled-ultra-hd-4k-smart-q6-series" data-name="Hisense 65&quot; QLED Ultra HD 4K Smart (Q6 series)" data-price="71920" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 71,920</button>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/hisense-65-pro-mini-led.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense 65" pro="" mini-led="" smart="" framless="" 120hz="" processor"="" data-price="104400" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 104,400</button>
+              </div>
+            
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="hisense-65-smart-4k-mini-led-144hz-processor-u7-series" data-name="Hisense 65&quot; Smart 4K Mini-Led-144hz Processor(U7 Series)" data-price="104400" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 104,400</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="hisense-65-smart-4k-qled-q7-series-144hz-processor-u7q" data-name="Hisense 65&quot; smart 4k Qled Q7 Series 144Hz Processor(U7Q)" data-price="98600" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 98,600</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline hover-add-to-cart-container btn-add-cart" data-id="hisense-65-smart-uhd-4k-uled-miniled-165hz-processor-u7-pro" data-name="Hisense 65&quot; smart UHD 4k Uled-MiniLed 165Hz Processor(U7 PRO)" data-price="116000" data-image="../images/Hisense 75 smart UHD 4K Framelss A7.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 116,000</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Sony 65X85L details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/sony-65x85l.png"
-            alt="Sony 65 inch 65X85L Smart 4K HDR Google TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/sony-65x85l.png" alt="Sony 65 inch 65X85L Smart 4K HDR Google TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Sony 65 inch 65X85L Smart 4K HDR Google TV Highlights</h2>
@@ -758,25 +422,17 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Sony 65-inch models">
-          <a
-            href="../products/sony-65x85l.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="sony-65x85l-smart-4k"
-            data-name="Sony 65 inch 65X85L Smart 4K HDR Google TV"
-            data-price="0"
-          >
-            Sony 65 inch 65X85L Smart 4K HDR Google TV Highlights
-          </a>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/sony-65x85l.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Sony 65 inch 65X85L Smart 4K HDR Google TV" data-price="0" data-image="../images/sony-65x85l.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+              </div>
+            
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 65UR80 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-65ur80.png"
-            alt="LG 65 Inch 65UR80 product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-65ur80.png" alt="LG 65 Inch 65UR80 product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">LG 65" 65UR80 Smart 4K UHD TV Highlights</h2>
@@ -784,7 +440,7 @@
           <ul class="tv-highlights tv-featured-highlights">
             <li>4K Upscaling | Dynamic Tone Mapping</li>
             <li>UHD 4K LED Panel</li>
-            <li>HDR10 & HLG Compatible</li>
+            <li>HDR10 &amp; HLG Compatible</li>
             <li>webOS 23 | LG Channels</li>
             <li>60 Hz Native Refresh Rate</li>
             <li>Built-In Amazon Alexa</li>
@@ -792,15 +448,15 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 65-inch models">
+        
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="LG 65" 65ur80="" smart="" 4k="" uhd="" tv="" highlights"="" data-price="0" data-image="../images/lg-65ur80.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
+            Add to Cart
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 75 inch TV details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 75 inch TV.jpg"
-            alt="Hisense 75 inch 8K ULED TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Hisense 75 inch TV.jpg" alt="Hisense 75 inch 8K ULED TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 75" smart 8k Vidaa ULED-MINI-LED 165Hz (U8 series)</h2>
@@ -820,69 +476,17 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="75-inch TV models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-75-a6-smart-4k-uhd-frameless-a6-series"
-            data-name="Hisense 75&quot; A6 smart 4k UHD Frameless(A6 series)"
-            data-price="0"
-          >
-            Hisense 75" A6 smart 4k UHD Frameless(A6 series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-75-qled-4k-tv-smart-framless-q6-series"
-            data-name="Hisense 75 QLED 4K TV Smart Framless (Q6 series)"
-            data-price="0"
-          >
-            Hisense 75 QLED 4K TV Smart Framless (Q6 series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-75-smart-mini-led-u7-series-144hz-processor"
-            data-name="Hisense 75&quot; smart MINI-LED U7 series-144HZ Processor"
-            data-price="0"
-          >
-            Hisense 75" smart MINI-LED U7 series-144HZ Processor
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-75-smart-uhd-4k-qled-q7-series-144hz-processor"
-            data-name="Hisense 75&quot; smart UHD 4K QLED Q7 series-144HZ Processor"
-            data-price="0"
-          >
-            Hisense 75" smart UHD 4K QLED Q7 series-144HZ Processor
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-75-smart-uhd-4k-uled-mini-led-u7-series-165hz-processor"
-            data-name="Hisense 75&quot; smart UHD 4K Uled Mini-Led U7 series-165HZ Processor"
-            data-price="0"
-          >
-            Hisense 75" smart UHD 4K Uled Mini-Led U7 series-165HZ Processor
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-75-uled-miniled-u8-series-ai-engine-pro-165hz-processor"
-            data-name="Hisense 75&quot;ULED-MINILED (U8 series) AI Engine Pro-165HZ Processor"
-            data-price="0"
-          >
-            Hisense 75"ULED-MINILED (U8 series) AI Engine Pro-165HZ Processor
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-75-a6-smart-4k-uhd-frameless-a6-series" data-name="Hisense 75&quot; A6 smart 4k UHD Frameless(A6 series)" data-price="0" data-image="../images/Hisense 75 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-75-qled-4k-tv-smart-framless-q6-series" data-name="Hisense 75 QLED 4K TV Smart Framless (Q6 series)" data-price="0" data-image="../images/Hisense 75 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-75-smart-mini-led-u7-series-144hz-processor" data-name="Hisense 75&quot; smart MINI-LED U7 series-144HZ Processor" data-price="0" data-image="../images/Hisense 75 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-75-smart-uhd-4k-qled-q7-series-144hz-processor" data-name="Hisense 75&quot; smart UHD 4K QLED Q7 series-144HZ Processor" data-price="0" data-image="../images/Hisense 75 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-75-smart-uhd-4k-uled-mini-led-u7-series-165hz-processor" data-name="Hisense 75&quot; smart UHD 4K Uled Mini-Led U7 series-165HZ Processor" data-price="0" data-image="../images/Hisense 75 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-75-uled-miniled-u8-series-ai-engine-pro-165hz-processor" data-name="Hisense 75&quot;ULED-MINILED (U8 series) AI Engine Pro-165HZ Processor" data-price="0" data-image="../images/Hisense 75 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Skyworth 75SUE9500 details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Skyworth 75 inch TV.png"
-            alt="Skyworth 75&quot; 75SUE9500 product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Skyworth 75 inch TV.png" alt="Skyworth 75&quot; 75SUE9500 product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Skyworth 75" 75SUE9500 Highlights</h2>
@@ -901,24 +505,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Skyworth 75-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="skyworth-75-75sue9500"
-            data-name="Skyworth 75&quot; 75SUE9500"
-            data-price="0"
-          >
-            Skyworth 75" 75SUE9500
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="skyworth-75-75sue9500" data-name="Skyworth 75&quot; 75SUE9500" data-price="0" data-image="../images/Skyworth 75 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG 77C5 OLED details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-77c5-oled.png"
-            alt="77 inch LG OLED evo AI C5 4K 144Hz Smart TV AI product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-77c5-oled.png" alt="77 inch LG OLED evo AI C5 4K 144Hz Smart TV AI product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">77" LG OLED evo AI C5 4K 144Hz Smart TV AI Highlights</h2>
@@ -933,15 +525,15 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 77-inch OLED models">
+        
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="77" lg="" oled="" evo="" ai="" c5="" 4k="" 144hz="" smart="" tv="" highlights"="" data-price="0" data-image="../images/lg-77c5-oled.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
+            Add to Cart
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="LG OLED83C36LA details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/lg-oled83c3.png"
-            alt="LG OLED83C36LA product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/lg-oled83c3.png" alt="LG OLED83C36LA product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">LG OLED83C36LA – The Ultimate 83" 4K OLED TV Highlights</h2>
@@ -956,57 +548,37 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="LG 83-inch OLED models">
+        
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="LG OLED83C36LA – The Ultimate 83" 4k="" oled="" tv="" highlights"="" data-price="0" data-image="../images/lg-oled83c3.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
+            Add to Cart
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 85A6N details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/hisense-85-a6n.png"
-            alt="Hisense 85 inch A6N UHD 4K Google Smart TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/hisense-85-a6n.png" alt="Hisense 85 inch A6N UHD 4K Google Smart TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 85" A6N UHD 4K Google Smart TV Highlights</h2>
           <p class="tv-featured-subtitle">Product Features</p>
           <ul class="tv-highlights tv-featured-highlights">
-            <li>4K AI Upscaler & Precision Colour</li>
-            <li>Dolby Vision & Dolby Vision HDR</li>
+            <li>4K AI Upscaler &amp; Precision Colour</li>
+            <li>Dolby Vision &amp; Dolby Vision HDR</li>
             <li>Game Mode PLUS</li>
-            <li>Voice Control & Airplay 2</li>
+            <li>Voice Control &amp; Airplay 2</li>
             <li>DTS Virtual X Audio</li>
             <li>60 Hz Refresh Rate</li>
             <li>3 HDMI inputs | 2 USB ports</li>
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Hisense 85-inch models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-85-smart-4k-udh-frameless-a6-series"
-            data-name="Hisense 85&quot; smart 4k UDH frameless(A6 series)"
-            data-price="0"
-          >
-            Hisense 85" smart 4k UDH frameless(A6 series)
-          </button>
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-85-qled-uhd-4k-q6-series"
-            data-name="Hisense 85&quot;QLED UHD 4K(Q6 series)"
-            data-price="0"
-          >
-            Hisense 85"QLED UHD 4K(Q6 series)
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-85-smart-4k-udh-frameless-a6-series" data-name="Hisense 85&quot; smart 4k UDH frameless(A6 series)" data-price="0" data-image="../images/hisense-85-a6n.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-85-qled-uhd-4k-q6-series" data-name="Hisense 85&quot;QLED UHD 4K(Q6 series)" data-price="0" data-image="../images/hisense-85-a6n.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 98 inch TV details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 98 inch TV.png"
-            alt="Hisense 98 inch ULED-MINILED U7 series product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Hisense 98 inch TV.png" alt="Hisense 98 inch ULED-MINILED U7 series product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 98" Smart ULED-MINILED U7 series</h2>
@@ -1023,24 +595,17 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="98-inch TV models">
-          <a
-            href="../products/hisense-98u7h.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="hisense-98u7h-uled-4k"
-            data-name="Hisense 98&quot; Smart ULED 4K TV 98U7H" data-price="230000"
-          >
-            Hisense 98" Smart ULED 4K TV 98U7H
-          </a>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/hisense-98u7h.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense 98" smart="" uled="" 4k="" tv="" 98u7h"="" data-price="230000" data-image="../images/Hisense 98 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 230,000</button>
+              </div>
+            
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 100 inch TV details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 100 inch TV.jpg"
-            alt="Hisense 100 inch ULED-MINI-LED TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Hisense 100 inch TV.jpg" alt="Hisense 100 inch ULED-MINI-LED TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 100"ULED- MINI-LED-144HZ Processor--Dolby vision IQ+ Built-in Subwoofer</h2>
@@ -1055,14 +620,14 @@
             <li>Audio power output: Game Mode, Multiple Voice Assistance, Bezel-Less Design, Full Array Local Dimming</li>
           </ul>
         </div>
-      </section>
+      <aside class="tv-featured-models">
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="Hisense 100" uled-="" mini-led-144hz="" processor--dolby="" vision="" iq+="" built-in="" subwoofer"="" data-price="0" data-image="../images/Hisense 100 inch TV.jpg" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
+            Add to Cart
+          </button>
+        </aside></section>
       <section class="tv-featured-block" aria-label="Hisense 100U7KEN details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/hisense-100u7ken.png"
-            alt="Hisense 100″ 100U7KEN Smart 4K UHD MiniLED TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/hisense-100u7ken.png" alt="Hisense 100″ 100U7KEN Smart 4K UHD MiniLED TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 100" 100U7KEN Smart 4K UHD MiniLED TV Highlights</h2>
@@ -1070,21 +635,21 @@
           <ul class="tv-highlights tv-featured-highlights">
             <li>MiniLED Technology</li>
             <li>HDR Support (HDR10, HLG)</li>
-            <li>Dolby Vision & Dolby Atmos</li>
+            <li>Dolby Vision &amp; Dolby Atmos</li>
             <li>Game Mode Pro</li>
             <li>AI Upscaling</li>
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Hisense 100-inch models">
+        
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="Hisense 100" 100u7ken="" smart="" 4k="" uhd="" miniled="" tv="" highlights"="" data-price="0" data-image="../images/hisense-100u7ken.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">
+            Add to Cart
+          </button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense 100 inch QLED TV details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 100 inch QLED.png"
-            alt="Hisense 100 inch QLED-MINILED TV product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Hisense 100 inch QLED.png" alt="Hisense 100 inch QLED-MINILED TV product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense 100"QLED-MINILED-144HZ Processor-Built-in Subwoofer</h2>
@@ -1100,24 +665,12 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="100-inch QLED TV models">
-          <button
-            type="button"
-            class="tv-model-btn tv-model-btn--inline"
-            data-id="hisense-116-uled-miled-rgb"
-            data-name="Hisense 116&quot; ULED-MILED RGB"
-            data-price="0"
-          >
-            Hisense 116" ULED-MILED RGB
-          </button>
+          <button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-id="hisense-116-uled-miled-rgb" data-name="Hisense 116&quot; ULED-MILED RGB" data-price="0" data-image="../images/Hisense 100 inch QLED.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
         </aside>
       </section>
       <section class="tv-featured-block" aria-label="Hisense Laser Tv 100&quot; L9 Series details">
         <figure class="tv-featured-image-wrap">
-          <img
-            src="../images/Hisense 100 inch L9 SERIES.png"
-            alt="Hisense Laser Tv 100&quot; L9 Series product image"
-            class="tv-featured-image"
-          />
+          <img src="../images/Hisense 100 inch L9 SERIES.png" alt="Hisense Laser Tv 100&quot; L9 Series product image" class="tv-featured-image">
         </figure>
         <div class="tv-featured-copy">
           <h2 class="tv-featured-title">Hisense Laser Tv 100" L9 Series</h2>
@@ -1134,30 +687,20 @@
           </ul>
         </div>
         <aside class="tv-featured-models" aria-label="Laser TV models">
-          <a
-            href="../products/hisense-90-laser-tv-l9.html"
-            class="tv-model-btn tv-model-btn--inline"
-            style="display:block;text-decoration:none;color:#404040;"
-            data-id="hisense-laser-tv-90-inch-l9-series"
-            data-name="Hisense Laser Tv 90&quot; L9 Series"
-            data-price="0"
-          >
-            Hisense Laser Tv 90" L9 Series
-          </a>
+          
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <a href="../products/hisense-90-laser-tv-l9.html" class="btn-view" style="flex: 1; text-align: center; padding: 0.6rem; background: #eee; border-radius: 4px; text-decoration: none; color: #333;">View Details</a>
+                <button type="button" class="btn-add-cart" data-name="Hisense Laser Tv 90" l9="" series"="" data-price="0" data-image="../images/Hisense 100 inch L9 SERIES.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+              </div>
+            
         </aside>
       </section>
       <section class="tv-bottom-bar" aria-label="Product actions">
         <div class="tv-actions">
-          <button
-            type="button"
-            class="action-btn action-btn--buy"
-            id="quick-buy-btn"
-            aria-expanded="false"
-            aria-controls="quick-buy-dropdown"
-          >
+          <button type="button" class="action-btn action-btn--buy" id="quick-buy-btn" aria-expanded="false" aria-controls="quick-buy-dropdown">
             Add to Cart
           </button>
-          <div class="quick-buy-dropdown" id="quick-buy-dropdown" hidden>
+          <div class="quick-buy-dropdown" id="quick-buy-dropdown" hidden="">
             <p class="quick-buy-name">Hisense 32" TV</p>
             <p class="quick-buy-price">Ksh 12,760</p>
             <button type="button" class="quick-add-btn" id="quick-add-btn">Add to Cart</button>
@@ -1165,6 +708,47 @@
         </div>
       </section>
     </main>
+
+  <!-- Trust Bar -->
+  <section class="trust-bar-container">
+    <div class="trust-bar-box">
+      <!-- Genuine Products -->
+      <div class="trust-box-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 22h20L12 2 2 22z"></path>
+        </svg>
+        <div class="trust-box-text">
+          <div class="trust-box-title">Genuine<br>Products</div>
+          <div class="trust-box-desc">100% authentic<br>brands.</div>
+        </div>
+      </div>
+      
+      <!-- Secure Payments -->
+      <div class="trust-box-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <div class="trust-box-text">
+          <div class="trust-box-title">Secure<br>Payments</div>
+          <div class="trust-box-desc">Safe and reliable<br>checkout.</div>
+        </div>
+      </div>
+      
+      <!-- Fast Delivery -->
+      <div class="trust-box-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" opacity="0"></path>
+          <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21.5 4s-2 .5-3.5 2L14.5 9.5 6.3 7.7c-1.1-.3-2.1.2-2.5 1.1l-1.6 3.6 5.8 1.5L9.5 18l-3.2-.8L5 20l4.5.5L13 25l1.8-1.5-.8-3.2 4.1 1.5 1.5 5.8 3.6-1.6c.9-.4 1.4-1.4 1.1-2.5l-1.8-8.2z"></path>
+        </svg>
+        <div class="trust-box-text trust-box-text-row">
+          <div class="trust-box-title">Fast Delivery</div>
+          <div class="trust-box-desc">Countrywide fast shipping.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <script>
       const menuToggle = document.getElementById("menu-toggle");
       const categoriesMenu = document.getElementById("categories-menu");
@@ -1196,67 +780,6 @@
         saveCartItems(cartItems);
       }
 
-      /* ── Wrap every model button with QuickAdd overlay ── */
-      const modelButtons = document.querySelectorAll(".tv-model-btn");
-
-      modelButtons.forEach((button) => {
-        // Skip buttons that are links (they navigate to new pages)
-        if (button.tagName === "A") return;
-
-        const price = Number(button.dataset.price) || 0;
-        // Only add QuickAdd for buttons that have a price > 0
-        if (price <= 0) return;
-
-        const originalPrice = Number(button.dataset.originalPrice) || 0;
-
-        // Build overlay label with optional cancelled price
-        function buildLabel() {
-          if (originalPrice > 0) {
-            return `<span class="quickadd-original">${formatKshPrice(originalPrice)}</span><span>Add to Cart – ${formatKshPrice(price)}</span>`;
-          }
-          return `<span>Add to Cart – ${formatKshPrice(price)}</span>`;
-        }
-
-        // Create wrapper
-        const wrapper = document.createElement("div");
-        wrapper.className = "quickadd-wrap";
-
-        // Insert wrapper before button, then move button inside
-        button.parentNode.insertBefore(wrapper, button);
-        wrapper.appendChild(button);
-
-        // Create overlay
-        const overlay = document.createElement("div");
-        overlay.className = "quickadd-overlay";
-        overlay.innerHTML = buildLabel();
-        wrapper.appendChild(overlay);
-
-        // Click handler for the overlay
-        overlay.addEventListener("click", (e) => {
-          e.stopPropagation();
-
-          const item = {
-            id: button.dataset.id,
-            name: button.dataset.name || button.textContent.trim(),
-            price: price,
-            displayPrice: formatKshPrice(price),
-            category: "TV's",
-            image: "images/Hisense 32 inch TV.png",
-          };
-
-          addSpecificItemToCart(item);
-
-          // Flash "Added ✓" feedback
-          overlay.classList.add("quickadd--added");
-          overlay.innerHTML = `<span>Added ✓</span>`;
-
-          setTimeout(() => {
-            overlay.classList.remove("quickadd--added");
-            overlay.innerHTML = buildLabel();
-          }, 1400);
-        });
-      });
-
       /* ── Categories menu toggle ── */
       menuToggle.addEventListener("click", () => {
         const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
@@ -1278,6 +801,340 @@
         }
       });
     </script>
-  </body>
-</html>
+  
 
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sortSelect = document.getElementById("sort-select");
+    if (!sortSelect) return;
+
+    // Find the container that holds the products. Usually the parent of the first .tv-featured-block
+    const firstBlock = document.querySelector(".tv-featured-block, .tv-product");
+    if (!firstBlock) return;
+    const container = firstBlock.parentNode;
+
+    // Get all product blocks as an array
+    const productBlocks = Array.from(document.querySelectorAll(".tv-featured-block, .tv-product"));
+    
+    // Store original order to restore "default"
+    const originalOrder = [...productBlocks];
+
+    sortSelect.addEventListener("change", (e) => {
+      const val = e.target.value;
+      let sortedBlocks;
+
+      if (val === "default") {
+        sortedBlocks = originalOrder;
+      } else {
+        sortedBlocks = [...productBlocks].sort((a, b) => {
+          // Extract price and name from the .btn-add-cart inside the block
+          const btnA = a.querySelector(".btn-add-cart");
+          const btnB = b.querySelector(".btn-add-cart");
+          
+          let priceA = btnA ? Number(btnA.getAttribute("data-price") || 0) : 0;
+          let priceB = btnB ? Number(btnB.getAttribute("data-price") || 0) : 0;
+          
+          let nameA = btnA ? (btnA.getAttribute("data-name") || "") : "";
+          let nameB = btnB ? (btnB.getAttribute("data-name") || "") : "";
+          
+          if (val === "price-asc") return priceA - priceB;
+          if (val === "price-desc") return priceB - priceA;
+          if (val === "name-asc") return nameA.localeCompare(nameB);
+          if (val === "name-desc") return nameB.localeCompare(nameA);
+          return 0;
+        });
+      }
+
+      // Re-append to container
+      sortedBlocks.forEach(block => container.appendChild(block));
+    });
+  });
+</script>
+  
+<!-- Cart Modal -->
+<div class="cart-modal-overlay" id="cart-modal">
+  <div class="cart-modal">
+    <button class="cart-modal-close" id="cart-modal-close">×</button>
+    <div class="cart-modal-header">
+      <div class="cart-modal-icon">✔</div>
+      <div>
+        <h3 class="cart-modal-title" id="cart-modal-title">Added to Cart</h3>
+        <p class="cart-modal-msg" id="cart-modal-msg">Item has been added to your cart.</p>
+      </div>
+    </div>
+    <div class="cart-modal-recs" id="cart-modal-recs" style="display:none;">
+      <h4>Frequently Bought Together</h4>
+      <div class="rec-item" id="rec-item-container">
+        <!-- populated by JS -->
+      </div>
+    </div>
+    <div class="cart-modal-actions">
+      <button class="btn-outline" id="cart-modal-continue">Continue Shopping</button>
+      <a href="../cart.html" class="btn-primary">View Cart</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── Enhanced Cart Logic with Recommendations ── */
+
+  // Badge logic
+  function updateCartBadge() {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const total = cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const badge = document.getElementById("cart-badge");
+    if (badge) {
+      badge.textContent = total;
+      badge.style.display = "flex";
+    }
+  }
+  updateCartBadge();
+
+  const formatKshPrice = (num) => "KSh " + num.toLocaleString("en-US");
+  
+  const recData = [
+    { name: "Hisense 55 ULED Mini LED U6 Pro", price: 63800, category: "TVs", image: "images/Hisense 55 ULED Mini LED U6 Pro.png" },
+    { name: "Hisense AX3100G 3.1CH Soundbar", price: 19000, category: "Sound Bars", image: "images/Hisense AX3100G 3.1CH Soundbar, 280W – Black.png" },
+    { name: "Hisense 10.5/6kg Wash & Dry", price: 58000, category: "Washing Machines", image: "images/Washing machine Front load 10.5 6kg.png" },
+    { name: "Hisense 12000 BTU Air Conditioner", price: 45000, category: "Air Conditioners", image: "images/Air conditioner 2.png" },
+    { name: "Hisense Fridge 424L Double Door", price: 63000, category: "Refrigerators", image: "images/Hisense Fridge 424L Double Door Silver REF418DR.png" },
+    { name: "Hisense 6.3L Air Fryer", price: 12000, category: "Kitchen Appliances", image: "images/Hisense 6.3L Air Fryer H06AFBS1S3.png" }
+  ];
+
+  function getRecommendation(addedCategory) {
+    if (!addedCategory) return recData[1];
+    const cat = addedCategory.toLowerCase();
+    let recCat = "Sound Bars";
+    if (cat.includes("tv")) recCat = "Sound Bars";
+    else if (cat.includes("sound")) recCat = "TVs";
+    else if (cat.includes("wash")) recCat = "Air Conditioners";
+    else if (cat.includes("refrigerator")) recCat = "Kitchen Appliances";
+    else if (cat.includes("kitchen")) recCat = "Refrigerators";
+    else if (cat.includes("air")) recCat = "Washing Machines";
+    
+    return recData.find(r => r.category === recCat) || recData[0];
+  }
+
+  function addSpecificItemToCart(item) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existing = cartItems.find((ci) => ci.name === item.name);
+    let isNew = false;
+    if (existing) {
+      existing.quantity = (existing.quantity || 1) + 1;
+    } else {
+      cartItems.push(Object.assign({}, item, {
+        id: item.name.toLowerCase().replace(/\s+/g, "-") + "-" + Date.now(),
+        quantity: 1,
+      }));
+      isNew = true;
+    }
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    if(typeof updateCartBadge === "function") updateCartBadge();
+    showCartModal(item, isNew);
+  }
+
+  function showCartModal(item, isNew) {
+    const modal = document.getElementById('cart-modal');
+    if (!modal) return;
+    
+    const title = document.getElementById('cart-modal-title');
+    const msg = document.getElementById('cart-modal-msg');
+    
+    if (isNew) {
+      title.textContent = "Added to Cart!";
+      msg.textContent = item.name + " was added to your cart.";
+    } else {
+      title.textContent = "Cart Updated!";
+      msg.textContent = item.name + " is already in your cart. We increased the quantity.";
+    }
+    
+    // Recommendations
+    const recsBlock = document.getElementById('cart-modal-recs');
+    const recContainer = document.getElementById('rec-item-container');
+    const rec = getRecommendation(item.category);
+    
+    if (rec && rec.name !== item.name) {
+      const isSubdir = window.location.pathname.includes('categories/') || window.location.pathname.includes('brands/');
+      const basePath = isSubdir ? '../' : '';
+      const imgPath = basePath + rec.image;
+      
+      recContainer.innerHTML = `
+        <img src="${imgPath}" alt="Recommendation">
+        <div class="rec-item-info">
+          <p class="rec-item-name">${rec.name}</p>
+          <p class="rec-item-price">${formatKshPrice(rec.price)}</p>
+          <button class="btn-primary btn-add-cart" data-name="${rec.name}" data-price="${rec.price}" data-category="${rec.category}" data-image="${imgPath}" style="padding: 4px 8px; font-size: 0.8rem; margin-top: 5px;">Add Too</button>
+        </div>
+      `;
+      recsBlock.style.display = 'block';
+      
+      // Bind event to new button
+      const newBtn = recContainer.querySelector('.btn-add-cart');
+      newBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        addSpecificItemToCart({
+          name: rec.name, price: rec.price, displayPrice: formatKshPrice(rec.price), category: rec.category, image: imgPath
+        });
+      });
+      
+    } else {
+      recsBlock.style.display = 'none';
+    }
+    
+    modal.classList.add('active');
+  }
+
+  // Close modal logic
+  document.addEventListener("DOMContentLoaded", () => {
+    const closeBtns = document.querySelectorAll('#cart-modal-close, #cart-modal-continue');
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('cart-modal').classList.remove('active');
+      });
+    });
+    
+    // Override existing Add to Cart buttons
+    document.querySelectorAll(".btn-add-cart").forEach((btn) => {
+      // remove old listeners by cloning
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      
+      newBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const item = {
+          name: newBtn.dataset.name || "Product",
+          price: Number(newBtn.dataset.price) || 0,
+          displayPrice: formatKshPrice(Number(newBtn.dataset.price) || 0),
+          category: newBtn.dataset.category || "Products",
+          image: newBtn.dataset.image || "",
+        };
+        addSpecificItemToCart(item);
+      });
+    });
+  });
+</script>
+
+<div id="categories-menu" style="display:none;"></div>
+
+<div class="search-overlay" id="search-overlay">
+  <button class="search-overlay-close" id="search-overlay-close">×</button>
+  <div class="search-container">
+    <input type="text" class="search-input" id="search-input" placeholder="Search for products..." autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<script src="../search-data.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchBtns = document.querySelectorAll('button[aria-label="Search"]');
+    const searchOverlay = document.getElementById('search-overlay');
+    const searchClose = document.getElementById('search-overlay-close');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    const isSubdir = window.location.pathname.includes('/categories/') || window.location.pathname.includes('/brands/') || window.location.pathname.includes('/products/');
+    const pathPrefix = isSubdir ? '../' : '';
+
+    searchBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        searchOverlay.classList.add('active');
+        searchInput.focus();
+      });
+    });
+
+    searchClose.addEventListener('click', () => {
+      searchOverlay.classList.remove('active');
+    });
+
+    searchOverlay.addEventListener('click', (e) => {
+      if (e.target === searchOverlay) searchOverlay.classList.remove('active');
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      searchResults.innerHTML = '';
+      if (!query || !window.PRODUCTS_DATA) return;
+
+      const matches = window.PRODUCTS_DATA.filter(p => p.name.toLowerCase().includes(query));
+      
+      matches.slice(0, 10).forEach(product => {
+        const item = document.createElement('a');
+        item.href = pathPrefix + product.url;
+        item.className = 'search-result-item';
+        
+        item.innerHTML = `
+          <img src="${pathPrefix + product.image}" class="search-result-img" alt="${product.name}" onerror="this.style.display='none'">
+          <div class="search-result-info">
+            <p class="search-result-name">${product.name}</p>
+            <p class="search-result-price">KSh ${product.price.toLocaleString("en-US")}</p>
+          </div>
+        `;
+        searchResults.appendChild(item);
+      });
+    });
+  });
+</script>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<aside class="side-menu" id="side-menu">
+  <div class="side-menu-header">
+    <h2>Menu</h2>
+    <button class="side-menu-close" id="side-menu-close">&times;</button>
+  </div>
+  <nav class="side-menu-nav">
+    <div class="side-menu-group">
+      <h3>Store</h3>
+      <a href="../index.html">Home</a>
+      <a href="../categories/tvs.html">TVs</a>
+      <a href="../categories/soundbars.html">Soundbars</a>
+      <a href="../categories/refrigerators.html">Refrigerators</a>
+      <a href="../categories/washing-machines.html">Washing Machines</a>
+      <a href="../categories/air-conditioners.html">Air Conditioners</a>
+      <a href="../categories/kitchen-appliances.html">Kitchen Appliances</a>
+    </div>
+    <div class="side-menu-group">
+      <h3>Account</h3>
+      <a href="#">My Account</a>
+      <a href="#">Order History</a>
+      <a href="#">Settings</a>
+    </div>
+    <div class="side-menu-group">
+      <h3>System</h3>
+      <a href="../admin.html" class="admin-link">Admin Dashboard</a>
+    </div>
+  </nav>
+</aside>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const sideMenu = document.getElementById('side-menu');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const sideMenuClose = document.getElementById('side-menu-close');
+
+    if (menuToggleBtn && sideMenu) {
+      menuToggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sideMenu.classList.add('active');
+        sidebarOverlay.classList.add('active');
+      });
+    }
+
+    if (sideMenuClose) {
+      sideMenuClose.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+      });
+    }
+
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+      });
+    }
+  });
+</script>
+</body></html>
