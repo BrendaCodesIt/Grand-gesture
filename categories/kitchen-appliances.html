@@ -471,6 +471,80 @@
     </main>
 
     <script>
+      
+      /* ── Quick Add Logic ── */
+      const formatKshPrice = (num) => "KSh " + num.toLocaleString("en-US");
+      
+      function addSpecificItemToCart(item) {
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const existing = cartItems.find(
+          (ci) => ci.name === item.name && ci.size === item.size
+        );
+        if (existing) {
+          existing.quantity = (existing.quantity || 1) + 1;
+        } else {
+          cartItems.push(Object.assign({}, item, {
+            id: item.name.toLowerCase().replace(/\s+/g, "-") + "-" + Date.now(),
+            quantity: 1,
+          }));
+        }
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
+
+      const modelButtons = document.querySelectorAll(".tv-model-btn");
+      modelButtons.forEach((button) => {
+        const price = Number(button.dataset.price) || 0;
+        const originalPrice = Number(button.dataset.originalPrice) || 0;
+
+        function buildLabel() {
+          if (originalPrice > 0) {
+            return '<span class="quickadd-original">' + formatKshPrice(originalPrice) + '</span><span>Add to Cart – ' + formatKshPrice(price) + '</span>';
+          }
+          return '<span>Add to Cart – ' + formatKshPrice(price) + '</span>';
+        }
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "quickadd-wrap";
+        button.parentNode.insertBefore(wrapper, button);
+        wrapper.appendChild(button);
+
+        const overlay = document.createElement("div");
+        overlay.className = "quickadd-overlay";
+        overlay.innerHTML = buildLabel();
+        wrapper.appendChild(overlay);
+
+        overlay.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          let categoryTitle = document.title.split("-")[0].trim();
+          let productImage = "images/placeholder.png"; 
+          let featuredBlock = button.closest(".tv-featured-block");
+          if(featuredBlock) {
+             let featuredImg = featuredBlock.querySelector(".tv-featured-image");
+             if(featuredImg) productImage = featuredImg.getAttribute("src").replace("../", "");
+          }
+
+          const item = {
+            name: button.dataset.name || button.textContent.trim(),
+            price: price,
+            displayPrice: formatKshPrice(price),
+            category: categoryTitle,
+            image: productImage,
+          };
+
+          addSpecificItemToCart(item);
+
+          overlay.classList.add("quickadd--added");
+          overlay.innerHTML = '<span>Added ✓</span>';
+
+          setTimeout(() => {
+            overlay.classList.remove("quickadd--added");
+            overlay.innerHTML = buildLabel();
+          }, 1400);
+        });
+      });
+
       const menuToggle = document.getElementById("menu-toggle");
       const categoriesMenu = document.getElementById("categories-menu");
 
