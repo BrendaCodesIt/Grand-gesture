@@ -1830,13 +1830,18 @@ body {
 
 /* --- Trust Bar --- */
 .trust-bar {
+  background: #000000;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 40px 20px;
+}
+
+.trust-bar-inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  background: #000000;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   gap: 20px;
 }
 
