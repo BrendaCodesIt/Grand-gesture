@@ -143,11 +143,81 @@
     });
   }
 
+  /* ── Wishlist Logic ── */
+  window.GrandGestureWishlist = {
+    getItems: function() {
+      return JSON.parse(localStorage.getItem("wishlistItems") || "[]");
+    },
+    toggleItem: function(item) {
+      let items = this.getItems();
+      const index = items.findIndex(i => i.name === item.name);
+      let added = false;
+      if (index > -1) {
+        items.splice(index, 1);
+      } else {
+        items.push(item);
+        added = true;
+      }
+      localStorage.setItem("wishlistItems", JSON.stringify(items));
+      this.updateBadge();
+      this.syncButtons();
+      return added;
+    },
+    updateBadge: function() {
+      const items = this.getItems();
+      const badge = document.getElementById("wishlist-badge");
+      if (badge) {
+        badge.textContent = items.length;
+        badge.style.display = items.length > 0 ? "flex" : "none";
+      }
+    },
+    syncButtons: function() {
+      const items = this.getItems();
+      document.querySelectorAll(".btn-wishlist").forEach(btn => {
+        const name = btn.getAttribute("data-name");
+        const isSaved = items.some(i => i.name === name);
+        if (isSaved) {
+          btn.classList.add("saved");
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+        } else {
+          btn.classList.remove("saved");
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+        }
+      });
+    },
+    bindButtons: function() {
+      document.body.addEventListener("click", (e) => {
+        const btn = e.target.closest(".btn-wishlist");
+        if (btn) {
+          e.preventDefault();
+          const item = {
+            name: btn.getAttribute("data-name"),
+            price: btn.getAttribute("data-price"),
+            image: btn.getAttribute("data-image"),
+            url: btn.getAttribute("data-url") || ""
+          };
+          const added = this.toggleItem(item);
+          
+          // Optional: Add a little pop animation class
+          btn.classList.add("pop");
+          setTimeout(() => btn.classList.remove("pop"), 300);
+        }
+      });
+    }
+  };
+
+  function initWishlist() {
+    window.GrandGestureWishlist.updateBadge();
+    window.GrandGestureWishlist.syncButtons();
+    window.GrandGestureWishlist.bindButtons();
+  }
+
   /* ── Init ── */
   function init() {
     initSearch();
     initSidebar();
     initScrollToTop();
+    initWishlist();
   }
 
   if (document.readyState === "loading") {

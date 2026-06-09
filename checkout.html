@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Grand Gesture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .checkout-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+    }
+    @media(max-width: 900px) {
+      .checkout-container { grid-template-columns: 1fr; }
+    }
+    .checkout-section {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+    .checkout-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #d8b45a;
+      box-shadow: 0 0 0 3px rgba(216, 180, 90, 0.2);
+    }
+    .order-summary {
+      background: #fafafa;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      position: sticky;
+      top: 100px;
+    }
+    .summary-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .summary-img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      padding: 5px;
+      margin-right: 15px;
+    }
+    .summary-info h4 {
+      margin: 0 0 5px 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .summary-info p {
+      margin: 0;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    .summary-price {
+      margin-left: auto;
+      font-weight: 600;
+      color: #8a6d2b;
+    }
+    .summary-totals {
+      margin-top: 20px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #555;
+    }
+    .summary-row.total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #333;
+      border-top: 2px solid #eee;
+      padding-top: 15px;
+      margin-top: 15px;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: #8a6d2b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-submit:hover {
+      background: #6e5621;
+    }
+    .btn-submit svg {
+      width: 20px; height: 20px; fill: currentColor;
+    }
+    .radio-group {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .radio-card {
+      flex: 1;
+      border: 2px solid #eee;
+      border-radius: 8px;
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .radio-card input {
+      accent-color: #8a6d2b;
+      width: 18px; height: 18px;
+    }
+    .radio-card:has(input:checked) {
+      border-color: #d8b45a;
+      background: rgba(216, 180, 90, 0.05);
+    }
+    .radio-card span {
+      font-weight: 600; color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="top-header" aria-label="Main header">
+    <nav class="header-actions" aria-label="Quick actions">
+      <button class="icon-btn" aria-label="Menu" id="menu-toggle">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <line x1="16" y1="16" x2="21" y2="21"></line>
+        </svg>
+      </button>
+      <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span class="cart-badge" id="wishlist-badge" style="background:#e74c3c;display:none;">0</span>
+      </a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart" style="position:relative;">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
+        </svg>
+        <span class="cart-badge" id="cart-badge" style="display:none;">0</span>
+      </a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+  </header>
+
+  <main style="background: #f9f9f9; min-height: calc(100vh - 120px); padding-top: 1px;">
+    <div class="checkout-container">
+      
+      <!-- Checkout Form -->
+      <div>
+        <form id="checkout-form">
+          <div class="checkout-section">
+            <h2 class="checkout-title">1. Customer Details</h2>
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" id="fullname" class="form-control" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="phone">WhatsApp Phone Number</label>
+              <input type="tel" id="phone" class="form-control" required placeholder="07XXXXXXXX">
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <h2 class="checkout-title">2. Delivery Location</h2>
+            <p style="color:#777; margin-bottom: 15px; font-size: 0.9rem;">
+              Please provide your address/location so we can arrange delivery with you via WhatsApp.
+            </p>
+            <div class="form-group">
+              <label for="location">Address / Location</label>
+              <textarea id="location" class="form-control" rows="3" required placeholder="e.g. Westlands, Nairobi..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Complete Order via WhatsApp
+          </button>
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div>
+        <div class="order-summary">
+          <h2 class="checkout-title">Order Summary</h2>
+          <div id="checkout-items"></div>
+          
+          <div class="summary-totals">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="checkout-subtotal">KSh 0</span>
+            </div>
+            <div class="summary-row">
+              <span>Delivery</span>
+              <span>TBD</span>
+            </div>
+            <div class="summary-row total">
+              <span>Grand Total</span>
+              <span id="checkout-total">KSh 0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-overlay-close" id="search-overlay-close">&times;</button>
+    <div class="search-container">
+      <input type="text" class="search-input" id="search-input" placeholder="Search for products..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <aside class="side-menu" id="side-menu">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button class="side-menu-close" id="side-menu-close">&times;</button>
+    </div>
+    <nav class="side-menu-nav">
+      <div class="side-menu-group">
+        <h3>Store</h3>
+        <a href="index.html">Home</a>
+        <a href="categories/tvs.html">TVs</a>
+        <a href="categories/soundbars.html">Soundbars</a>
+        <a href="categories/refrigerators.html">Refrigerators</a>
+        <a href="categories/washing-machines.html">Washing Machines</a>
+        <a href="categories/air-conditioners.html">Air Conditioners</a>
+        <a href="categories/kitchen-appliances.html">Kitchen Appliances</a>
+      </div>
+    </nav>
+  </aside>
+
+  <script src="search-data.js"></script>
+  <script src="site-shared.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const itemsContainer = document.getElementById("checkout-items");
+      const subtotalEl = document.getElementById("checkout-subtotal");
+      const totalEl = document.getElementById("checkout-total");
+      const form = document.getElementById("checkout-form");
+
+      if (cartItems.length === 0) {
+        itemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+      }
+
+      let total = 0;
+      let itemsMarkup = "";
+
+      cartItems.forEach(item => {
+        const qty = item.quantity || 1;
+        const price = Number(item.price || 0);
+        total += (qty * price);
+        
+        itemsMarkup += `
+          <div class="summary-item">
+            <img src="${item.image}" class="summary-img" alt="${item.name}">
+            <div class="summary-info">
+              <h4>${item.name}</h4>
+              <p>Qty: ${qty}</p>
+            </div>
+            <div class="summary-price">KSh ${(qty * price).toLocaleString("en-US")}</div>
+          </div>
+        `;
+      });
+
+      itemsContainer.innerHTML = itemsMarkup;
+      const formattedTotal = "KSh " + total.toLocaleString("en-US");
+      subtotalEl.textContent = formattedTotal;
+      totalEl.textContent = formattedTotal;
+
+      // Ensure badges
+      const cartBadge = document.getElementById("cart-badge");
+      if (cartBadge) {
+        const count = cartItems.reduce((s, i) => s + (i.quantity || 1), 0);
+        cartBadge.textContent = count;
+        cartBadge.style.display = count > 0 ? "flex" : "none";
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById("fullname").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const location = document.getElementById("location").value.trim();
+        
+        let msg = `*New Order from Grand Gesture* 🛍️\n\n`;
+        msg += `*Customer Details*\nName: ${name}\nPhone: ${phone}\nLocation: ${location}\n\n`;
+        msg += `*Order Summary*\n`;
+        
+        cartItems.forEach(item => {
+          msg += `- ${item.quantity || 1}x ${item.name} (KSh ${(item.quantity || 1) * Number(item.price)} )\n`;
+        });
+        
+        msg += `\n*Total: ${formattedTotal}*`;
+        msg += `\n\nPlease let me know the delivery/pickup arrangements!`;
+
+        const waNumber = "254700083596";
+        const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+        
+        // Clear cart after checkout
+        localStorage.removeItem("cartItems");
+        
+        window.location.href = waUrl;
+      });
+    });
+  </script>
+</body>
+</html>
