@@ -312,13 +312,20 @@
       let itemsMarkup = "";
 
       cartItems.forEach(item => {
+        let imgUrl = item.image || "";
+        if (!imgUrl || imgUrl === "undefined") {
+          const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
+          if (pData) imgUrl = pData.image;
+        }
+        imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
+        item.image = imgUrl; // fix for display
         const qty = item.quantity || 1;
         const price = Number(item.price || 0);
         total += (qty * price);
         
         itemsMarkup += `
           <div class="summary-item">
-            <img src="${item.image}" class="summary-img" alt="${item.name}">
+            <img src="${(item.image || '').replace(/^(\.\.\/)+/, '')}" class="summary-img" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${item.name}">
             <div class="summary-info">
               <h4>${item.name}</h4>
               <p>Qty: ${qty}</p>

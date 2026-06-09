@@ -128,7 +128,14 @@
         itemsContainer.hidden = false;
         emptyMsg.hidden = true;
 
-        const markup = items.map(item => `
+        const markup = items.map(item => {
+          let imgUrl = item.image || "";
+          if (!imgUrl || imgUrl === "undefined") {
+            const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
+            if (pData) imgUrl = pData.image;
+          }
+          imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
+          return `
           <article class="cart-item">
             <a href="${item.url || '#'}"><img class="cart-item-image" src="${item.image}" alt="${item.name}" onerror="this.style.display='none'"></a>
             <div class="cart-item-info">
@@ -148,7 +155,7 @@
               </div>
             </div>
           </article>
-        `).join("");
+        `}).join("");
 
         itemsContainer.innerHTML = markup;
       }

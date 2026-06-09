@@ -209,13 +209,20 @@
 
         const itemsMarkup = cartItems
           .map((item) => {
+            let imgUrl = item.image || "";
+            if (!imgUrl || imgUrl === "undefined") {
+              const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
+              if (pData) imgUrl = pData.image;
+            }
+            imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
+            item.image = imgUrl;
             const quantity = item.quantity || 1;
             const unitPrice = Number(item.price || 0);
             const lineTotal = unitPrice * quantity;
 
             return `
               <article class="cart-item">
-                <img class="cart-item-image" src="${item.image}" alt="${item.name}" />
+                <img class="cart-item-image" src="${(item.image || '').replace(/^(\.\.\/)+/, '')}" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${item.name}" />
                 <div class="cart-item-info">
                   <h2>${item.name}</h2>
                   <p class="cart-item-category">${item.category || "Electronics"}</p>
@@ -236,7 +243,14 @@
           .join("");
 
         const total = cartItems.reduce((sum, item) => {
-          const quantity = item.quantity || 1;
+          let imgUrl = item.image || "";
+            if (!imgUrl || imgUrl === "undefined") {
+              const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
+              if (pData) imgUrl = pData.image;
+            }
+            imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
+            item.image = imgUrl;
+            const quantity = item.quantity || 1;
           const unitPrice = Number(item.price || 0);
           return sum + quantity * unitPrice;
         }, 0);
