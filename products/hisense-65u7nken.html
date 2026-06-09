@@ -1,841 +1,346 @@
 <!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV - Grand Gesture</title>
-    <meta name="description" content="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV. Large screen home theater with Dolby Vision Atmos and 4K resolution.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    <style>
-      .product-page {
-        padding: 24px 30px 40px;
-        min-height: calc(100vh - 92px);
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV - Grand Gesture</title>
+  <meta name="description" content="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV - Available at Grand Gesture.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="product-template.css">
+</head>
+<body class="tv-layout">
 
-      .product-container {
-        max-width: 1240px;
-        margin: 0 auto;
-      }
-
-      .product-back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: #6a7a8f;
-        text-decoration: none;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.84rem;
-        font-weight: 600;
-        margin-bottom: 20px;
-        transition: color 0.2s;
-      }
-
-      .product-back-link:hover {
-        color: #d8b45a;
-      }
-
-      .product-back-link svg {
-        width: 16px;
-        height: 16px;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 2.5;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .product-hero {
-        display: grid;
-        grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-        gap: 36px;
-        align-items: start;
-      }
-
-      .product-image-wrap {
-        background: #fff;
-        border: 1px solid #dadada;
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      .product-image-wrap img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .product-details {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .product-name {
-        margin: 0;
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-        font-weight: 700;
-        color: #1a1a1a;
-        line-height: 1.15;
-      }
-
-      .product-series {
-        margin: 6px 0 0;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #8a6d2b;
-        letter-spacing: 0.03em;
-      }
-
-      .product-features-title {
-        margin: 24px 0 14px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.88rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #444;
-      }
-
-      .product-features {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 0;
-      }
-
-      .product-features li {
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        padding: 11px 0;
-        border-bottom: 1px solid #ececec;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.95rem;
-        color: #2a2a2a;
-      }
-
-      .product-features li:last-child {
-        border-bottom: none;
-      }
-
-      .feature-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #2ec4b6;
-        flex-shrink: 0;
-        margin-top: 5px;
-      }
-
-      .product-buy-section {
-        margin: 28px 0 0;
-        display: flex;
-        gap: 12px;
-      }
-
-      .product-buy-wrap {
-        position: relative;
-        flex: 1;
-      }
-
-      .product-add-wrap {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .product-add-btn {
-        width: 100%;
-        min-height: 56px;
-        border: 1px solid #c9962c;
-        border-radius: 4px;
-        background: linear-gradient(180deg, #11141c 0%, #090b12 58%, #030409 100%);
-        color: #f6d983;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.1rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        cursor: pointer;
-        box-shadow: inset 0 1px 0 rgba(255,235,180,0.16), 0 8px 20px rgba(0,0,0,0.24);
-        transition: all 0.2s;
-      }
-
-      .product-add-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(180deg, #11141c 0%, #090b12 58%, #030409 100%);
-        border: 1px solid #c9962c;
-        border-radius: 4px;
-        opacity: 0;
-        transform: translateY(100%);
-        transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        pointer-events: none;
-        z-index: 5;
-        cursor: pointer;
-        gap: 2px;
-        padding: 4px 6px;
-      }
-
-      .product-add-overlay span {
-        color: #f6d983;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        white-space: nowrap;
-      }
-
-      .product-add-overlay .overlay-original-price {
-        text-decoration: line-through;
-        color: rgba(246, 217, 131, 0.5);
-        font-size: 0.78rem;
-        font-weight: 600;
-        margin: 0;
-        line-height: 1;
-      }
-
-      .product-add-wrap:hover .product-add-overlay,
-      .product-add-wrap:focus-within .product-add-overlay {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-
-      .product-add-overlay:hover {
-        border-color: #d8a538;
-        box-shadow: inset 0 1px 0 rgba(255, 235, 180, 0.22), 0 4px 12px rgba(0, 0, 0, 0.28);
-      }
-
-      .product-add-overlay:hover span {
-        color: #ffe7ad;
-      }
-
-      .product-add-overlay:hover .overlay-original-price {
-        color: rgba(255, 231, 173, 0.55);
-      }
-
-      .product-add-overlay.overlay--added {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-        background: linear-gradient(180deg, #1a3d1a 0%, #0d260d 58%, #061006 100%);
-        border-color: #4caf50;
-      }
-
-      .product-add-overlay.overlay--added span {
-        color: #a5d6a7;
-      }
-
-      .product-dropdown {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: calc(100% + 10px);
-        background: #fff;
-        border: 1px solid #d8d8d8;
-        border-radius: 8px;
-        padding: 12px;
-        box-shadow: 0 10px 22px rgba(0,0,0,0.14);
-        z-index: 20;
-      }
-
-      .product-dropdown-name {
-        margin: 0 0 4px;
-        color: #2c2c2c;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.82rem;
-        font-weight: 600;
-      }
-
-      .product-dropdown-price {
-        margin: 0 0 10px;
-        color: #222;
-        font-family: "Montserrat", sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-      }
-
-      .product-confirm-btn {
-        width: 100%;
-        border: 1px solid #2a2a2a;
-        background: #2a2a2a;
-        color: #fff;
-        border-radius: 6px;
-        padding: 9px 10px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-
-      .product-confirm-btn:hover,
-      .product-confirm-btn:focus-visible {
-        background: #3b3b3b;
-        border-color: #3b3b3b;
-        outline: none;
-      }
-
-      .product-back-btn {
-        min-height: 56px;
-        padding: 0 24px;
-        border: 1px solid #bcbcbc;
-        border-radius: 4px;
-        background: #fff;
-        color: #404040;
-        font-family: "Montserrat", sans-serif;
-        font-size: 0.88rem;
-        font-weight: 600;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-
-      .product-back-btn:hover,
-      .product-back-btn:focus-visible {
-        border-color: #888;
-        background: #f5f5f5;
-        outline: none;
-      }
-
-      @media (max-width: 900px) {
-        .product-page {
-          padding: 16px 14px 30px;
-        }
-
-        .product-hero {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .product-image-wrap {
-          max-width: 520px;
-        }
-
-        .product-buy-section {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body class="tv-layout">
-    <header class="top-header" aria-label="Main header">
-      <a href="../index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
-
-      <nav class="header-actions" aria-label="Quick actions">
-        <a href="../cart.html" class="icon-btn" aria-label="Cart" style="position: relative;">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
-          </svg>
-          <span class="cart-badge" id="cart-badge" style="display:flex;">0</span>
-          </a>
-
-        <button class="icon-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5"></circle>
-            <line x1="16" y1="16" x2="21" y2="21"></line>
-          </svg>
-        </button>
-
-        <button class="icon-btn" aria-label="Menu" id="menu-toggle">
+  <!-- Header -->
+  <header class="top-header" aria-label="Main header">
+    <nav class="header-actions" aria-label="Quick actions">
+      <button class="icon-btn" aria-label="Menu" id="menu-toggle">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-      
-      </button></nav>
-    </header>
+      </button>
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <line x1="16" y1="16" x2="21" y2="21"></line>
+        </svg>
+      </button>
+      <a href="../cart.html" class="icon-btn" aria-label="Cart" style="position:relative;">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
+        </svg>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </a>
+    </nav>
+    <a href="../index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+  </header>
 
-    
+  <!-- Main Content -->
+  <main class="pdp" aria-label="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV product page">
+    <div class="pdp-container">
 
-    <main class="product-page" aria-label="Hisense 65U7NKEN product page">
-      <div class="product-container">
+      <!-- Breadcrumb -->
+      <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="../categories/tvs.html">TVs</a>
+        <span class="bc-sep">›</span>
+        <span class="bc-current">Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV</span>
+      </nav>
 
-        <a href="../categories/tvs.html" class="product-back-link">
-          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          Back to all TVs
-        </a>
+      <!-- Hero: Image + Info -->
+      <section class="pdp-hero">
 
-        <section class="product-hero" aria-label="Product overview">
+        <!-- Image Gallery -->
+        <div class="pdp-gallery">
+          <div class="pdp-main-image">
+            <span class="pdp-badge pdp-badge--sale">-47%</span>
+            <img src="../images/Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV.png" alt="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV">
+          </div>
+        </div>
 
-          <figure class="product-image-wrap">
-            <img src="../images/Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV.png" alt="Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV">
-          </figure>
+        <!-- Product Info -->
+        <div class="pdp-info">
+          <p class="pdp-series">Mini-LED ULED � 4K UHD television</p>
+          <h1 class="pdp-title">Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV</h1>
 
-          <div class="product-details">
-            <h1 class="product-name">Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV</h1>
-            <p class="product-series">Mini-LED ULED � 4K UHD television</p>
+          <!-- Rating -->
+          <div class="pdp-rating">
+            <div class="pdp-stars">★★★★★</div>
+            <span class="pdp-rating-count">(In Stock)</span>
+          </div>
 
-            <h2 class="product-features-title">Product Features</h2>
-            <ul class="product-features" id="product-features">
-              <li>
-                <span class="feature-dot"></span>
-                <span>ULED 4K UHD television</span>
-              </li>
-              <li>
-                <span class="feature-dot"></span>
-                <span>Large screen home theater TV</span>
-              </li>
-              <li>
-                <span class="feature-dot"></span>
-                <span>Dolby Vision Atmos TV</span>
-              </li>
-              <li>
-                <span class="feature-dot"></span>
-                <span>Mini-LED ULED display</span>
-              </li>
-              <li>
-                <span class="feature-dot"></span>
-                <span>4K resolution Hisense TV</span>
-              </li>
-            </ul>
+          <!-- Price -->
+          
+        <div class="pdp-price-block">
+          <p class="pdp-price">KSh 95,000</p>
+          <p class="pdp-original-price">KSh 120,000</p>
+          <span class="pdp-discount">Save 47%</span>
+        </div>
 
-            <div class="product-buy-section">
-              <div class="product-add-wrap" id="product-add-wrap">
-                <button type="button" class="product-add-btn" id="add-to-cart-btn">
-                  Add to Cart
-                </button>
-                <div class="product-add-overlay" id="product-add-overlay">
-                  <span class="overlay-original-price">Ksh 120,000</span>
-                  <span>Add to Cart</span>
-                  <span>Ksh 98,495</span>
+          <!-- Availability -->
+          <div class="pdp-availability pdp-availability--in-stock">
+            <span class="pdp-availability-dot"></span>
+            <span>In Stock — Ready to Ship</span>
+          </div>
+
+          <!-- Actions -->
+          <div class="pdp-actions">
+            <button type="button" class="pdp-add-btn btn-add-cart" id="pdp-add-btn" data-name="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV" data-price="95000" data-category="TVs" data-image="../images/Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV.png"> Add to Cart — KSh 95,000<svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg> Add to Cart — KSh 95,000</button>
+            <a href="../categories/tvs.html" class="pdp-back-btn">View All TVs</a>
+          </div>
+
+          <!-- Tabs -->
+          <div class="pdp-tabs">
+            <div class="pdp-tab-nav">
+              <button class="pdp-tab-btn active" data-tab="features">Features</button>
+              
+              <button class="pdp-tab-btn" data-tab="delivery">Delivery</button>
+            </div>
+
+            <div class="pdp-tab-content active" id="tab-features">
+              <ul class="pdp-features">
+            <li><span class="pdp-feature-icon"></span><span>ULED 4K UHD television</span></li>
+            <li><span class="pdp-feature-icon"></span><span>Large screen home theater TV</span></li>
+            <li><span class="pdp-feature-icon"></span><span>Dolby Vision Atmos TV</span></li>
+            <li><span class="pdp-feature-icon"></span><span>Mini-LED ULED display</span></li>
+            <li><span class="pdp-feature-icon"></span><span>4K resolution Hisense TV</span></li>
+              </ul>
+            </div>
+
+            
+
+            <div class="pdp-tab-content" id="tab-delivery">
+              <div class="pdp-delivery">
+                <div class="pdp-delivery-item">
+                  <div class="pdp-delivery-icon">
+                    <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                  </div>
+                  <div class="pdp-delivery-text">
+                    <h4>Fast Nationwide Delivery</h4>
+                    <p>Delivery within Nairobi in 24-48 hours. Countrywide delivery available within 3-5 business days.</p>
+                  </div>
+                </div>
+                <div class="pdp-delivery-item">
+                  <div class="pdp-delivery-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                  </div>
+                  <div class="pdp-delivery-text">
+                    <h4>Warranty Included</h4>
+                    <p>All products come with manufacturer warranty. Extended warranty options available at checkout.</p>
+                  </div>
+                </div>
+                <div class="pdp-delivery-item">
+                  <div class="pdp-delivery-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                  </div>
+                  <div class="pdp-delivery-text">
+                    <h4>Easy Returns</h4>
+                    <p>7-day return policy on all items. Contact us for hassle-free returns and exchanges.</p>
+                  </div>
                 </div>
               </div>
-              <a href="../categories/tvs.html" class="product-back-btn">View All TVs</a>
             </div>
           </div>
 
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+
+      
+      <!-- Related Products -->
+      <section class="pdp-related">
+        <h2 class="pdp-related-title">You May Also Like</h2>
+        <div class="pdp-related-grid">
+          
+          <a href="../products/hisense-100u7ken.html" class="pdp-related-card">
+            <div class="pdp-related-card-img">
+              <img src="../images/hisense-100u7ken.png" alt="Hisense 100&quot; 100U7KEN Smart 4K UHD MiniLED TV" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="pdp-related-card-info">
+              <p class="pdp-related-card-name">Hisense 100" 100U7KEN Smart 4K UHD MiniLED TV</p>
+              <p class="pdp-related-card-price">Contact for price</p>
+            </div>
+          </a>
+          <a href="../products/hisense-55-uled-u6-pro.html" class="pdp-related-card">
+            <div class="pdp-related-card-img">
+              <img src="../images/Hisense 55 ULED Mini LED U6 Pro.png" alt="Hisense 55&quot; ULED MINI-LED" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="pdp-related-card-info">
+              <p class="pdp-related-card-name">Hisense 55" ULED MINI-LED</p>
+              <p class="pdp-related-card-price">Contact for price</p>
+            </div>
+          </a>
+          <a href="../products/hisense-55u6n.html" class="pdp-related-card">
+            <div class="pdp-related-card-img">
+              <img src="../images/Hisense 55 U6N Pro.png" alt="Hisense 55&quot; 55U6N ULED PRO Mini Led 4K TV" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="pdp-related-card-info">
+              <p class="pdp-related-card-name">Hisense 55" 55U6N ULED PRO Mini Led 4K TV</p>
+              <p class="pdp-related-card-price">Contact for price</p>
+            </div>
+          </a>
+          <a href="../products/hisense-55u7n.html" class="pdp-related-card">
+            <div class="pdp-related-card-img">
+              <img src="../images/hisense-55u7n.png" alt="Hisense 55U7N 55&quot; Mini-LED ULED 4K TV" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="pdp-related-card-info">
+              <p class="pdp-related-card-name">Hisense 55U7N 55" Mini-LED ULED 4K TV</p>
+              <p class="pdp-related-card-price">Contact for price</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
 
   <!-- Trust Bar -->
   <section class="trust-bar">
     <div class="trust-bar-inner">
       <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="1" y="3" width="15" height="13"></rect>
-          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-          <circle cx="5.5" cy="18.5" r="2.5"></circle>
-          <circle cx="18.5" cy="18.5" r="2.5"></circle>
-        </svg>
-        <div class="trust-item-text">
-          <h4>Fast Delivery</h4>
-          <p>Nationwide Shipping</p>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        <div class="trust-item-text"><h4>Fast Delivery</h4><p>Nationwide Shipping</p></div>
       </div>
       <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          <path d="M9 12l2 2 4-4"></path>
-        </svg>
-        <div class="trust-item-text">
-          <h4>Secure Checkout</h4>
-          <p>100% Protected</p>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <div class="trust-item-text"><h4>Secure Checkout</h4><p>100% Protected</p></div>
       </div>
       <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="8" r="7"></circle>
-          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-        </svg>
-        <div class="trust-item-text">
-          <h4>100% Genuine</h4>
-          <p>Certified Products</p>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        <div class="trust-item-text"><h4>100% Genuine</h4><p>Certified Products</p></div>
       </div>
       <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 2v6h-6"></path>
-          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-          <path d="M3 3v5h5"></path>
-        </svg>
-        <div class="trust-item-text">
-          <h4>Easy Returns</h4>
-          <p>Hassle-Free Policy</p>
-        </div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+        <div class="trust-item-text"><h4>Easy Returns</h4><p>Hassle-Free Policy</p></div>
       </div>
     </div>
   </section>
 
-
-  
-
-
-    <script>
-      /* -- Categories menu toggle -- */
-      const menuToggle = document.getElementById("menu-toggle");
-      const categoriesMenu = document.getElementById("categories-menu");
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        categoriesMenu.hidden = isOpen;
-      });
-
-      document.addEventListener("click", (event) => {
-        if (
-          !categoriesMenu.contains(event.target) &&
-          !menuToggle.contains(event.target)
-        ) {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-
-      /* -- Cart helpers -- */
-      function getCartItems() {
-        return JSON.parse(localStorage.getItem("cartItems")) || [];
-      }
-
-      function saveCartItems(items) {
-        localStorage.setItem("cartItems", JSON.stringify(items));
-      }
-
-      /* -- Add to Cart with overlay -- */
-      const overlay = document.getElementById("product-add-overlay");
-
-      const productItem = {
-        id: "hisense-65u7nken-mini-led",
-        name: 'Hisense 65U7NKEN 65" Series Mini-LED ULED 4K TV',
-        price: 98495,
-        displayPrice: "Ksh 98,495",
-        originalPrice: 120000,
-        category: "TV's",
-        image: "images/Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV.png",
-      };
-
-      /* Click overlay to add to cart */
-      overlay.addEventListener("click", () => {
-        const cartItems = getCartItems();
-        const existing = cartItems.find((ci) => ci.id === productItem.id);
-
-        if (existing) {
-          existing.quantity = (existing.quantity || 1) + 1;
-          existing.price = productItem.price;
-          existing.displayPrice = productItem.displayPrice;
-          existing.image = productItem.image;
-          existing.category = productItem.category;
-          existing.name = productItem.name;
-        } else {
-          cartItems.push({ ...productItem, quantity: 1 });
-        }
-
-        saveCartItems(cartItems);
-
-        overlay.classList.add("overlay--added");
-        overlay.innerHTML = '<span>Added ?</span>';
-        setTimeout(() => {
-          overlay.classList.remove("overlay--added");
-          overlay.innerHTML = '<span class="overlay-original-price">Ksh 120,000</span><span>Add to Cart</span><span>Ksh 98,495</span>';
-        }, 1300);
-      });
-    </script>
-  
-<!-- Cart Modal -->
-<div class="cart-modal-overlay" id="cart-modal">
-  <div class="cart-modal">
-    <button class="cart-modal-close" id="cart-modal-close">×</button>
-    <div class="cart-modal-header">
-      <div class="cart-modal-icon">✔</div>
-      <div>
-        <h3 class="cart-modal-title" id="cart-modal-title">Added to Cart</h3>
-        <p class="cart-modal-msg" id="cart-modal-msg">Item has been added to your cart.</p>
-      </div>
-    </div>
-    <div class="cart-modal-recs" id="cart-modal-recs" style="display:none;">
-      <h4>Frequently Bought Together</h4>
-      <div class="rec-item" id="rec-item-container">
-        <!-- populated by JS -->
-      </div>
-    </div>
-    <div class="cart-modal-actions">
-      <button class="btn-outline" id="cart-modal-continue">Continue Shopping</button>
-      <a href="../cart.html" class="btn-primary">View Cart</a>
-    </div>
-  </div>
-</div>
-
-<script>
-  /* ── Enhanced Cart Logic with Recommendations ── */
-
-  // Badge logic
-  function updateCartBadge() {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    const total = cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    const badge = document.getElementById("cart-badge");
-    if (badge) {
-      badge.textContent = total;
-      badge.style.display = "flex";
-    }
-  }
-  updateCartBadge();
-
-  const formatKshPrice = (num) => "KSh " + num.toLocaleString("en-US");
-  
-  const recData = [
-    { name: "Hisense 55 ULED Mini LED U6 Pro", price: 63800, category: "TVs", image: "images/Hisense 55 ULED Mini LED U6 Pro.png" },
-    { name: "Hisense AX3100G 3.1CH Soundbar", price: 19000, category: "Sound Bars", image: "images/Hisense AX3100G 3.1CH Soundbar, 280W – Black.png" },
-    { name: "Hisense 10.5/6kg Wash & Dry", price: 58000, category: "Washing Machines", image: "images/Washing machine Front load 10.5 6kg.png" },
-    { name: "Hisense 12000 BTU Air Conditioner", price: 45000, category: "Air Conditioners", image: "images/Air conditioner 2.png" },
-    { name: "Hisense Fridge 424L Double Door", price: 63000, category: "Refrigerators", image: "images/Hisense Fridge 424L Double Door Silver REF418DR.png" },
-    { name: "Hisense 6.3L Air Fryer", price: 12000, category: "Kitchen Appliances", image: "images/Hisense 6.3L Air Fryer H06AFBS1S3.png" }
-  ];
-
-  function getRecommendation(addedCategory) {
-    if (!addedCategory) return recData[1];
-    const cat = addedCategory.toLowerCase();
-    let recCat = "Sound Bars";
-    if (cat.includes("tv")) recCat = "Sound Bars";
-    else if (cat.includes("sound")) recCat = "TVs";
-    else if (cat.includes("wash")) recCat = "Air Conditioners";
-    else if (cat.includes("refrigerator")) recCat = "Kitchen Appliances";
-    else if (cat.includes("kitchen")) recCat = "Refrigerators";
-    else if (cat.includes("air")) recCat = "Washing Machines";
-    
-    return recData.find(r => r.category === recCat) || recData[0];
-  }
-
-  function addSpecificItemToCart(item) {
-    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    const existing = cartItems.find((ci) => ci.name === item.name);
-    let isNew = false;
-    if (existing) {
-      existing.quantity = (existing.quantity || 1) + 1;
-    } else {
-      cartItems.push(Object.assign({}, item, {
-        id: item.name.toLowerCase().replace(/\s+/g, "-") + "-" + Date.now(),
-        quantity: 1,
-      }));
-      isNew = true;
-    }
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    if(typeof updateCartBadge === "function") updateCartBadge();
-    showCartModal(item, isNew);
-  }
-
-  function showCartModal(item, isNew) {
-    const modal = document.getElementById('cart-modal');
-    if (!modal) return;
-    
-    const title = document.getElementById('cart-modal-title');
-    const msg = document.getElementById('cart-modal-msg');
-    
-    if (isNew) {
-      title.textContent = "Added to Cart!";
-      msg.textContent = item.name + " was added to your cart.";
-    } else {
-      title.textContent = "Cart Updated!";
-      msg.textContent = item.name + " is already in your cart. We increased the quantity.";
-    }
-    
-    // Recommendations
-    const recsBlock = document.getElementById('cart-modal-recs');
-    const recContainer = document.getElementById('rec-item-container');
-    const rec = getRecommendation(item.category);
-    
-    if (rec && rec.name !== item.name) {
-      const isSubdir = window.location.pathname.includes('categories/') || window.location.pathname.includes('brands/');
-      const basePath = isSubdir ? '../' : '';
-      const imgPath = basePath + rec.image;
-      
-      recContainer.innerHTML = `
-        <img src="${imgPath}" alt="Recommendation">
-        <div class="rec-item-info">
-          <p class="rec-item-name">${rec.name}</p>
-          <p class="rec-item-price">${formatKshPrice(rec.price)}</p>
-          <button class="btn-primary btn-add-cart" data-name="${rec.name}" data-price="${rec.price}" data-category="${rec.category}" data-image="${imgPath}" style="padding: 4px 8px; font-size: 0.8rem; margin-top: 5px;">Add Too</button>
+  <!-- Cart Modal -->
+  <div class="cart-modal-overlay" id="cart-modal">
+    <div class="cart-modal">
+      <button class="cart-modal-close" id="cart-modal-close">×</button>
+      <div class="cart-modal-header">
+        <div class="cart-modal-icon">✔</div>
+        <div>
+          <h3 class="cart-modal-title" id="cart-modal-title">Added to Cart</h3>
+          <p class="cart-modal-msg" id="cart-modal-msg">Item has been added to your cart.</p>
         </div>
-      `;
-      recsBlock.style.display = 'block';
-      
-      // Bind event to new button
-      const newBtn = recContainer.querySelector('.btn-add-cart');
-      newBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        addSpecificItemToCart({
-          name: rec.name, price: rec.price, displayPrice: formatKshPrice(rec.price), category: rec.category, image: imgPath
+      </div>
+      <div class="cart-modal-recs" id="cart-modal-recs" style="display:none;">
+        <h4>Frequently Bought Together</h4>
+        <div class="rec-item" id="rec-item-container"></div>
+      </div>
+      <div class="cart-modal-actions">
+        <button class="btn-outline" id="cart-modal-continue">Continue Shopping</button>
+        <a href="../cart.html" class="btn-primary">View Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-overlay-close" id="search-overlay-close">×</button>
+    <div class="search-container">
+      <input type="text" class="search-input" id="search-input" placeholder="Search for products..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <aside class="side-menu" id="side-menu">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button class="side-menu-close" id="side-menu-close">×</button>
+    </div>
+    <nav class="side-menu-nav">
+      <div class="side-menu-group">
+        <h3>Store</h3>
+        <a href="../index.html">Home</a>
+        <a href="../categories/tvs.html">TVs</a>
+        <a href="../categories/soundbars.html">Soundbars</a>
+        <a href="../categories/refrigerators.html">Refrigerators</a>
+        <a href="../categories/washing-machines.html">Washing Machines</a>
+        <a href="../categories/air-conditioners.html">Air Conditioners</a>
+        <a href="../categories/kitchen-appliances.html">Kitchen Appliances</a>
+      </div>
+      <div class="side-menu-group">
+        <h3>Account</h3>
+        <a href="#">My Account</a>
+        <a href="#">Order History</a>
+        <a href="#">Settings</a>
+      </div>
+      <div class="side-menu-group">
+        <h3>System</h3>
+        <a href="../admin.html" class="admin-link">Admin Dashboard</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- Sticky Mobile Bar -->
+  <div class="pdp-sticky-bar" id="pdp-sticky-bar">
+    <span class="pdp-sticky-price">KSh 95,000</span>
+    <button class="pdp-sticky-btn btn-add-cart" data-name="Hisense 65U7NKEN 65&quot; Series Mini-LED ULED 4K TV" data-price="95000" data-category="TVs" data-image="../images/Hisense 65U7NKEN 65 Inch Series Mini-LED ULED 4K TV.png">Add to Cart</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../search-data.js"></script>
+  <script src="../cart-shared.js"></script>
+  <script src="../site-shared.js"></script>
+  <script>
+    /* ── Tabs ── */
+    document.querySelectorAll(".pdp-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".pdp-tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".pdp-tab-content").forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        const tab = btn.dataset.tab;
+        const content = document.getElementById("tab-" + tab);
+        if (content) content.classList.add("active");
+      });
+    });
+
+    /* ── Sticky bar visibility ── */
+    (function() {
+      const addBtn = document.getElementById("pdp-add-btn");
+      const stickyBar = document.getElementById("pdp-sticky-bar");
+      if (!addBtn || !stickyBar) return;
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            stickyBar.classList.add("visible");
+          } else {
+            stickyBar.classList.remove("visible");
+          }
         });
-      });
-      
-    } else {
-      recsBlock.style.display = 'none';
-    }
-    
-    modal.classList.add('active');
-  }
+      }, { threshold: 0 });
 
-  // Close modal logic
-  document.addEventListener("DOMContentLoaded", () => {
-    const closeBtns = document.querySelectorAll('#cart-modal-close, #cart-modal-continue');
-    closeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('cart-modal').classList.remove('active');
-      });
-    });
-    
-    // Override existing Add to Cart buttons
-    document.querySelectorAll(".btn-add-cart").forEach((btn) => {
-      // remove old listeners by cloning
-      const newBtn = btn.cloneNode(true);
-      btn.parentNode.replaceChild(newBtn, btn);
-      
-      newBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const item = {
-          name: newBtn.dataset.name || "Product",
-          price: Number(newBtn.dataset.price) || 0,
-          displayPrice: formatKshPrice(Number(newBtn.dataset.price) || 0),
-          category: newBtn.dataset.category || "Products",
-          image: newBtn.dataset.image || "",
-        };
-        addSpecificItemToCart(item);
+      observer.observe(addBtn);
+    })();
+
+    /* ── Add to Cart feedback ── */
+    document.querySelectorAll(".pdp-add-btn, .pdp-sticky-btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        if (this.disabled) return;
+        const orig = this.innerHTML;
+        this.classList.add("pdp-btn--added");
+        this.innerHTML = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor;stroke:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Added!';
+        setTimeout(() => {
+          this.classList.remove("pdp-btn--added");
+          this.innerHTML = orig;
+        }, 1500);
       });
     });
-  });
-</script>
+  </script>
 
 
-
-<div id="categories-menu" style="display:none;"></div>
-
-<div class="search-overlay" id="search-overlay">
-  <button class="search-overlay-close" id="search-overlay-close">×</button>
-  <div class="search-container">
-    <input type="text" class="search-input" id="search-input" placeholder="Search for products..." autocomplete="off">
-    <div class="search-results" id="search-results"></div>
-  </div>
-</div>
-<script src="../search-data.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const searchBtns = document.querySelectorAll('button[aria-label="Search"]');
-    const searchOverlay = document.getElementById('search-overlay');
-    const searchClose = document.getElementById('search-overlay-close');
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
-    
-    const isSubdir = window.location.pathname.includes('/categories/') || window.location.pathname.includes('/brands/') || window.location.pathname.includes('/products/');
-    const pathPrefix = isSubdir ? '../' : '';
-
-    searchBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        searchOverlay.classList.add('active');
-        searchInput.focus();
-      });
-    });
-
-    searchClose.addEventListener('click', () => {
-      searchOverlay.classList.remove('active');
-    });
-
-    searchOverlay.addEventListener('click', (e) => {
-      if (e.target === searchOverlay) searchOverlay.classList.remove('active');
-    });
-
-    searchInput.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      searchResults.innerHTML = '';
-      if (!query || !window.PRODUCTS_DATA) return;
-
-      const matches = window.PRODUCTS_DATA.filter(p => p.name.toLowerCase().includes(query));
-      
-      matches.slice(0, 10).forEach(product => {
-        const item = document.createElement('a');
-        item.href = pathPrefix + product.url;
-        item.className = 'search-result-item';
-        
-        item.innerHTML = `
-          <img src="${pathPrefix + product.image}" class="search-result-img" alt="${product.name}" onerror="this.style.display='none'">
-          <div class="search-result-info">
-            <p class="search-result-name">${product.name}</p>
-            <p class="search-result-price">KSh ${product.price.toLocaleString("en-US")}</p>
-          </div>
-        `;
-        searchResults.appendChild(item);
-      });
-    });
-  });
-</script>
-
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-<aside class="side-menu" id="side-menu">
-  <div class="side-menu-header">
-    <h2>Menu</h2>
-    <button class="side-menu-close" id="side-menu-close">&times;</button>
-  </div>
-  <nav class="side-menu-nav">
-    <div class="side-menu-group">
-      <h3>Store</h3>
-      <a href="../index.html">Home</a>
-      <a href="../categories/tvs.html">TVs</a>
-      <a href="../categories/soundbars.html">Soundbars</a>
-      <a href="../categories/refrigerators.html">Refrigerators</a>
-      <a href="../categories/washing-machines.html">Washing Machines</a>
-      <a href="../categories/air-conditioners.html">Air Conditioners</a>
-      <a href="../categories/kitchen-appliances.html">Kitchen Appliances</a>
-    </div>
-    <div class="side-menu-group">
-      <h3>Account</h3>
-      <a href="#">My Account</a>
-      <a href="#">Order History</a>
-      <a href="#">Settings</a>
-    </div>
-    <div class="side-menu-group">
-      <h3>System</h3>
-      <a href="../admin.html" class="admin-link">Admin Dashboard</a>
-    </div>
-  </nav>
-</aside>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggleBtn = document.getElementById('menu-toggle');
-    const sideMenu = document.getElementById('side-menu');
-    const sidebarOverlay = document.getElementById('sidebar-overlay');
-    const sideMenuClose = document.getElementById('side-menu-close');
-
-    if (menuToggleBtn && sideMenu) {
-      menuToggleBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        sideMenu.classList.add('active');
-        sidebarOverlay.classList.add('active');
-      });
-    }
-
-    if (sideMenuClose) {
-      sideMenuClose.addEventListener('click', () => {
-        sideMenu.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
-      });
-    }
-
-    if (sidebarOverlay) {
-      sidebarOverlay.addEventListener('click', () => {
-        sideMenu.classList.remove('active');
-        sidebarOverlay.classList.remove('active');
-      });
-    }
-  });
-</script>
 </body></html>

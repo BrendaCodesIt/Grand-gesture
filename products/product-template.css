@@ -1,0 +1,772 @@
+/* ═══════════════════════════════════════════════════════════
+   Grand Gesture — Product Page Styles
+   Premium e-commerce product detail page design
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Product Page Container ── */
+.pdp {
+  padding: 0 0 60px;
+  min-height: calc(100vh - 92px);
+  background: #f5f6f8;
+}
+
+.pdp-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Breadcrumb ── */
+.pdp-breadcrumb {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  color: #8a96a8;
+  flex-wrap: wrap;
+}
+
+.pdp-breadcrumb a {
+  color: #6a7a8f;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pdp-breadcrumb a:hover {
+  color: #d8b45a;
+}
+
+.pdp-breadcrumb .bc-sep {
+  color: #c0c8d4;
+  font-size: 0.7rem;
+}
+
+.pdp-breadcrumb .bc-current {
+  color: #3a4a5c;
+  font-weight: 600;
+}
+
+/* ── Hero Layout ── */
+.pdp-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 20px 0 40px;
+  align-items: start;
+}
+
+/* ── Image Gallery ── */
+.pdp-gallery {
+  position: sticky;
+  top: 110px;
+}
+
+.pdp-main-image {
+  background: #fff;
+  border: 1px solid #e8eaee;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+  cursor: zoom-in;
+  transition: box-shadow 0.3s ease;
+}
+
+.pdp-main-image:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.pdp-main-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pdp-main-image:hover img {
+  transform: scale(1.08);
+}
+
+.pdp-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  z-index: 3;
+}
+
+.pdp-badge--sale {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #fff;
+}
+
+.pdp-badge--new {
+  background: linear-gradient(135deg, #2ec4b6, #1a936f);
+  color: #fff;
+}
+
+.pdp-badge--oos {
+  background: #e63946;
+  color: #fff;
+}
+
+/* ── Product Info ── */
+.pdp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pdp-series {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a6d2b;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdp-series::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, #d8b45a, transparent);
+}
+
+.pdp-title {
+  margin: 0 0 16px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.15;
+}
+
+/* ── Rating ── */
+.pdp-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pdp-stars {
+  display: flex;
+  gap: 2px;
+  color: #f5a623;
+  font-size: 1rem;
+}
+
+.pdp-rating-count {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  color: #8a96a8;
+}
+
+/* ── Price Block ── */
+.pdp-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #faf9f6 0%, #f5f0e8 100%);
+  border: 1px solid #e8dfc8;
+  border-radius: 12px;
+}
+
+.pdp-price {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pdp-original-price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #999;
+  text-decoration: line-through;
+  margin: 0;
+}
+
+.pdp-discount {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e63946;
+  background: #fde8ea;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* ── Availability ── */
+.pdp-availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pdp-availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+.pdp-availability--in-stock .pdp-availability-dot {
+  background: #2ec4b6;
+  box-shadow: 0 0 6px rgba(46, 196, 182, 0.4);
+}
+
+.pdp-availability--in-stock {
+  color: #1a936f;
+}
+
+.pdp-availability--out-of-stock .pdp-availability-dot {
+  background: #e63946;
+  box-shadow: 0 0 6px rgba(230, 57, 70, 0.4);
+  animation: none;
+}
+
+.pdp-availability--out-of-stock {
+  color: #e63946;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Action Buttons ── */
+.pdp-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.pdp-add-btn {
+  flex: 1;
+  min-height: 56px;
+  border: 1px solid #c9962c;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #11141c 0%, #090b12 58%, #030409 100%);
+  color: #f6d983;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 235, 180, 0.16), 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pdp-add-btn:hover {
+  border-color: #d8a538;
+  color: #ffe7ad;
+  box-shadow: inset 0 1px 0 rgba(255, 235, 180, 0.22), 0 12px 28px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.pdp-add-btn:active {
+  transform: translateY(0);
+}
+
+.pdp-add-btn.pdp-btn--added {
+  background: linear-gradient(180deg, #1a3d1a 0%, #0d260d 58%, #061006 100%);
+  border-color: #4caf50;
+  color: #a5d6a7;
+}
+
+.pdp-add-btn:disabled {
+  background: #d4d4d4;
+  border-color: #bbb;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.pdp-add-btn:disabled:hover {
+  transform: none;
+}
+
+.pdp-add-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  stroke: none;
+}
+
+.pdp-back-btn {
+  min-height: 56px;
+  padding: 0 24px;
+  border: 1px solid #d0d4dc;
+  border-radius: 10px;
+  background: #fff;
+  color: #404040;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.pdp-back-btn:hover {
+  border-color: #888;
+  background: #f5f5f5;
+}
+
+/* ── Tabs ── */
+.pdp-tabs {
+  margin-bottom: 32px;
+}
+
+.pdp-tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e4e6ea;
+  margin-bottom: 0;
+}
+
+.pdp-tab-btn {
+  padding: 14px 28px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #8a96a8;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.pdp-tab-btn:hover {
+  color: #3a4a5c;
+}
+
+.pdp-tab-btn.active {
+  color: #1a1a1a;
+  border-bottom-color: #d8b45a;
+}
+
+.pdp-tab-content {
+  display: none;
+  padding: 28px 0;
+  animation: fadeTab 0.3s ease;
+}
+
+.pdp-tab-content.active {
+  display: block;
+}
+
+@keyframes fadeTab {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Features List ── */
+.pdp-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.pdp-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #ececec;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  color: #2a2a2a;
+  line-height: 1.4;
+}
+
+.pdp-features li:last-child {
+  border-bottom: none;
+}
+
+.pdp-feature-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2ec4b6, #1a936f);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ── Specs Table ── */
+.pdp-specs {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pdp-specs tr {
+  border-bottom: 1px solid #ececec;
+}
+
+.pdp-specs tr:last-child {
+  border-bottom: none;
+}
+
+.pdp-specs td {
+  padding: 14px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.92rem;
+  vertical-align: top;
+}
+
+.pdp-specs td:first-child {
+  color: #8a96a8;
+  font-weight: 500;
+  width: 40%;
+  padding-right: 20px;
+}
+
+.pdp-specs td:last-child {
+  color: #2a2a2a;
+  font-weight: 600;
+}
+
+/* ── Delivery Info ── */
+.pdp-delivery {
+  display: grid;
+  gap: 16px;
+}
+
+.pdp-delivery-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #e8eaee;
+  border-radius: 10px;
+}
+
+.pdp-delivery-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5f0e8, #efe6d5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pdp-delivery-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #8a6d2b;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pdp-delivery-text h4 {
+  margin: 0 0 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.pdp-delivery-text p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  color: #8a96a8;
+  line-height: 1.4;
+}
+
+/* ── Related Products ── */
+.pdp-related {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #e4e6ea;
+}
+
+.pdp-related-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 28px;
+  text-align: center;
+}
+
+.pdp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.pdp-related-card {
+  background: #fff;
+  border: 1px solid #e8eaee;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pdp-related-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.pdp-related-card-img {
+  background: #fff;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.pdp-related-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.pdp-related-card:hover img {
+  transform: scale(1.05);
+}
+
+.pdp-related-card-info {
+  padding: 14px 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.pdp-related-card-name {
+  margin: 0 0 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pdp-related-card-price {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #8a6d2b;
+}
+
+/* ── Sticky Mobile Cart Bar ── */
+.pdp-sticky-bar {
+  display: none;
+}
+
+/* ── Scroll to Top ── */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #11141c 0%, #090b12 100%);
+  border: 1px solid #c9962c;
+  color: #f6d983;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  border-color: #d8a538;
+  color: #ffe7ad;
+}
+
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── No Results ── */
+.search-no-results {
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pdp-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 12px 0 30px;
+  }
+
+  .pdp-gallery {
+    position: static;
+  }
+
+  .pdp-main-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .pdp-actions {
+    flex-direction: column;
+  }
+
+  .pdp-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .pdp-tab-btn {
+    padding: 12px 16px;
+    font-size: 0.82rem;
+  }
+
+  .pdp-price-block {
+    padding: 16px 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Sticky mobile bar */
+  .pdp-sticky-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 20px;
+    z-index: 9998;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border-top: 1px solid rgba(216, 180, 90, 0.3);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .pdp-sticky-bar.visible {
+    transform: translateY(0);
+  }
+
+  .pdp-sticky-price {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f6d983;
+    white-space: nowrap;
+  }
+
+  .pdp-sticky-btn {
+    flex: 1;
+    max-width: 200px;
+    min-height: 44px;
+    border: 1px solid #c9962c;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #11141c 0%, #090b12 100%);
+    color: #f6d983;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .scroll-to-top {
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pdp-related-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .pdp-breadcrumb {
+    font-size: 0.75rem;
+  }
+
+  .pdp-tab-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pdp-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
