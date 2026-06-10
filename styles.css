@@ -1590,6 +1590,22 @@ body {
   font-size: 0.85rem;
 }
 
+.icon-attribution {
+  margin: 10px 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.icon-attribution a {
+  color: #777;
+  text-decoration: none;
+}
+
+.icon-attribution a:hover {
+  color: #d8b45a;
+  text-decoration: underline;
+}
+
 /* Out of Stock Feature */
 .out-of-stock-badge {
   position: absolute;
@@ -1904,21 +1920,108 @@ body {
 
 /* --- Trust Bar --- */
 .trust-bar {
-  background: #000000;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 40px 20px;
+  background: linear-gradient(180deg, #08090b 0%, #0d0f14 100%);
+  border-top: 1px solid rgba(216, 180, 90, 0.12);
+  padding: 56px 24px;
 }
 
 .trust-bar-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 20px;
 }
 
+.trust-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 28px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trust-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(216, 180, 90, 0.28);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.trust-icon-wrap {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(216, 180, 90, 0.22) 0%, rgba(216, 180, 90, 0.06) 100%);
+  border: 1px solid rgba(216, 180, 90, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.trust-icon-wrap svg {
+  width: 26px;
+  height: 26px;
+  color: #e8c872;
+  stroke: #e8c872;
+}
+
+.trust-icon-wrap--whatsapp {
+  background: linear-gradient(145deg, rgba(37, 211, 102, 0.22) 0%, rgba(37, 211, 102, 0.06) 100%);
+  border-color: rgba(37, 211, 102, 0.35);
+}
+
+.trust-icon-wrap--whatsapp svg {
+  width: 28px;
+  height: 28px;
+  color: #25d366;
+  fill: #25d366;
+  stroke: none;
+}
+
+.trust-icon-wrap--flaticon {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.trust-icon-wrap .trust-icon-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.trust-item-text {
+  min-width: 0;
+}
+
+.trust-bar .trust-item-text h4,
+.trust-card h4 {
+  margin: 0 0 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.trust-bar .trust-item-text p,
+.trust-card p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #9ca3af;
+}
+
+/* Legacy trust-item layout (PDP inline blocks) */
 .trust-item {
   display: flex;
   align-items: center;
@@ -1946,7 +2049,17 @@ body {
   color: #aaa;
 }
 
+@media (max-width: 960px) {
+  .trust-bar-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
+  .trust-bar {
+    padding: 40px 16px;
+  }
+
   .trust-item {
     width: 45%;
     flex-direction: column;
@@ -1954,7 +2067,31 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
+  .trust-bar-inner {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .trust-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: 20px 18px;
+    gap: 14px;
+  }
+
+  .trust-icon-wrap {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+  }
+
+  .trust-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+  }
+
   .trust-item {
     width: 100%;
   }

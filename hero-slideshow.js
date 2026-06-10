@@ -16,8 +16,8 @@
     { src: "images/Hisense 10.5 6kg Front Load Wash & Dry Washing Machine WD3S1043BT.png", alt: "Hisense Wash & Dry Machine" },
   ];
 
-  const INTERVAL_MS = 1000;
-  const FADE_MS = 250;
+  const INTERVAL_MS = 500;
+  const FADE_MS = 150;
 
   function init() {
     const img = document.querySelector(".hero-image");
