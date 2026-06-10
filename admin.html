@@ -332,8 +332,13 @@
           </div>
         </div>
         <div class="admin-form-group">
-          <label for="p-image">Image Path</label>
-          <input type="text" id="p-image" placeholder="images/product-name.png">
+          <label>Image</label>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <input type="text" id="p-image" placeholder="images/product-name.png" style="flex:1;">
+            <input type="file" id="p-image-file" accept="image/*" style="display:none;">
+            <button type="button" class="admin-btn-cancel" style="padding:10px 15px;" onclick="document.getElementById('p-image-file').click()">Upload</button>
+          </div>
+          <img id="p-image-preview" src="" alt="Preview" style="max-height:80px; margin-top:10px; display:none; border-radius:6px; border:1px solid #e2e8f0;">
         </div>
         <div class="admin-form-actions">
           <button type="button" class="admin-btn-cancel" id="modal-cancel">Cancel</button>
@@ -520,8 +525,35 @@
     function closeModal() {
       modal.hidden = true;
       form.reset();
+      document.getElementById("p-image-preview").style.display = "none";
       editingIndex = -1;
     }
+
+    // Image Upload Logic
+    const imageFile = document.getElementById("p-image-file");
+    const imageText = document.getElementById("p-image");
+    const imagePreview = document.getElementById("p-image-preview");
+
+    imageFile.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        imageText.value = event.target.result;
+        imagePreview.src = event.target.result;
+        imagePreview.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    });
+
+    imageText.addEventListener("input", () => {
+      if (imageText.value) {
+        imagePreview.src = imageText.value;
+        imagePreview.style.display = "block";
+      } else {
+        imagePreview.style.display = "none";
+      }
+    });
 
     document.getElementById("btn-add-product").addEventListener("click", () => {
       editingIndex = -1;
@@ -543,6 +575,12 @@
       document.getElementById("p-price").value = p.price;
       document.getElementById("p-status").value = p.status || "In Stock";
       document.getElementById("p-image").value = p.image || "";
+      if (p.image) {
+        document.getElementById("p-image-preview").src = p.image;
+        document.getElementById("p-image-preview").style.display = "block";
+      } else {
+        document.getElementById("p-image-preview").style.display = "none";
+      }
       openModal("Edit Product");
     }
 
