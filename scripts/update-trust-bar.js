@@ -1,15 +1,15 @@
 /**
  * Modern trust bar — sync across all HTML pages
- * Fast delivery icon: Awicon / Flaticon (attribution required)
+ * Fast delivery icon: Vecteezy 3D scooter (attribution required)
  */
 const fs = require("fs");
 const path = require("path");
 
 function iconPathForFile(filePath, root) {
   const relDir = path.relative(root, path.dirname(filePath));
-  if (!relDir || relDir === ".") return "images/icons/fast-delivery-awicon.png";
+  if (!relDir || relDir === ".") return "images/icons/fast-delivery-scooter.png";
   const depth = relDir.split(path.sep).filter(Boolean).length;
-  return "../".repeat(depth) + "images/icons/fast-delivery-awicon.png";
+  return "../".repeat(depth) + "images/icons/fast-delivery-scooter.png";
 }
 
 function buildTrustBar(fastDeliveryIconSrc) {
@@ -17,8 +17,8 @@ function buildTrustBar(fastDeliveryIconSrc) {
   <section class="trust-bar" aria-label="Store benefits">
     <div class="trust-bar-inner">
       <article class="trust-card">
-        <div class="trust-icon-wrap trust-icon-wrap--flaticon" aria-hidden="true">
-          <img src="${fastDeliveryIconSrc}" alt="" class="trust-icon-img" width="32" height="32" loading="lazy">
+        <div class="trust-icon-wrap trust-icon-wrap--3d" aria-hidden="true">
+          <img src="${fastDeliveryIconSrc}" alt="" class="trust-icon-img" width="48" height="48" loading="lazy">
         </div>
         <div class="trust-item-text">
           <h4>Fast Delivery</h4>
@@ -67,7 +67,10 @@ function buildTrustBar(fastDeliveryIconSrc) {
 }
 
 const ATTRIBUTION =
-  '<p class="icon-attribution"><a href="https://www.flaticon.com/free-icons/fast-delivery" title="fast delivery icons" target="_blank" rel="noopener noreferrer">Fast delivery icons created by Awicon - Flaticon</a></p>';
+  '<p class="icon-attribution"><a href="https://www.vecteezy.com/free-png/motorcycle-delivery" title="motorcycle delivery png" target="_blank" rel="noopener noreferrer">Motorcycle delivery PNGs by Vecteezy</a></p>';
+
+const FLATICON_ATTRIBUTION =
+  /<p class="icon-attribution"><a href="https:\/\/www\.flaticon\.com[^<]+<\/a><\/p>\s*/g;
 
 const root = path.join(__dirname, "..");
 const dirs = [".", "categories", "brands", "products"];
@@ -99,13 +102,18 @@ for (const dir of dirs) {
       }
     }
 
-    if (!html.includes("icon-attribution") && html.includes('class="footer-bottom"')) {
+    if (FLATICON_ATTRIBUTION.test(html)) {
+      html = html.replace(FLATICON_ATTRIBUTION, ATTRIBUTION + "\n        ");
+      changed = true;
+    } else if (!html.includes("vecteezy.com/free-png/motorcycle-delivery") && html.includes('class="footer-bottom"')) {
       html = html.replace(
         /(<div class="footer-bottom">\s*<p>©[^<]+<\/p>)/,
         `$1\n        ${ATTRIBUTION}`
       );
       changed = true;
     }
+
+    html = html.replace(/<!-- Trust Bar -->\s*<!-- Trust Bar -->/g, "<!-- Trust Bar -->");
 
     if (changed) {
       fs.writeFileSync(filePath, html, "utf8");
