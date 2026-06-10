@@ -88,7 +88,7 @@ app.post('/api/products/update', (req, res) => {
         // Try to update text if it contains "Add to Cart - "
         const text = $btn.text();
         if (text.includes('-')) {
-            $btn.text(\`Add to Cart - KSh \${Number(newPrice).toLocaleString()}\`);
+            $btn.text(`Add to Cart - KSh ${Number(newPrice).toLocaleString()}`);
         }
       }
       if (newImage) {
@@ -113,5 +113,5 @@ app.post('/api/products/update', (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(\`Admin server running on http://localhost:\${PORT}\`);
+  console.log(`Admin server running on http://localhost:${PORT}`);
 });

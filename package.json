@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "fix:site": "node scripts/fix-cart-html.js && node scripts/apply-fixes.js",
+    "sync:products": "node scripts/apply-fixes.js",
+    "sitemap": "node scripts/generate-sitemap.js"
+  },
   "dependencies": {
     "cheerio": "^1.2.0"
   }

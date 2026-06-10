@@ -1,16 +1,15 @@
-<!DOCTYPE html><html lang="en"><head></head><body>﻿
-
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Grand Gesture</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-  
-  
-    <header class="top-header" aria-label="Main header"><nav class="header-actions" aria-label="Quick actions"><button class="icon-btn" aria-label="Menu" id="menu-toggle">
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Grand Gesture</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top-header" aria-label="Main header"><nav class="header-actions" aria-label="Quick actions"><button class="icon-btn" aria-label="Menu" id="menu-toggle">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -37,7 +36,7 @@
     <main class="cart-page" aria-label="Cart section">
       <section class="cart-panel">
         <h1 class="cart-title">Your Cart</h1>
-        <p class="cart-subtitle">Items selected from the TVs page appear here with image and price.</p>
+        <p class="cart-subtitle">Review your items below before proceeding to checkout.</p>
 
         <div id="cart-empty" class="cart-empty" hidden="">
           Your cart is empty.
@@ -78,8 +77,8 @@
           <path d="M9 12l2 2 4-4"></path>
         </svg>
         <div class="trust-item-text">
-          <h4>Secure Checkout</h4>
-          <p>100% Protected</p>
+          <h4>WhatsApp Orders</h4>
+          <p>Fast &amp; Easy</p>
         </div>
       </div>
       <div class="trust-item">
@@ -110,7 +109,8 @@
   
 
 
-    <script>
+    
+<script>
       const cartItemsContainer = document.getElementById("cart-items");
       const cartEmpty = document.getElementById("cart-empty");
       const cartSummary = document.getElementById("cart-summary");
@@ -177,7 +177,7 @@
 
             return `
               <article class="cart-item">
-                <img class="cart-item-image" src="${imgUrl}" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${safeName}" />
+                <img class="cart-item-image" src="${imgUrl}" onerror="this.src='images/placeholder.svg';this.onerror=null;" alt="${safeName}" />
                 <div class="cart-item-info">
                   <h2>${safeName}</h2>
                   <p class="cart-item-category">${safeCat}</p>
@@ -251,10 +251,6 @@
 
       renderCart();
     </script>
-  
-
-
-
 <!-- Cart Modal -->
 <div class="cart-modal-overlay" id="cart-modal">
   <div class="cart-modal">
@@ -304,11 +300,7 @@
       <a href="categories/air-conditioners.html">Air Conditioners</a>
       <a href="categories/kitchen-appliances.html">Kitchen Appliances</a>
     </div>
-    <div class="side-menu-group">
-      <h3>System</h3>
-      <a href="admin.html" class="admin-link">Admin Dashboard</a>
-    </div>
-  </nav>
+    </nav>
 </aside>
 
 <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
