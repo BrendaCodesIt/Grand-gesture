@@ -23,7 +23,7 @@
     const total = items.reduce((sum, i) => sum + (i.quantity || 1), 0);
     document.querySelectorAll(".cart-badge").forEach((badge) => {
       badge.textContent = total;
-      badge.style.display = "flex";
+      badge.style.display = total > 0 ? "flex" : "none";
     });
   }
 
@@ -112,7 +112,7 @@
         <div class="rec-item-info">
           <p class="rec-item-name">${rec.name}</p>
           <p class="rec-item-price">${formatKsh(rec.price)}</p>
-          <button class="btn-primary btn-add-rec" data-name="${rec.name}" data-price="${rec.price}" data-category="${rec.category}" data-image="${imgPath}" style="padding:4px 8px;font-size:0.8rem;margin-top:5px;">Add Too</button>
+          <button class="btn-primary btn-add-rec" data-name="${rec.name}" data-price="${rec.price}" data-category="${rec.category}" data-image="${imgPath}" style="padding:4px 8px;font-size:0.8rem;margin-top:5px;">Add to Cart</button>
         </div>
       `;
       recsBlock.style.display = "block";

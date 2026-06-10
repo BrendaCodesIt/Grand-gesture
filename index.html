@@ -123,7 +123,7 @@
               <div style="display: flex; gap: 10px; margin-top: 10px;">
                 <a href="categories/soundbars.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
                 
-           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="undefined" data-price="undefined" data-image="undefined" data-category="" data-url="categories/soundbars.html" title="Add to Wishlist" aria-label="Add to Wishlist">
+           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="Hisense AX3100G 3.1CH Soundbar, 280W – Black" data-price="19000" data-image="images/Hisense AX3100G 3.1CH Soundbar, 280W – Black.png" data-category="Sound Bars" data-url="categories/soundbars.html" title="Add to Wishlist" aria-label="Add to Wishlist">
              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
            </button><button type="button" class="btn-add-cart btn-out-of-stock" disabled="" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
               </div>
@@ -192,6 +192,9 @@
   
 
       
+  <!-- Recently Viewed Products (populated by site-shared.js) -->
+  <div id="recently-viewed-section"></div>
+
   <!-- Trust Bar -->
   <section class="trust-bar">
     <div class="trust-bar-inner">
@@ -261,77 +264,7 @@
       </div>
     </footer>
 
-    <script>
-      /* ── Cart Logic ── */
-      const formatKshPrice = (num) => "KSh " + num.toLocaleString("en-US");
-      function addSpecificItemToCart(item) {
-        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        const existing = cartItems.find((ci) => ci.name === item.name);
-        if (existing) {
-          existing.quantity = (existing.quantity || 1) + 1;
-        } else {
-          cartItems.push(Object.assign({}, item, {
-            id: item.name.toLowerCase().replace(/\\s+/g, "-") + "-" + Date.now(),
-            quantity: 1,
-          }));
-        }
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      }
-
-      document.querySelectorAll(".btn-add-cart").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          const item = {
-            name: btn.dataset.name,
-            price: Number(btn.dataset.price),
-            displayPrice: formatKshPrice(Number(btn.dataset.price)),
-            category: btn.dataset.category,
-            image: btn.dataset.image,
-          };
-          addSpecificItemToCart(item);
-
-          // Feedback
-          const originalText = btn.textContent;
-          const originalBg = btn.style.background;
-          btn.textContent = "Added ✓";
-          btn.style.background = "#4caf50";
-          btn.style.color = "#fff";
-
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = originalBg;
-            btn.style.color = "#0a0a0a";
-          }, 1400);
-        });
-      });
-
-      /* ── Categories Menu ── */
-      const menuToggle = document.getElementById("menu-toggle");
-      const categoriesMenu = document.getElementById("categories-menu");
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        categoriesMenu.hidden = isOpen;
-      });
-
-      document.addEventListener("click", (event) => {
-        const clickedInsideMenu = categoriesMenu.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedToggle) {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-    </script>
+    <!-- Cart logic handled by cart-shared.js -->
   
 
 

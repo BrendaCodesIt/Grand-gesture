@@ -215,7 +215,7 @@
             </div>
             <div class="form-group">
               <label for="phone">WhatsApp Phone Number</label>
-              <input type="tel" id="phone" class="form-control" required placeholder="07XXXXXXXX">
+              <input type="tel" id="phone" class="form-control" required placeholder="07XXXXXXXX" pattern="^(\+?254|0)[17]\d{8}$" title="Enter a valid Kenyan phone number (e.g. 0712345678 or +254712345678)">
             </div>
           </div>
 
@@ -262,6 +262,26 @@
 
     </div>
   </main>
+
+  <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2>Grand Gesture</h2>
+          <p>Your one-stop shop for premium home electronics.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="categories/tvs.html">TVs</a></li>
+            <li><a href="categories/soundbars.html">Sound Bars</a></li>
+            <li><a href="categories/refrigerators.html">Refrigerators</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Grand Gesture. All Rights Reserved.</p>
+      </div>
+    </footer>
 
   <!-- Search Overlay -->
   <div class="search-overlay" id="search-overlay">
@@ -311,6 +331,8 @@
       let total = 0;
       let itemsMarkup = "";
 
+      const escapeHTML = (str) => { const d = document.createElement("div"); d.textContent = str; return d.innerHTML; };
+
       cartItems.forEach(item => {
         let imgUrl = item.image || "";
         if (!imgUrl || imgUrl === "undefined") {
@@ -322,12 +344,13 @@
         const qty = item.quantity || 1;
         const price = Number(item.price || 0);
         total += (qty * price);
+        const safeName = escapeHTML(item.name || "Product");
         
         itemsMarkup += `
           <div class="summary-item">
-            <img src="${(item.image || '').replace(/^(\.\.\/)+/, '')}" class="summary-img" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${item.name}">
+            <img src="${(item.image || '').replace(/^(\.\.\/)+/, '')}" class="summary-img" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${safeName}">
             <div class="summary-info">
-              <h4>${item.name}</h4>
+              <h4>${safeName}</h4>
               <p>Qty: ${qty}</p>
             </div>
             <div class="summary-price">KSh ${(qty * price).toLocaleString("en-US")}</div>

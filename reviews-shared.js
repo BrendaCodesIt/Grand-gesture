@@ -8,6 +8,12 @@
 
   const STORAGE_KEY = "grandGestureReviews";
 
+  function escapeHTML(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
   function getAllReviews() {
     return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
   }
@@ -154,14 +160,14 @@
                       (r) => `
                   <div class="review-card">
                     <div class="review-card-header">
-                      <div class="review-avatar">${r.name.charAt(0).toUpperCase()}</div>
+                      <div class="review-avatar">${escapeHTML(r.name.charAt(0).toUpperCase())}</div>
                       <div>
-                        <strong class="review-author">${r.name}</strong>
+                        <strong class="review-author">${escapeHTML(r.name)}</strong>
                         <span class="review-date">${timeAgo(r.date)}</span>
                       </div>
                       <div class="review-card-stars">${renderStars(r.rating, 14)}</div>
                     </div>
-                    <p class="review-text">${r.comment}</p>
+                    <p class="review-text">${escapeHTML(r.comment)}</p>
                   </div>
                 `
                     )
@@ -233,9 +239,20 @@
 
         if (!name || !comment) return;
         if (rating === 0) {
-          alert("Please select a star rating!");
+          let errEl = reviewPanel.querySelector(".review-rating-error");
+          if (!errEl) {
+            errEl = document.createElement("p");
+            errEl.className = "review-rating-error";
+            errEl.style.cssText = "color:#c0392b;font-size:0.85rem;margin:6px 0 0;font-weight:600;";
+            const starInput = reviewPanel.querySelector(".review-star-input");
+            if (starInput) starInput.parentNode.insertBefore(errEl, starInput.nextSibling);
+          }
+          errEl.textContent = "Please select a star rating!";
           return;
         }
+        // Clear any previous rating error
+        const prevErr = reviewPanel.querySelector(".review-rating-error");
+        if (prevErr) prevErr.remove();
 
         saveReview(productName, {
           name,

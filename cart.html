@@ -111,85 +111,36 @@
 
 
     <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const categoriesMenu = document.getElementById("categories-menu");
       const cartItemsContainer = document.getElementById("cart-items");
       const cartEmpty = document.getElementById("cart-empty");
       const cartSummary = document.getElementById("cart-summary");
       const cartTotal = document.getElementById("cart-total");
+      const cartCheckout = document.getElementById("cart-checkout");
 
       function formatKes(value) {
         return `KSh ${Number(value || 0).toLocaleString("en-KE")}`;
       }
 
       function normalizeCartItem(item) {
-        if (item.id === "hisense-32-smart-frameless-fhd-a4") {
-          return {
-            ...item,
-            name: 'Hisense 32" Smart Frameless FHD (A4 series)',
-          };
+        const nameMap = {
+          "hisense-32-smart-frameless-fhd-a4": 'Hisense 32" Smart Frameless FHD (A4 series)',
+          "hisense-43-smart-frameless-fhd-a4": 'Hisense 43" Smart Frameless FHD (A4 series)',
+          "hisense-43-smart-4k-uhd-frameless-a6": 'Hisense 43" Smart 4k UHD Frameless (A6 series)',
+          "hisense-43-inch-qled-smart-4k-uhd-frameless-q6": 'Hisense 43" QLED Smart 4k UHD Frameless (Q6 series)',
+          "hisense-50-inch-led-smart-2k-fhd-frameless-a4": 'Hisense 50" LED Smart 2K FHD Frameless (A4 series)',
+          "hisense-50-smart-uhd-4k-frameless-a6": 'Hisense 50" smart UHD 4k Frameless (A6 series)',
+          "hisense-50-inch-qled-smart-4k-frameless-q6": 'Hisense 50" Qled smart 4k Frameless (Q6 series)',
+          "hisense-55-smart-4k-frameless-a6": 'Hisense 55" Smart 4K Frameless(A6 series)',
+          "hisense-55-inch-4k-qled-tv-q6-series": 'Hisense 55" 4K QLED TV (Q6 Series)',
+        };
+        if (nameMap[item.id]) {
+          return { ...item, name: nameMap[item.id] };
         }
-
-        if (item.id === "hisense-43-smart-frameless-fhd-a4") {
-          return {
-            ...item,
-            name: 'Hisense 43" Smart Frameless FHD (A4 series)',
-          };
-        }
-
-        if (item.id === "hisense-43-smart-4k-uhd-frameless-a6") {
-          return {
-            ...item,
-            name: 'Hisense 43" Smart 4k UHD Frameless (A6 series)',
-          };
-        }
-
-        if (item.id === "hisense-43-inch-qled-smart-4k-uhd-frameless-q6") {
-          return {
-            ...item,
-            name: 'Hisense 43" QLED Smart 4k UHD Frameless (Q6 series)',
-          };
-        }
-
-        if (item.id === "hisense-50-inch-led-smart-2k-fhd-frameless-a4") {
-          return {
-            ...item,
-            name: 'Hisense 50" LED Smart 2K FHD Frameless (A4 series)',
-          };
-        }
-
-        if (item.id === "hisense-50-smart-uhd-4k-frameless-a6") {
-          return {
-            ...item,
-            name: 'Hisense 50" smart UHD 4k Frameless (A6 series)',
-          };
-        }
-
-        if (item.id === "hisense-50-inch-qled-smart-4k-frameless-q6") {
-          return {
-            ...item,
-            name: 'Hisense 50" Qled smart 4k Frameless (Q6 series)',
-          };
-        }
-
-        if (item.id === "hisense-55-smart-4k-frameless-a6") {
-          return {
-            ...item,
-            name: 'Hisense 55" Smart 4K Frameless(A6 series)',
-          };
-        }
-
-        if (item.id === "hisense-55-inch-4k-qled-tv-q6-series") {
-          return {
-            ...item,
-            name: 'Hisense 55" 4K QLED TV (Q6 Series)',
-          };
-        }
-
         return item;
       }
 
       function renderCart() {
+        const escapeHTML = (str) => { const d = document.createElement("div"); d.textContent = str; return d.innerHTML; };
         const cartItems = (JSON.parse(localStorage.getItem("cartItems")) || []).map(normalizeCartItem);
 
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -200,12 +151,14 @@
           cartEmpty.hidden = false;
           cartSummary.hidden = true;
           cartTotal.textContent = "KSh 0";
-          if(typeof updateCartBadge === "function") if(window.GrandGestureCart) window.GrandGestureCart.updateBadge();
+          if (cartCheckout) cartCheckout.style.display = "none";
+          if (window.GrandGestureCart) window.GrandGestureCart.updateBadge();
           return;
         }
 
         cartEmpty.hidden = true;
         cartSummary.hidden = false;
+        if (cartCheckout) cartCheckout.style.display = "block";
 
         const itemsMarkup = cartItems
           .map((item) => {
@@ -219,16 +172,18 @@
             const quantity = item.quantity || 1;
             const unitPrice = Number(item.price || 0);
             const lineTotal = unitPrice * quantity;
+            const safeName = escapeHTML(item.name || "Product");
+            const safeCat = escapeHTML(item.category || "Electronics");
 
             return `
               <article class="cart-item">
-                <img class="cart-item-image" src="${(item.image || '').replace(/^(\.\.\/)+/, '')}" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${item.name}" />
+                <img class="cart-item-image" src="${imgUrl}" onerror="this.src='images/placeholder.png';this.onerror=null;" alt="${safeName}" />
                 <div class="cart-item-info">
-                  <h2>${item.name}</h2>
-                  <p class="cart-item-category">${item.category || "Electronics"}</p>
+                  <h2>${safeName}</h2>
+                  <p class="cart-item-category">${safeCat}</p>
                   <p class="cart-item-price">Price: ${item.displayPrice || formatKes(unitPrice)}</p>
                   <div class="cart-item-controls">
-                    <div class="qty-controls" role="group" aria-label="Quantity controls for ${item.name}">
+                    <div class="qty-controls" role="group" aria-label="Quantity controls for ${safeName}">
                       <button type="button" class="qty-btn" data-action="decrease" data-id="${item.id}" aria-label="Decrease quantity">-</button>
                       <span class="qty-value">${quantity}</span>
                       <button type="button" class="qty-btn" data-action="increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
@@ -243,45 +198,15 @@
           .join("");
 
         const total = cartItems.reduce((sum, item) => {
-          let imgUrl = item.image || "";
-            if (!imgUrl || imgUrl === "undefined") {
-              const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
-              if (pData) imgUrl = pData.image;
-            }
-            imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
-            item.image = imgUrl;
-            const quantity = item.quantity || 1;
+          const quantity = item.quantity || 1;
           const unitPrice = Number(item.price || 0);
           return sum + quantity * unitPrice;
         }, 0);
 
         cartItemsContainer.innerHTML = itemsMarkup;
         cartTotal.textContent = formatKes(total);
-        if(typeof updateCartBadge === "function") updateCartBadge();
+        if (window.GrandGestureCart) window.GrandGestureCart.updateBadge();
       }
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        categoriesMenu.hidden = isOpen;
-      });
-
-      document.addEventListener("click", (event) => {
-        const clickedInsideMenu = categoriesMenu.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedToggle) {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
 
       cartItemsContainer.addEventListener("click", (event) => {
         const action = event.target.getAttribute("data-action");
@@ -391,10 +316,6 @@
 <script src="cart-shared.js"></script>
 <script src="site-shared.js"></script>
 <script>
-  if(JSON.parse(localStorage.getItem('cartItems') || '[]').length > 0) {
-    const co = document.getElementById('cart-checkout');
-    if (co) co.style.display = 'block';
-  }
   const btn = document.getElementById('checkout-btn');
   if(btn) {
     btn.addEventListener('click', () => {

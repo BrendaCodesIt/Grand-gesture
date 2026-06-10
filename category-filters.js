@@ -157,6 +157,22 @@
 
       filterResults.textContent = visible + " product" + (visible !== 1 ? "s" : "");
 
+      // Show/hide no-results message
+      let emptyMsg = document.getElementById("filter-empty-msg");
+      if (visible === 0) {
+        if (!emptyMsg) {
+          emptyMsg = document.createElement("div");
+          emptyMsg.id = "filter-empty-msg";
+          emptyMsg.style.cssText = "text-align:center;padding:40px 20px;color:#888;font-family:'Montserrat',sans-serif;font-size:1rem;grid-column:1/-1;";
+          emptyMsg.innerHTML = '<p style="font-size:1.5rem;margin-bottom:10px;">🔍</p><p>No products match your filters.</p><p style="font-size:0.85rem;margin-top:8px;">Try adjusting the brand or price range.</p>';
+          const parent = sections[0] && sections[0].parentElement;
+          if (parent) parent.appendChild(emptyMsg);
+        }
+        emptyMsg.style.display = "block";
+      } else if (emptyMsg) {
+        emptyMsg.style.display = "none";
+      }
+
       // Update active filter count
       const totalBrands = brandCheckboxes.length;
       const checkedBrands = selectedBrands.length;
