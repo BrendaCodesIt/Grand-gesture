@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed - Grand Gesture</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .confirm-page { max-width: 640px; margin: 60px auto; padding: 0 20px 80px; text-align: center; }
+    .confirm-icon { width: 72px; height: 72px; background: #c6f6d5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 2rem; color: #22543d; }
+    .confirm-page h1 { color: #0a0a0a; font-size: 1.75rem; margin-bottom: 12px; }
+    .confirm-page p { color: #555; line-height: 1.7; margin-bottom: 16px; }
+    .confirm-ref { background: #f8f9fa; border: 1px solid #eee; border-radius: 8px; padding: 16px; margin: 24px 0; font-family: monospace; font-size: 1.1rem; color: #333; }
+    .confirm-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    .confirm-actions a { padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .btn-home { background: #0a0a0a; color: #fff; }
+    .btn-wa { background: #25D366; color: #fff; }
+  </style>
+</head>
+<body class="tv-layout">
+  <header class="top-header" aria-label="Main header">
+    <nav class="header-actions" aria-label="Quick actions">
+      <a href="index.html" class="brand" aria-label="Homepage" style="margin: 0 auto;">Grand Gesture</a>
+    </nav>
+  </header>
+
+  <main class="confirm-page">
+    <div class="confirm-icon">✓</div>
+    <h1>Order Sent!</h1>
+    <p>Your order has been sent to us via WhatsApp. We'll confirm availability, delivery cost, and payment details shortly.</p>
+    <div class="confirm-ref" id="order-ref">Order ref: —</div>
+    <p style="font-size:0.9rem;color:#888;">If WhatsApp didn't open, message us at <strong>+254 700 083 596</strong> with your order reference.</p>
+    <div class="confirm-actions">
+      <a href="index.html" class="btn-home">Continue Shopping</a>
+      <a href="https://wa.me/254700083596" class="btn-wa" target="_blank" rel="noopener">Open WhatsApp</a>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const raw = sessionStorage.getItem("lastOrder");
+      const refEl = document.getElementById("order-ref");
+      if (raw) {
+        try {
+          const order = JSON.parse(raw);
+          refEl.textContent = "Order ref: " + (order.ref || "GG-" + Date.now());
+          sessionStorage.removeItem("lastOrder");
+        } catch (e) {
+          refEl.textContent = "Order ref: GG-" + Date.now();
+        }
+      } else {
+        refEl.textContent = "Order ref: GG-" + Date.now();
+      }
+    })();
+  </script>
+  <script src="site-shared.js"></script>
+
+
+</body></html>

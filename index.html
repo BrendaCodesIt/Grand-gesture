@@ -3,6 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grand Gesture - Premium Electronics Store</title>
     <meta name="description" content="Discover premium electronics, TVs, soundbars, refrigerators, and more at Grand Gesture.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:title" content="Grand Gesture - Premium Electronics Store">
+    <meta property="og:description" content="Premium TVs, home appliances &amp; electronics in Kenya. Shop online, order via WhatsApp.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -20,7 +24,11 @@
             <circle cx="11" cy="11" r="6.5"></circle>
             <line x1="16" y1="16" x2="21" y2="21"></line>
           </svg>
-        </button><a href="cart.html" class="icon-btn" aria-label="Cart" style="position: relative;">
+        </button>
+      <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+        <span class="cart-badge" id="wishlist-badge" style="background:#e74c3c;display:none;">0</span>
+      </a><a href="cart.html" class="icon-btn" aria-label="Cart" style="position: relative;">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
           </svg>
@@ -38,8 +46,8 @@
           <p class="hero-subtitle">Discover premium TVs, audio systems, and home appliances from top global brands.</p>
           <a href="categories/tvs.html" class="action-btn action-btn--buy hero-btn">Shop Now</a>
         </div>
-        <div class="hero-image-wrapper">
-          <img src="images/Hisense 55 ULED Mini LED U6 Pro.png" alt="Hisense ULED TV" class="hero-image">
+        <div class="hero-image-wrapper" id="hero-slideshow">
+          <img src="images/Hisense 55 ULED Mini LED U6 Pro.png" alt="Hisense 55&quot; ULED Mini-LED TV" class="hero-image">
         </div>
       </section>
 
@@ -97,10 +105,13 @@
             </div>
             <div class="product-info">
               <h3>Hisense 10.5/6kg Wash &amp; Dry</h3>
-              <p class="product-price">KSh 58,000</p>
+              <p class="product-price">KSh 65,000</p>
               <div style="display: flex; gap: 10px; margin-top: 10px;">
                 <a href="products/hisense-10-5kg-wash-dry-front-load.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
-                <button type="button" class="btn-add-cart" data-name="Hisense 10.5/6kg Front Load Wash &amp; Dry Washing Machine WD3S1043BT" data-price="58000" data-category="Washing Machines" data-image="images/Hisense 10.5 6kg Front Load Wash &amp; Dry Washing Machine WD3S1043BT.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 58,000</button>
+                
+           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="Hisense 10.5/6kg Front Load Wash &amp; Dry Washing Machine WD3S1043BT" data-price="65000" data-image="images/Hisense 10.5 6kg Front Load Wash &amp; Dry Washing Machine WD3S1043BT.png" data-category="Washing Machines" data-url="products/hisense-10-5kg-wash-dry-front-load.html" title="Add to Wishlist" aria-label="Add to Wishlist">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+           </button><button type="button" class="btn-add-cart" data-name="Hisense 10.5/6kg Front Load Wash &amp; Dry Washing Machine WD3S1043BT" data-price="65000" data-category="Washing Machines" data-image="images/Hisense 10.5 6kg Front Load Wash &amp; Dry Washing Machine WD3S1043BT.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 65,000</button>
               </div>
             </div>
           </article>
@@ -115,7 +126,10 @@
               <p class="product-price">KSh 19,000</p>
               <div style="display: flex; gap: 10px; margin-top: 10px;">
                 <a href="categories/soundbars.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
-                <button type="button" class="btn-add-cart btn-out-of-stock" disabled="" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
+                
+           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="Hisense AX3100G 3.1CH Soundbar, 280W – Black" data-price="19000" data-image="images/Hisense AX3100G 3.1CH Soundbar, 280W – Black.png" data-category="Sound Bars" data-url="categories/soundbars.html" title="Add to Wishlist" aria-label="Add to Wishlist">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+           </button><button type="button" class="btn-add-cart btn-out-of-stock" disabled="" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart</button>
               </div>
             </div>
           </article>
@@ -125,11 +139,14 @@
               <img src="images/Hisense 55 ULED Mini LED U6 Pro.png" alt="Hisense TV" loading="lazy">
             </div>
             <div class="product-info">
-              <h3>Hisense 55" U6N Pro Mini-LED</h3>
-              <p class="product-price">KSh 63,800</p>
+              <h3>Hisense 55" ULED MINI-LED</h3>
+              <p class="product-price">KSh 65,000</p>
               <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <a href="categories/tvs.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
-                <button type="button" class="btn-add-cart" data-name="Hisense 55 ULED Mini LED U6 Pro" data-price="63800" data-category="TVs" data-image="images/Hisense 55 ULED Mini LED U6 Pro.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 63,800</button>
+                <a href="products/hisense-55-uled-u6-pro.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
+                
+           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="Hisense 55&quot; ULED MINI-LED" data-price="65000" data-image="images/Hisense 55 ULED Mini LED U6 Pro.png" data-category="TVs" data-url="products/hisense-55-uled-u6-pro.html" title="Add to Wishlist" aria-label="Add to Wishlist">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+           </button><button type="button" class="btn-add-cart" data-name="Hisense 55&quot; ULED MINI-LED" data-price="65000" data-category="TVs" data-image="images/Hisense 55 ULED Mini LED U6 Pro.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 65,000</button>
               </div>
             </div>
           </article>
@@ -143,7 +160,10 @@
               <p class="product-price">KSh 63,000</p>
               <div style="display: flex; gap: 10px; margin-top: 10px;">
                 <a href="categories/refrigerators.html" class="btn-view" style="flex: 1; text-align: center;">View Details</a>
-                <button type="button" class="btn-add-cart" data-name="Hisense Fridge 424L Double Door Silver REF418DR" data-price="63000" data-category="Refrigerators" data-image="images/Hisense Fridge 424L Double Door Silver REF418DR.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 63,000</button>
+                
+           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="Hisense Fridge 424L Double Door Silver REF418DR" data-price="63000" data-image="images/Hisense Fridge 424L Double Door Silver REF418DR.png" data-category="Refrigerators" data-url="categories/refrigerators.html" title="Add to Wishlist" aria-label="Add to Wishlist">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+           </button><button type="button" class="btn-add-cart" data-name="Hisense Fridge 424L Double Door Silver REF418DR" data-price="63000" data-category="Refrigerators" data-image="images/Hisense Fridge 424L Double Door Silver REF418DR.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 63,000</button>
               </div>
             </div>
           </article>
@@ -176,6 +196,9 @@
   
 
       
+  <!-- Recently Viewed Products (populated by site-shared.js) -->
+  <div id="recently-viewed-section"></div>
+
   <!-- Trust Bar -->
   <section class="trust-bar">
     <div class="trust-bar-inner">
@@ -197,8 +220,8 @@
           <path d="M9 12l2 2 4-4"></path>
         </svg>
         <div class="trust-item-text">
-          <h4>Secure Checkout</h4>
-          <p>100% Protected</p>
+          <h4>WhatsApp Orders</h4>
+          <p>Fast &amp; Easy</p>
         </div>
       </div>
       <div class="trust-item">
@@ -237,7 +260,7 @@
             <li><a href="categories/tvs.html">TVs</a></li>
             <li><a href="categories/soundbars.html">Sound Bars</a></li>
             <li><a href="categories/refrigerators.html">Refrigerators</a></li>
-          </ul>
+          <li><a href="contact.html">Contact Us</a></li><li><a href="delivery.html">Delivery &amp; Returns</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul>
         </div>
       </div>
       <div class="footer-bottom">
@@ -245,77 +268,7 @@
       </div>
     </footer>
 
-    <script>
-      /* ── Cart Logic ── */
-      const formatKshPrice = (num) => "KSh " + num.toLocaleString("en-US");
-      function addSpecificItemToCart(item) {
-        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        const existing = cartItems.find((ci) => ci.name === item.name);
-        if (existing) {
-          existing.quantity = (existing.quantity || 1) + 1;
-        } else {
-          cartItems.push(Object.assign({}, item, {
-            id: item.name.toLowerCase().replace(/\\s+/g, "-") + "-" + Date.now(),
-            quantity: 1,
-          }));
-        }
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      }
-
-      document.querySelectorAll(".btn-add-cart").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-          const item = {
-            name: btn.dataset.name,
-            price: Number(btn.dataset.price),
-            displayPrice: formatKshPrice(Number(btn.dataset.price)),
-            category: btn.dataset.category,
-            image: btn.dataset.image,
-          };
-          addSpecificItemToCart(item);
-
-          // Feedback
-          const originalText = btn.textContent;
-          const originalBg = btn.style.background;
-          btn.textContent = "Added ✓";
-          btn.style.background = "#4caf50";
-          btn.style.color = "#fff";
-
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = originalBg;
-            btn.style.color = "#0a0a0a";
-          }, 1400);
-        });
-      });
-
-      /* ── Categories Menu ── */
-      const menuToggle = document.getElementById("menu-toggle");
-      const categoriesMenu = document.getElementById("categories-menu");
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        categoriesMenu.hidden = isOpen;
-      });
-
-      document.addEventListener("click", (event) => {
-        const clickedInsideMenu = categoriesMenu.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedToggle) {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-    </script>
+    <!-- Cart logic handled by cart-shared.js -->
   
 
 
@@ -368,16 +321,14 @@
       <a href="categories/air-conditioners.html">Air Conditioners</a>
       <a href="categories/kitchen-appliances.html">Kitchen Appliances</a>
     </div>
-    <div class="side-menu-group">
-      <h3>System</h3>
-      <a href="admin.html" class="admin-link">Admin Dashboard</a>
-    </div>
+    
   </nav>
 </aside>
 
-<button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+<button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
 <script src="search-data.js"></script>
+<script src="hero-slideshow.js"></script>
 <script src="cart-shared.js"></script>
 <script src="site-shared.js"></script>
-</body>
-</html>
+
+</body></html>

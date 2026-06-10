@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wish List - Grand Gesture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="top-header" aria-label="Main header">
+    <nav class="header-actions" aria-label="Quick actions">
+      <button class="icon-btn" aria-label="Menu" id="menu-toggle">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <line x1="16" y1="16" x2="21" y2="21"></line>
+        </svg>
+      </button>
+      <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+        <span class="cart-badge" id="wishlist-badge" style="background:#e74c3c;display:none;">0</span>
+      </a>
+      <a href="cart.html" class="icon-btn" aria-label="Cart" style="position:relative;">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
+        </svg>
+        <span class="cart-badge" id="cart-badge" style="display:none;">0</span>
+      </a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="Homepage">Grand Gesture</a>
+  </header>
+
+  <main style="background: #f9f9f9; min-height: calc(100vh - 120px); padding-top: 1px;">
+    <div class="cart-container" style="max-width: 900px;">
+      <h1 class="cart-header">My Wish List</h1>
+      
+      <div id="wishlist-empty" class="cart-empty" hidden="">
+        <p>Your wish list is currently empty.</p>
+        <a href="index.html" class="cart-continue-btn">Browse Products</a>
+      </div>
+
+      <div id="wishlist-items-container" class="cart-items">
+        <!-- Wishlist items will be injected here via JS -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2>Grand Gesture</h2>
+          <p>Your one-stop shop for premium home electronics.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="categories/tvs.html">TVs</a></li>
+            <li><a href="categories/soundbars.html">Sound Bars</a></li>
+            <li><a href="categories/refrigerators.html">Refrigerators</a></li>
+          <li><a href="contact.html">Contact Us</a></li><li><a href="delivery.html">Delivery &amp; Returns</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Grand Gesture. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal-overlay" id="cart-modal">
+    <div class="cart-modal">
+      <button class="cart-modal-close" id="cart-modal-close">×</button>
+      <div class="cart-modal-header">
+        <div class="cart-modal-icon">✔</div>
+        <div>
+          <h3 class="cart-modal-title" id="cart-modal-title">Added to Cart</h3>
+          <p class="cart-modal-msg" id="cart-modal-msg">Item has been added to your cart.</p>
+        </div>
+      </div>
+      <div class="cart-modal-recs" id="cart-modal-recs" style="display:none;">
+        <h4>Frequently Bought Together</h4>
+        <div class="rec-item" id="rec-item-container"></div>
+      </div>
+      <div class="cart-modal-actions">
+        <button class="btn-outline" id="cart-modal-continue">Continue Shopping</button>
+        <a href="cart.html" class="btn-primary">View Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="search-overlay">
+    <button class="search-overlay-close" id="search-overlay-close">×</button>
+    <div class="search-container">
+      <input type="text" class="search-input" id="search-input" placeholder="Search for products..." autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <aside class="side-menu" id="side-menu">
+    <div class="side-menu-header">
+      <h2>Menu</h2>
+      <button class="side-menu-close" id="side-menu-close">×</button>
+    </div>
+    <nav class="side-menu-nav">
+      <div class="side-menu-group">
+        <h3>Store</h3>
+        <a href="index.html">Home</a>
+        <a href="categories/tvs.html">TVs</a>
+        <a href="categories/soundbars.html">Soundbars</a>
+        <a href="categories/refrigerators.html">Refrigerators</a>
+        <a href="categories/washing-machines.html">Washing Machines</a>
+        <a href="categories/air-conditioners.html">Air Conditioners</a>
+        <a href="categories/kitchen-appliances.html">Kitchen Appliances</a>
+      </div>
+    </nav>
+  </aside>
+
+  <script src="search-data.js"></script>
+  <script src="site-shared.js"></script>
+  <script src="cart-shared.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const itemsContainer = document.getElementById("wishlist-items-container");
+      const emptyMsg = document.getElementById("wishlist-empty");
+
+      function renderWishlist() {
+        const items = window.GrandGestureWishlist.getItems();
+        
+        if (items.length === 0) {
+          itemsContainer.hidden = true;
+          emptyMsg.hidden = false;
+          return;
+        }
+
+        itemsContainer.hidden = false;
+        emptyMsg.hidden = true;
+
+        const markup = items.map(item => {
+          let imgUrl = item.image || "";
+          if (!imgUrl || imgUrl === "undefined") {
+            const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
+            if (pData) imgUrl = pData.image;
+          }
+          imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
+          return `
+          <article class="cart-item">
+            <a href="${item.url || '#'}"><img class="cart-item-image" src="${imgUrl}" alt="${item.name}" onerror="this.style.display='none'"></a>
+            <div class="cart-item-info">
+              <h2><a href="${item.url || '#'}" style="color:inherit;text-decoration:none;">${item.name}</a></h2>
+              <p class="cart-item-category">${item.category || "Electronics"}</p>
+              <p class="cart-item-price" style="font-weight:600;color:#8a6d2b;margin-top:5px;">KSh ${Number(item.price).toLocaleString("en-US")}</p>
+              <div class="cart-item-controls" style="margin-top: 15px;">
+                <button type="button" class="pdp-add-btn btn-add-cart" 
+                  data-name="${item.name}" 
+                  data-price="${item.price}" 
+                  data-image="${imgUrl}" 
+                  data-category="${item.category}"
+                  style="padding: 10px 15px; font-size: 0.9rem; max-width: 200px; display: inline-block; margin-right: 15px;">
+                  Add to Cart
+                </button>
+                <button type="button" class="remove-btn" data-action="remove" data-name="${item.name}">Remove</button>
+              </div>
+            </div>
+          </article>
+        `}).join("");
+
+        itemsContainer.innerHTML = markup;
+      }
+
+      itemsContainer.addEventListener("click", (e) => {
+        if (e.target.getAttribute("data-action") === "remove") {
+          const name = e.target.getAttribute("data-name");
+          // Re-use the toggle logic
+          window.GrandGestureWishlist.toggleItem({ name });
+          renderWishlist();
+        }
+      });
+
+      renderWishlist();
+    });
+  </script>
+
+
+</body></html>

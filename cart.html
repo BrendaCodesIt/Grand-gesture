@@ -1,16 +1,15 @@
-<!DOCTYPE html><html lang="en"><head></head><body>﻿
-
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Grand Gesture</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-  
-  
-    <header class="top-header" aria-label="Main header"><nav class="header-actions" aria-label="Quick actions"><button class="icon-btn" aria-label="Menu" id="menu-toggle">
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Grand Gesture</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top-header" aria-label="Main header"><nav class="header-actions" aria-label="Quick actions"><button class="icon-btn" aria-label="Menu" id="menu-toggle">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -21,7 +20,11 @@
             <circle cx="11" cy="11" r="6.5"></circle>
             <line x1="16" y1="16" x2="21" y2="21"></line>
           </svg>
-        </button><a href="cart.html" class="icon-btn" aria-label="Cart" style="position: relative;">
+        </button>
+      <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+        <span class="cart-badge" id="wishlist-badge" style="background:#e74c3c;display:none;">0</span>
+      </a><a href="cart.html" class="icon-btn" aria-label="Cart" style="position: relative;">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path>
           </svg>
@@ -33,7 +36,7 @@
     <main class="cart-page" aria-label="Cart section">
       <section class="cart-panel">
         <h1 class="cart-title">Your Cart</h1>
-        <p class="cart-subtitle">Items selected from the TVs page appear here with image and price.</p>
+        <p class="cart-subtitle">Review your items below before proceeding to checkout.</p>
 
         <div id="cart-empty" class="cart-empty" hidden="">
           Your cart is empty.
@@ -74,8 +77,8 @@
           <path d="M9 12l2 2 4-4"></path>
         </svg>
         <div class="trust-item-text">
-          <h4>Secure Checkout</h4>
-          <p>100% Protected</p>
+          <h4>WhatsApp Orders</h4>
+          <p>Fast &amp; Easy</p>
         </div>
       </div>
       <div class="trust-item">
@@ -106,86 +109,38 @@
   
 
 
-    <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const categoriesMenu = document.getElementById("categories-menu");
+    
+<script>
       const cartItemsContainer = document.getElementById("cart-items");
       const cartEmpty = document.getElementById("cart-empty");
       const cartSummary = document.getElementById("cart-summary");
       const cartTotal = document.getElementById("cart-total");
+      const cartCheckout = document.getElementById("cart-checkout");
 
       function formatKes(value) {
         return `KSh ${Number(value || 0).toLocaleString("en-KE")}`;
       }
 
       function normalizeCartItem(item) {
-        if (item.id === "hisense-32-smart-frameless-fhd-a4") {
-          return {
-            ...item,
-            name: 'Hisense 32" Smart Frameless FHD (A4 series)',
-          };
+        const nameMap = {
+          "hisense-32-smart-frameless-fhd-a4": 'Hisense 32" Smart Frameless FHD (A4 series)',
+          "hisense-43-smart-frameless-fhd-a4": 'Hisense 43" Smart Frameless FHD (A4 series)',
+          "hisense-43-smart-4k-uhd-frameless-a6": 'Hisense 43" Smart 4k UHD Frameless (A6 series)',
+          "hisense-43-inch-qled-smart-4k-uhd-frameless-q6": 'Hisense 43" QLED Smart 4k UHD Frameless (Q6 series)',
+          "hisense-50-inch-led-smart-2k-fhd-frameless-a4": 'Hisense 50" LED Smart 2K FHD Frameless (A4 series)',
+          "hisense-50-smart-uhd-4k-frameless-a6": 'Hisense 50" smart UHD 4k Frameless (A6 series)',
+          "hisense-50-inch-qled-smart-4k-frameless-q6": 'Hisense 50" Qled smart 4k Frameless (Q6 series)',
+          "hisense-55-smart-4k-frameless-a6": 'Hisense 55" Smart 4K Frameless(A6 series)',
+          "hisense-55-inch-4k-qled-tv-q6-series": 'Hisense 55" 4K QLED TV (Q6 Series)',
+        };
+        if (nameMap[item.id]) {
+          return { ...item, name: nameMap[item.id] };
         }
-
-        if (item.id === "hisense-43-smart-frameless-fhd-a4") {
-          return {
-            ...item,
-            name: 'Hisense 43" Smart Frameless FHD (A4 series)',
-          };
-        }
-
-        if (item.id === "hisense-43-smart-4k-uhd-frameless-a6") {
-          return {
-            ...item,
-            name: 'Hisense 43" Smart 4k UHD Frameless (A6 series)',
-          };
-        }
-
-        if (item.id === "hisense-43-inch-qled-smart-4k-uhd-frameless-q6") {
-          return {
-            ...item,
-            name: 'Hisense 43" QLED Smart 4k UHD Frameless (Q6 series)',
-          };
-        }
-
-        if (item.id === "hisense-50-inch-led-smart-2k-fhd-frameless-a4") {
-          return {
-            ...item,
-            name: 'Hisense 50" LED Smart 2K FHD Frameless (A4 series)',
-          };
-        }
-
-        if (item.id === "hisense-50-smart-uhd-4k-frameless-a6") {
-          return {
-            ...item,
-            name: 'Hisense 50" smart UHD 4k Frameless (A6 series)',
-          };
-        }
-
-        if (item.id === "hisense-50-inch-qled-smart-4k-frameless-q6") {
-          return {
-            ...item,
-            name: 'Hisense 50" Qled smart 4k Frameless (Q6 series)',
-          };
-        }
-
-        if (item.id === "hisense-55-smart-4k-frameless-a6") {
-          return {
-            ...item,
-            name: 'Hisense 55" Smart 4K Frameless(A6 series)',
-          };
-        }
-
-        if (item.id === "hisense-55-inch-4k-qled-tv-q6-series") {
-          return {
-            ...item,
-            name: 'Hisense 55" 4K QLED TV (Q6 Series)',
-          };
-        }
-
         return item;
       }
 
       function renderCart() {
+        const escapeHTML = (str) => { const d = document.createElement("div"); d.textContent = str; return d.innerHTML; };
         const cartItems = (JSON.parse(localStorage.getItem("cartItems")) || []).map(normalizeCartItem);
 
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -196,28 +151,39 @@
           cartEmpty.hidden = false;
           cartSummary.hidden = true;
           cartTotal.textContent = "KSh 0";
-          if(typeof updateCartBadge === "function") if(window.GrandGestureCart) window.GrandGestureCart.updateBadge();
+          if (cartCheckout) cartCheckout.style.display = "none";
+          if (window.GrandGestureCart) window.GrandGestureCart.updateBadge();
           return;
         }
 
         cartEmpty.hidden = true;
         cartSummary.hidden = false;
+        if (cartCheckout) cartCheckout.style.display = "block";
 
         const itemsMarkup = cartItems
           .map((item) => {
+            let imgUrl = item.image || "";
+            if (!imgUrl || imgUrl === "undefined") {
+              const pData = window.PRODUCTS_DATA && window.PRODUCTS_DATA.find(p => p.name.toLowerCase() === item.name.toLowerCase());
+              if (pData) imgUrl = pData.image;
+            }
+            imgUrl = imgUrl.replace(/^(\.\.\/)+/, '');
+            item.image = imgUrl;
             const quantity = item.quantity || 1;
             const unitPrice = Number(item.price || 0);
             const lineTotal = unitPrice * quantity;
+            const safeName = escapeHTML(item.name || "Product");
+            const safeCat = escapeHTML(item.category || "Electronics");
 
             return `
               <article class="cart-item">
-                <img class="cart-item-image" src="${item.image}" alt="${item.name}" />
+                <img class="cart-item-image" src="${imgUrl}" onerror="this.src='images/placeholder.svg';this.onerror=null;" alt="${safeName}" />
                 <div class="cart-item-info">
-                  <h2>${item.name}</h2>
-                  <p class="cart-item-category">${item.category || "Electronics"}</p>
+                  <h2>${safeName}</h2>
+                  <p class="cart-item-category">${safeCat}</p>
                   <p class="cart-item-price">Price: ${item.displayPrice || formatKes(unitPrice)}</p>
                   <div class="cart-item-controls">
-                    <div class="qty-controls" role="group" aria-label="Quantity controls for ${item.name}">
+                    <div class="qty-controls" role="group" aria-label="Quantity controls for ${safeName}">
                       <button type="button" class="qty-btn" data-action="decrease" data-id="${item.id}" aria-label="Decrease quantity">-</button>
                       <span class="qty-value">${quantity}</span>
                       <button type="button" class="qty-btn" data-action="increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
@@ -239,31 +205,8 @@
 
         cartItemsContainer.innerHTML = itemsMarkup;
         cartTotal.textContent = formatKes(total);
-        if(typeof updateCartBadge === "function") updateCartBadge();
+        if (window.GrandGestureCart) window.GrandGestureCart.updateBadge();
       }
-
-      menuToggle.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        categoriesMenu.hidden = isOpen;
-      });
-
-      document.addEventListener("click", (event) => {
-        const clickedInsideMenu = categoriesMenu.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedToggle) {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          menuToggle.setAttribute("aria-expanded", "false");
-          categoriesMenu.hidden = true;
-        }
-      });
 
       cartItemsContainer.addEventListener("click", (event) => {
         const action = event.target.getAttribute("data-action");
@@ -308,10 +251,6 @@
 
       renderCart();
     </script>
-  
-
-
-
 <!-- Cart Modal -->
 <div class="cart-modal-overlay" id="cart-modal">
   <div class="cart-modal">
@@ -361,28 +300,20 @@
       <a href="categories/air-conditioners.html">Air Conditioners</a>
       <a href="categories/kitchen-appliances.html">Kitchen Appliances</a>
     </div>
-    <div class="side-menu-group">
-      <h3>System</h3>
-      <a href="admin.html" class="admin-link">Admin Dashboard</a>
-    </div>
-  </nav>
+    </nav>
 </aside>
 
-<button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+<button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
 <script src="search-data.js"></script>
 <script src="cart-shared.js"></script>
 <script src="site-shared.js"></script>
 <script>
-  if(JSON.parse(localStorage.getItem('cartItems') || '[]').length > 0) {
-    const co = document.getElementById('cart-checkout');
-    if (co) co.style.display = 'block';
-  }
   const btn = document.getElementById('checkout-btn');
   if(btn) {
     btn.addEventListener('click', () => {
-      alert('Proceeding to WhatsApp Checkout...');
+      window.location.href = 'checkout.html';
     });
   }
 </script>
-</body>
-</html>
+
+</body></html>
