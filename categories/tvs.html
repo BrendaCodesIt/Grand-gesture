@@ -75,12 +75,7 @@
             <button type="button" class="tv-model-btn btn-add-cart" role="listitem" data-id="hisense-50-inch-qled-smart-4k-frameless-q6" data-name="Hisense 50&quot; Qled smart 4k Frameless (Q6 series)" data-price="39440" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 39,440</button>
           </div>
         </aside>
-      <aside class="tv-featured-models">
-          
-           <button type="button" class="btn-wishlist card-wishlist-btn" data-name="Product" data-price="15000" data-image="../images/Hisense 32 inch TV.png" data-category="Electronics" data-url="" title="Add to Wishlist" aria-label="Add to Wishlist">
-             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
-           </button><button type="button" class="tv-model-btn tv-model-btn--inline btn-add-cart" data-name="Product" data-price="15000" data-image="../images/Hisense 32 inch TV.png" style="display:block; width:100%; padding: 0.6rem; background: #ffffff; color: #000000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; text-align: center; margin-bottom: 10px;">Add to Cart - KSh 15,000</button>
-        </aside></section>
+      </section>
       <section class="tv-featured-block" aria-label="Skyworth 32E3500 details">
         <figure class="tv-featured-image-wrap">
           <img src="../images/Skyworth 32 inch 32E3500.png" alt="Skyworth 32″ 32E3500 product image" class="tv-featured-image">
@@ -875,13 +870,20 @@
         sortedBlocks = originalOrder;
       } else {
         sortedBlocks = [...productBlocks].sort((a, b) => {
-          // Extract price and name from the .btn-add-cart inside the block
-          const btnA = a.querySelector(".btn-add-cart");
-          const btnB = b.querySelector(".btn-add-cart");
-          
-          let priceA = btnA ? Number(btnA.getAttribute("data-price") || 0) : 0;
-          let priceB = btnB ? Number(btnB.getAttribute("data-price") || 0) : 0;
-          
+          const metaA = a.querySelector(".variant-sort-meta");
+          const metaB = b.querySelector(".variant-sort-meta");
+          const btnA = metaA || a.querySelector(".btn-add-cart");
+          const btnB = metaB || b.querySelector(".btn-add-cart");
+
+          let priceA = metaA
+            ? Number(metaA.getAttribute("data-price") || 0)
+            : Number(a.getAttribute("data-variant-min-price") || 0) ||
+              (btnA ? Number(btnA.getAttribute("data-price") || 0) : 0);
+          let priceB = metaB
+            ? Number(metaB.getAttribute("data-price") || 0)
+            : Number(b.getAttribute("data-variant-min-price") || 0) ||
+              (btnB ? Number(btnB.getAttribute("data-price") || 0) : 0);
+
           let nameA = btnA ? (btnA.getAttribute("data-name") || "") : "";
           let nameB = btnB ? (btnB.getAttribute("data-name") || "") : "";
           

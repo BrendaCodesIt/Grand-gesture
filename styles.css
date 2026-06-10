@@ -2502,3 +2502,184 @@ body {
     height: 24px;
   }
 }
+
+/* ── Variant Picker (multi-size / multi-model products) ── */
+.variant-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.variant-picker-title {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.variant-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.variant-chip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.variant-chip:hover:not(:disabled) {
+  border-color: #d8b45a;
+  background: #fffdf8;
+}
+
+.variant-chip.is-selected {
+  border-color: #b8862b;
+  background: #fffaf0;
+  box-shadow: 0 0 0 2px rgba(216, 180, 90, 0.2);
+}
+
+.variant-chip--oos {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.variant-chip-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  line-height: 1.3;
+}
+
+.variant-chip-price {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #8a6d2b;
+  white-space: nowrap;
+}
+
+.variant-chip-price em {
+  font-style: normal;
+  font-size: 0.7rem;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.variant-price-block {
+  padding: 8px 0 4px;
+  border-top: 1px solid #eee;
+}
+
+.variant-price {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0a0a0a;
+}
+
+.variant-compare {
+  margin-left: 10px;
+  font-size: 0.95rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.variant-picker-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.variant-picker-actions .variant-view-link {
+  flex: 1;
+  min-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  background: #eee;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.variant-picker-actions .btn-wishlist {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.variant-picker-actions .btn-wishlist svg {
+  width: 20px;
+  height: 20px;
+}
+
+.variant-picker-actions .variant-add-btn {
+  flex: 1 1 100%;
+  padding: 0.75rem 1rem;
+  background: #0a0a0a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  transition: background 0.2s;
+}
+
+.variant-picker-actions .variant-add-btn:hover:not(:disabled) {
+  background: #222;
+}
+
+.variant-picker-actions .variant-add-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Restore tv-model-btn as selector when NOT converted to full cart button */
+.tv-model-list .variant-picker,
+.tv-featured-models .variant-picker,
+.tv-models .variant-picker {
+  width: 100%;
+}

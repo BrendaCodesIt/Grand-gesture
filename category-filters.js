@@ -29,11 +29,23 @@
 
     // Extract data from each section
     const sectionData = sections.map((section) => {
+      const sortMeta = section.querySelector(".variant-sort-meta");
       const btn =
         section.querySelector(".btn-add-cart") ||
         section.querySelector(".tv-model-btn");
-      const name = btn ? btn.getAttribute("data-name") || "" : "";
-      const price = btn ? Number(btn.getAttribute("data-price")) || 0 : 0;
+      const minAttr = section.getAttribute("data-variant-min-price");
+      const name = sortMeta
+        ? sortMeta.getAttribute("data-name") || ""
+        : btn
+        ? btn.getAttribute("data-name") || ""
+        : "";
+      const price = sortMeta
+        ? Number(sortMeta.getAttribute("data-price")) || 0
+        : minAttr
+        ? Number(minAttr) || 0
+        : btn
+        ? Number(btn.getAttribute("data-price")) || 0
+        : 0;
       const brand = extractBrand(name);
       return { section, name, price, brand };
     });
