@@ -1,7 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    Grand Gesture — Category Variant Picker
-   Transforms stacked "Add to Cart" buttons into size/model
-   selectors with a single price display and cart action.
+   Multi-size / multi-model products: select variant, then cart
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
@@ -23,20 +22,23 @@
   function extractSeries(name) {
     const paren = name.match(/\(([^)]+)\)/);
     if (paren) return paren[1].trim();
-    const series = name.match(/\b(A[467]|Q[67]|U[67]|U6 PRO|U7 PRO|Mini-LED|NanoCell|BRAVIA|OLED)\b/i);
+    const series = name.match(/\b(A[467]|Q[67]|U6 PRO|U7 PRO|U7Q|Mini-LED|Mini Led|NanoCell|BRAVIA|OLED)\b/i);
     if (series) return series[1];
     return null;
   }
 
-  function shortLabel(name, size, allSizes) {
+  function variantLabel(name, allSizes) {
+    const size = extractSize(name);
     const series = extractSeries(name);
     const uniqueSizes = new Set(allSizes.filter(Boolean));
+
     if (uniqueSizes.size > 1 && size) {
       return series ? size + " · " + series : size;
     }
+    if (size && series) return size + " · " + series;
+    if (size) return size + " TV";
     if (series) return series;
-    if (size) return size;
-    return name.length > 42 ? name.slice(0, 40) + "…" : name;
+    return name.length > 48 ? name.slice(0, 46) + "…" : name;
   }
 
   function inferCategory(section) {
@@ -63,39 +65,31 @@
 
     function addFromButton(btn, viewUrl) {
       if (!btn || !btn.classList.contains("btn-add-cart")) return;
-      const name = decodeHtml(btn.getAttribute("data-name") || btn.textContent.replace(/Add to Cart.*/i, "").trim());
+      const name = decodeHtml(btn.getAttribute("data-name") || "").trim();
       if (!name || name === "Product") return;
       const id = btn.getAttribute("data-id") || name;
       if (seen.has(id)) return;
       seen.add(id);
 
-      const price = Number(btn.getAttribute("data-price") || 0);
-      const originalPrice = Number(btn.getAttribute("data-original-price") || 0);
-      const image = btn.getAttribute("data-image") || defaultImage;
-      const outOfStock = btn.disabled || btn.classList.contains("btn-out-of-stock");
-      const url = viewUrl || btn.getAttribute("data-url") || "";
-
       variants.push({
         id,
         name,
-        price,
-        originalPrice,
-        image,
-        category,
-        url,
-        outOfStock,
+        price: Number(btn.getAttribute("data-price") || 0),
+        originalPrice: Number(btn.getAttribute("data-original-price") || 0),
+        image: btn.getAttribute("data-image") || defaultImage,
+        category: btn.getAttribute("data-category") || category,
+        url: viewUrl || btn.getAttribute("data-url") || "",
+        outOfStock: btn.disabled || btn.classList.contains("btn-out-of-stock"),
         size: extractSize(name),
       });
     }
 
-    /* Flex rows: View Details + wishlist + cart */
     container.querySelectorAll('div[style*="display: flex"]').forEach((row) => {
       const cartBtn = row.querySelector(".btn-add-cart");
       const viewLink = row.querySelector("a.btn-view");
       addFromButton(cartBtn, viewLink ? viewLink.getAttribute("href") : "");
     });
 
-    /* Standalone cart / tv-model buttons */
     container.querySelectorAll(".btn-add-cart, .tv-model-btn.btn-add-cart").forEach((btn) => {
       if (btn.closest('div[style*="display: flex"]')) return;
       addFromButton(btn, "");
@@ -120,10 +114,8 @@
     label.className = "variant-picker-title";
     label.textContent =
       new Set(allSizes.filter(Boolean)).size > 1
-        ? "Select Size / Model"
-        : variants.length > 1
-        ? "Select Model"
-        : "Options";
+        ? "Select Size & Model"
+        : "Select Model";
 
     const chips = document.createElement("div");
     chips.className = "variant-chips";
@@ -133,13 +125,16 @@
     variants.forEach((v, i) => {
       const chip = document.createElement("button");
       chip.type = "button";
-      chip.className = "variant-chip" + (v.outOfStock ? " variant-chip--oos" : "") + (i === 0 ? " is-selected" : "");
+      chip.className =
+        "variant-chip" +
+        (v.outOfStock ? " variant-chip--oos" : "") +
+        (i === 0 && !v.outOfStock ? " is-selected" : "");
       chip.setAttribute("role", "option");
-      chip.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      chip.setAttribute("aria-selected", i === 0 && !v.outOfStock ? "true" : "false");
       chip.dataset.index = String(i);
       chip.innerHTML =
         '<span class="variant-chip-label">' +
-        shortLabel(v.name, v.size, allSizes) +
+        variantLabel(v.name, allSizes) +
         "</span>" +
         '<span class="variant-chip-price">' +
         formatKsh(v.price) +
@@ -151,9 +146,15 @@
 
     const priceBlock = document.createElement("div");
     priceBlock.className = "variant-price-block";
-    priceBlock.innerHTML =
-      '<span class="variant-price" id="vp-price"></span>' +
-      '<span class="variant-compare" id="vp-compare"></span>';
+    const priceEl = document.createElement("span");
+    priceEl.className = "variant-price";
+    const compareEl = document.createElement("span");
+    compareEl.className = "variant-compare";
+    priceBlock.appendChild(priceEl);
+    priceBlock.appendChild(compareEl);
+
+    const selectedName = document.createElement("p");
+    selectedName.className = "variant-selected-name";
 
     const actions = document.createElement("div");
     actions.className = "variant-picker-actions";
@@ -179,16 +180,14 @@
     actions.appendChild(wishBtn);
     actions.appendChild(cartBtn);
 
-    picker.appendChild(label);
-    picker.appendChild(chips);
-    picker.appendChild(priceBlock);
-    picker.appendChild(actions);
-
-    /* Hidden sort meta for filters/sort scripts */
     const sortMeta = document.createElement("span");
     sortMeta.className = "variant-sort-meta visually-hidden";
-    sortMeta.setAttribute("data-price", String(minPrice));
-    sortMeta.setAttribute("data-name", variants[0].name);
+
+    picker.appendChild(label);
+    picker.appendChild(chips);
+    picker.appendChild(selectedName);
+    picker.appendChild(priceBlock);
+    picker.appendChild(actions);
     picker.appendChild(sortMeta);
 
     container.innerHTML = "";
@@ -207,8 +206,9 @@
         c.setAttribute("aria-selected", i === index ? "true" : "false");
       });
 
-      document.getElementById("vp-price").textContent = formatKsh(v.price);
-      const compareEl = document.getElementById("vp-compare");
+      priceEl.textContent = formatKsh(v.price);
+      selectedName.textContent = v.name;
+
       if (v.originalPrice > v.price) {
         compareEl.textContent = formatKsh(v.originalPrice);
         compareEl.style.display = "inline";
@@ -228,7 +228,7 @@
       cartBtn.disabled = v.outOfStock;
       cartBtn.textContent = v.outOfStock
         ? "Out of Stock"
-        : "Add to Cart — " + formatKsh(v.price);
+        : "Add to Cart — " + variantLabel(v.name, allSizes) + " — " + formatKsh(v.price);
 
       wishBtn.setAttribute("data-name", v.name);
       wishBtn.setAttribute("data-price", String(v.price));
@@ -243,9 +243,7 @@
         viewLink.style.display = "none";
       }
 
-      if (window.GrandGestureWishlist) {
-        window.GrandGestureWishlist.syncButtons();
-      }
+      if (window.GrandGestureWishlist) window.GrandGestureWishlist.syncButtons();
     }
 
     chips.addEventListener("click", (e) => {
@@ -256,37 +254,62 @@
 
     selectVariant(selectedIdx);
 
-    if (window.GrandGestureCart) {
-      window.GrandGestureCart.bindButtons(picker);
+    if (window.GrandGestureCart) window.GrandGestureCart.bindButtons(picker);
+  }
+
+  /** Label standalone cart buttons with size + price (single-variant blocks) */
+  function labelStandaloneButton(btn) {
+    const name = decodeHtml(btn.getAttribute("data-name") || "");
+    const price = Number(btn.getAttribute("data-price") || 0);
+    if (!name || !price) return;
+
+    const size = extractSize(name);
+    const series = extractSeries(name);
+    let short = variantLabel(name, size ? [size] : []);
+    const outOfStock = btn.disabled || btn.classList.contains("btn-out-of-stock");
+
+    btn.removeAttribute("style");
+    btn.classList.add("tv-model-btn--labeled");
+
+    if (outOfStock) {
+      btn.innerHTML =
+        '<span class="tv-btn-label">' + short + '</span>' +
+        '<span class="tv-btn-price">' + formatKsh(price) + ' <em>OOS</em></span>';
+      return;
     }
+
+    btn.innerHTML =
+      '<span class="tv-btn-label">' + short + '</span>' +
+      '<span class="tv-btn-price">' + formatKsh(price) + '</span>';
   }
 
   function transformContainer(container, section) {
     if (container.classList.contains("variant-transformed")) return;
-    const variants = collectVariantsFromContainer(container, section);
-    if (variants.length < 2) return;
-    buildPicker(container, section, variants);
-    container.classList.add("variant-transformed");
-  }
 
-  function cleanupBrokenNodes() {
-    /* Remove duplicate orphan aside inside .tv-product */
-    document.querySelectorAll(".tv-product > aside.tv-featured-models").forEach((el) => el.remove());
+    const variants = collectVariantsFromContainer(container, section);
+    if (variants.length >= 2) {
+      buildPicker(container, section, variants);
+      container.classList.add("variant-transformed");
+      return;
+    }
+
+    if (variants.length === 1) {
+      container.querySelectorAll(".btn-add-cart").forEach(labelStandaloneButton);
+      container.classList.add("variant-transformed");
+    }
   }
 
   function init() {
-    cleanupBrokenNodes();
+    document.querySelectorAll(".tv-product > aside.tv-featured-models").forEach((el) => el.remove());
 
     document.querySelectorAll(".tv-product, .tv-featured-block").forEach((section) => {
-      section.querySelectorAll(".tv-models, .tv-featured-models, .tv-model-list").forEach((container) => {
+      section.querySelectorAll(".tv-model-list, .tv-featured-models").forEach((container) => {
         transformContainer(container, section);
       });
     });
 
-    /* Re-bind wishlist after DOM rewrite */
-    if (window.GrandGestureWishlist) {
-      window.GrandGestureWishlist.syncButtons();
-    }
+    if (window.GrandGestureWishlist) window.GrandGestureWishlist.syncButtons();
+    if (window.GrandGestureCart) window.GrandGestureCart.bindButtons(document);
   }
 
   if (document.readyState === "loading") {
