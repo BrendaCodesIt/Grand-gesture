@@ -1671,6 +1671,11 @@ html[data-theme-resolved="light"] .theme-switcher-option.is-active {
   color: #6b7280;
 }
 
+[data-theme-resolved="light"] .trust-icon-wrap--delivery {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
 [data-theme-resolved="light"] .trust-icon-wrap {
   background: linear-gradient(145deg, rgba(216, 180, 90, 0.14) 0%, rgba(216, 180, 90, 0.04) 100%);
   border-color: rgba(216, 180, 90, 0.25);
@@ -2219,6 +2224,30 @@ html[data-theme-resolved="light"] .theme-switcher-option.is-active {
 .trust-icon-wrap--flaticon {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+.trust-icon-wrap--delivery {
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.trust-icon-wrap--delivery .trust-delivery-svg {
+  width: 44px;
+  height: auto;
+  display: block;
+  color: inherit;
+  stroke: none;
+}
+
+.trust-icon-wrap--returns .trust-returns-svg {
+  width: 28px;
+  height: auto;
+  display: block;
+  color: #e8c872;
+  stroke: none;
 }
 
 .trust-icon-wrap--3d {
