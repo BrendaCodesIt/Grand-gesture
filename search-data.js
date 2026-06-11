@@ -500,7 +500,7 @@ window.PRODUCTS_DATA = [
   {
     "name": "Hisense Cassette 24000 BTU",
     "price": 95000,
-    "image": "images/Air conditioner 7.png",
+    "image": "images/Air conditioner 6.png",
     "url": "products/hisense-cassette-24000.html"
   },
   {
